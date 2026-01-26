@@ -8,9 +8,10 @@ namespace Entities
 {
     public class Product
     {
-        public int ProductNumber { get; set; }
-        public string ProductName { get; set; }
-        public double CostPerUnit { get; set; }
+        public int ProductNumber { get; set; } //the number of the product
+        public string ProductName { get; set; } //product name
+        public double CostPerUnit { get; set; } //the cost per unit
+        public int AmountInStock { get; set; } //#how much is in stock?
         /// <summary>
         /// Product now needds a number, name and CostperUnit
         /// </summary>
