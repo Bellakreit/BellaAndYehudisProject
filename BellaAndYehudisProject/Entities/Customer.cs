@@ -10,7 +10,7 @@ namespace Entities
     public class Customer
         :Person
     {
-        public CreditCard creditCard{ get; set; } //to hav ethe credit card details 
+        public CreditCard creditCard; //to hav ethe credit card details 
         /// <summary>
         /// returns ctor with details abt a costumer
         /// </summary>

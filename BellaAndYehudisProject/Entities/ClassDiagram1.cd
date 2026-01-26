@@ -3,7 +3,7 @@
   <Class Name="Entities.CreditCard" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgACAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAAAAAAAAAAEAAAAAAAAIAAAAAgACAAAAAAAAAA=</HashCode>
       <FileName>CreditCard.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -13,7 +13,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -23,7 +23,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -33,7 +33,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Manager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -67,7 +67,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SalesRep.cs</FileName>
     </TypeIdentifier>
   </Class>
