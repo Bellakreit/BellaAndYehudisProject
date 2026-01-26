@@ -11,6 +11,12 @@ namespace Entities
         :Person
     {
         public CreditCard creditCard{ get; set; } //to hav ethe credit card details 
+        /// <summary>
+        /// returns ctor with details abt a costumer
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="id"></param>
+        /// <param name="creditCard"></param>
         public Customer(string name, string id, CreditCard creditCard)
             :base(name, id)
         {
