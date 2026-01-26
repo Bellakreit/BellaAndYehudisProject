@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    public class Product
+    {
+        public int ProductNumber { get; set; }
+        public string ProductName { get; set; }
+        public double CostPerUnit { get; set; }
+        /// <summary>
+        /// Product now needds a number, name and CostperUnit
+        /// </summary>
+        /// <param name="productNumber"></param>
+        /// <param name="productName"></param>
+        /// <param name="costPerUnit"></param>
+        public Product(int productNumber, string productName, double costPerUnit)
+        {
+            ProductNumber = productNumber;
+            ProductName = productName;
+            CostPerUnit = costPerUnit;
+        }
+        public override string ToString()
+        {
+            return $"Product Name = {ProductName}, Product Number = {ProductNumber}, Cost Per Unit = ${CostPerUnit}";
+        }
+    }
+}
