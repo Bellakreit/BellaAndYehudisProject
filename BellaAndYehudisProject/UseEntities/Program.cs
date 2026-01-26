@@ -18,7 +18,7 @@ namespace UseEntities
             Person[] persons = new Person[6];
 
             ///using the streamreader 
-            StreamReader reader = new StreamReader("TextFile1.txt");
+            StreamReader reader = new StreamReader(@"..\..\TextFile1.txt");
 
             ///read from text file
             using (reader)
