@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Entities
 {
     //this class initializes a cutomer that is a person and stores their crdit card in a constructor with the person 
-    internal class Customer
+    public class Customer
         :Person
     {
         public CreditCard creditCard{ get; set; } //to hav ethe credit card details 
@@ -21,6 +21,14 @@ namespace Entities
             :base(name, id)
         {
             this.creditCard = creditCard;
+        }
+        /// <summary>
+        /// returns tostring for customer
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return base.ToString() + creditCard.ToString();
         }
     }
 }

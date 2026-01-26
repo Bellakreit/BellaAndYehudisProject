@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Entities
 {
     //intitalize employees and their salary 
-    internal class Employee
+    public class Employee
     : Person
     {
         public double Salary { get; set; } //Property to store salary

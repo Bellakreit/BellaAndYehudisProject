@@ -21,6 +21,6 @@ namespace Entities
             Name = name;
             ID = id;
         }
-        public override string ToString() { return Name + " has an ID of " + ID; }
+        public override string ToString() { return "Name: " + Name + " ID: " + ID; }
     }
 }

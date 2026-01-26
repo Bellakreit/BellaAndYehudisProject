@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Entities
 {
     //adds class Manager under the employee class
-    internal class Manager
+    public class Manager
         :Employee
     {
         public int Vetek { get; set; }  // i think how many years worked??? unsure 

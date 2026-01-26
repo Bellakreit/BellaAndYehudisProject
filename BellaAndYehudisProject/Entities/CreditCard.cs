@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    internal class CreditCard
+    public class CreditCard
     {   
-        public int CreditCardNumber { get; set; } //the CC number
+        public string CreditCardNumber { get; set; } //the CC number
         public string CCOwner { get; set; } //Name on credit card
-        public int ExpDate { get; set; } //experation date
-        public int SecurityCode { get; set; } //security code
+        public string ExpDate { get; set; } //experation date
+        public string SecurityCode { get; set; } //security code
         /// <summary>
         /// Initialize all the elements within a credit card
         /// </summary>
@@ -20,12 +20,21 @@ namespace Entities
         /// <param name="creditcardnumber"></param>
         /// <param name="expdate"></param>
         /// <param name="securitycode"></param>
-        public CreditCard(string ccowner, int creditcardnumber, int expdate, int securitycode)
+        public CreditCard(string ccowner, string creditcardnumber, string expdate, string securitycode)
         {
             CCOwner = ccowner;
             CreditCardNumber = creditcardnumber;
             ExpDate = expdate;
             SecurityCode = securitycode;
+        }
+
+        /// <summary>
+        /// returns tostring fot Credit card
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Credit Card holder: " + CCOwner + "Credit Card Number: " + CreditCardNumber + "Exp Date: " + ExpDate + "Security Code: " + SecurityCode;
         }
 
     }

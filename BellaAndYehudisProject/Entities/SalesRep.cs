@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Entities
 {
     ///add inheriter sales rep to employee class
-    internal class SalesRep
+    public class SalesRep
         :Employee
     {
         public int CommissionRate { get; set; } //what is the sales reps comission rate?

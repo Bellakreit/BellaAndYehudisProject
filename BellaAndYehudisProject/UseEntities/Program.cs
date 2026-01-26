@@ -39,6 +39,11 @@ namespace UseEntities
             {
                 Console.WriteLine(person);
             }
+
+            CreditCard cr1 = new CreditCard("Rachel Cohen", "456789994546", "7-31", "342");
+            Customer c1 = new Customer("Rachel", "678", cr1);
+            Console.WriteLine(c1);
+            
         }
     }
 }
