@@ -10,12 +10,21 @@ namespace Entities
     public class SalesRep
         :Employee
     {
-        public int CommissionRate { get; set; } //what is the sales reps comission rate?
+        public double CommissionRate { get; set; } //what is the sales reps comission rate?
 
-        public SalesRep(string id, string name, double salary, int commisionrate)
+        public SalesRep(string id, string name, double salary, double commisionrate)
             :base(name, id, salary)
         {
             CommissionRate = commisionrate;  
+        }
+
+        /// <summary>
+        /// tostring for sales rep info
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"{base.ToString()}Commission Rate: {CommissionRate}\n";
         }
     }
 }

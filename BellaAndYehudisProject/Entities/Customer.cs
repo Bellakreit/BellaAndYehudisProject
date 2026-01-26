@@ -28,7 +28,7 @@ namespace Entities
         /// <returns></returns>
         public override string ToString()
         {
-            return base.ToString() + creditCard.ToString();
+            return $"\n{base.ToString()}\n{creditCard}\n";
         }
     }
 }

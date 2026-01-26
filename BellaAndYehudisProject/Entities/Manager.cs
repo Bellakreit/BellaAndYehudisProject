@@ -23,5 +23,13 @@ namespace Entities
         {
             Vetek = vetek;
         }
+        /// <summary>
+        /// tostring to print out manager details
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"{base.ToString()}Vetek: {Vetek}\n";
+        }
     }
 }

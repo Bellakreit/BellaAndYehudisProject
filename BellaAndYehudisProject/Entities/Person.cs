@@ -21,6 +21,6 @@ namespace Entities
             Name = name;
             ID = id;
         }
-        public override string ToString() { return "Name: " + Name + " ID: " + ID; }
+        public override string ToString() { return $"Name: {Name}\nID: {ID}"; }
     }
 }

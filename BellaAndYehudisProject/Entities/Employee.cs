@@ -24,6 +24,16 @@ namespace Entities
             Salary = salary;
         }
 
+
+        /// <summary>
+        /// tostring to print out employee details
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"{base.ToString()}\nSalary: {Salary}\n";
+        }
+
     }
 
 }
