@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities;
+
 
 namespace DAL
 {
@@ -16,7 +18,7 @@ namespace DAL
         #region ctor
         public ProductDAL()
         {
-            InitalizeList
+            InitalizeList();
         }
         //ctor goes here
         //ctor should call method initialize list to fill list with beginning values
@@ -29,7 +31,21 @@ namespace DAL
         //creates the objects and add to the list of Product
         public void InitalizeList()
         {
-            StreamReader reader = new StreamReader("..//ProductsFile.txt");
+            Product[] p1 = new Product[4];
+            StreamReader reader = new StreamReader(@"..\..\..\DAL\ProductDAL.txt");
+            ///read from text file
+            using (reader)
+            {
+                for (int i = 0; i < p1.Length; i++)
+                {
+                    int productnumber = int.Parse(reader.ReadLine());
+                    string productname = reader.ReadLine();
+                    double costperunit = double.Parse(reader.ReadLine());
+
+                    p1[i] = new Product(productnumber, productname, costperunit);
+                }
+
+            }
 
         }
 

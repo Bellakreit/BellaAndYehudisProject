@@ -1,1 +1,12 @@
-﻿...
+﻿1
+Stuffed Animal
+20.35
+2
+Balloons
+1.25
+3
+Rocking Horse
+45.65
+4
+Slinky
+3.50
