@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using DAL;
 
 namespace UseEntities
 {
@@ -40,18 +41,26 @@ namespace UseEntities
             //    Console.WriteLine(person);
             //}
 
-            CreditCard creditcard1 = new CreditCard("Rachel Cohen", "123456788", "7-23", "567");
-            Customer c1 = new Customer("Rachel", "234", creditcard1);
-            Console.WriteLine(c1);
+            //CreditCard creditcard1 = new CreditCard("Rachel Cohen", "123456788", "7-23", "567");
+            //Customer c1 = new Customer("Rachel", "234", creditcard1);
+            //Console.WriteLine(c1);
 
-            Employee emp = new Employee("Joe Mo", "123", 45000);
-            Console.WriteLine(emp);
+            //Employee emp = new Employee("Joe Mo", "123", 45000);
+            //Console.WriteLine(emp);
 
-            Manager m1 = new Manager("123", "Zelli Roth", 100000, 25);
-            Console.WriteLine(m1);
+            //Manager m1 = new Manager("123", "Zelli Roth", 100000, 25);
+            //Console.WriteLine(m1);
 
-            SalesRep sr1 = new SalesRep("324", "Sara Klein", 32000, .12);
-            Console.WriteLine(sr1);
+            //SalesRep sr1 = new SalesRep("324", "Sara Klein", 32000, .12);
+            //Console.WriteLine(sr1);
+
+            Product lego = new Product(5, "Lego", 32.89);
+            ProductDAL product = new ProductDAL();
+            Console.WriteLine(string.Join("\n", product.Read()));
+            product.Create(lego);
+            Console.WriteLine(product.Read(2));
+            Console.WriteLine(product.Read());
+
         }
     }
 }

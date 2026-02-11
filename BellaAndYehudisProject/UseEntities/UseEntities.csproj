@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DAL">
+      <HintPath>..\DAL\bin\Debug\DAL.exe</HintPath>
+    </Reference>
     <Reference Include="Entities">
       <HintPath>..\Entities\bin\Debug\Entities.exe</HintPath>
     </Reference>
