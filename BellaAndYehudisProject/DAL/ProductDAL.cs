@@ -150,11 +150,12 @@ namespace DAL
             //go thru list to find Product whose id matches the id of Product parameter
             //delete that product from the list
             //use List method Remove
-            foreach (Product products in list) 
+            for (int i = 0; i < list.Count; i++) 
             {
-                if (tmp.ProductNumber == products.ProductNumber)
+                if (list[i].ProductNumber == tmp.ProductNumber)
                 {
-                    list.Remove(products);
+                    list.Remove(list[i]);
+                    break;
                 }
             }
 

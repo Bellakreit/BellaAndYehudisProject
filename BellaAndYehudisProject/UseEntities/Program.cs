@@ -55,11 +55,20 @@ namespace UseEntities
             //Console.WriteLine(sr1);
 
             Product lego = new Product(5, "Lego", 32.89);
-            ProductDAL product = new ProductDAL();
-            product.Create(lego);
+            ProductDAL product = new ProductDAL(); ///create a product dal
+            product.Create(lego); //add lego
+            Console.WriteLine(string.Join("\n", product.Read())); ///print the products list
+            Console.WriteLine();
+            Console.WriteLine("Reading product 2:");
+            Console.WriteLine(string.Join("\n", product.Read(2))); //read product #2
+            Console.WriteLine();
+            Console.WriteLine("Update product 3 to magnet tiles:");
+            Product newproduct = new Product(3, "magnet tiles", 100.45);
+            product.Update(newproduct);
+            Console.WriteLine(string.Join("\n", product.Read(3)));
+            //delete product number 3
+            product.Delete(newproduct);
             Console.WriteLine(string.Join("\n", product.Read()));
-            Console.WriteLine(string.Join("\n", product.Read(2)));
-            Console.WriteLine(product.Read());
 
         }
     }
