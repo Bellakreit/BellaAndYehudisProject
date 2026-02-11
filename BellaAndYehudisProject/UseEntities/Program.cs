@@ -56,9 +56,9 @@ namespace UseEntities
 
             Product lego = new Product(5, "Lego", 32.89);
             ProductDAL product = new ProductDAL();
-            Console.WriteLine(string.Join("\n", product.Read()));
             product.Create(lego);
-            Console.WriteLine(product.Read(2));
+            Console.WriteLine(string.Join("\n", product.Read()));
+            Console.WriteLine(string.Join("\n", product.Read(2)));
             Console.WriteLine(product.Read());
 
         }

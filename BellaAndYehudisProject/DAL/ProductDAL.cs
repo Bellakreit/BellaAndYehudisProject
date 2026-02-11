@@ -33,19 +33,20 @@ namespace DAL
         //creates the objects and add to the list of Product
         public void InitalizeList()
         {
-            Product[] products = new Product[4]; //creating array of size 4 for products
             StreamReader reader = new StreamReader(@"..\..\..\DAL\ProductsFile.txt"); //reading values from text file
             ///read from text file
             ///take text file info and make into new products
             using (reader)
             {
-                for (int i = 0; i < products.Length; i++)
+                while (true)
                 {
-                    int productnumber = int.Parse(reader.ReadLine());
+                    string numberline = reader.ReadLine();
+                    if (numberline == null)
+                        break;
+                    int productnumber = int.Parse(numberline);
                     string productname = reader.ReadLine();
                     double costperunit = double.Parse(reader.ReadLine());
-
-                    products[i] = new Product(productnumber, productname, costperunit);
+                    list.Add(new Product(productnumber, productname, costperunit));
                 }
 
             }
