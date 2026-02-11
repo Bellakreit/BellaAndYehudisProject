@@ -67,6 +67,7 @@ namespace UseEntities
             product.Update(newproduct);
             Console.WriteLine(string.Join("\n", product.Read(3)));
             //delete product number 3
+            Console.WriteLine("\nDelete product 3");
             product.Delete(newproduct);
             Console.WriteLine(string.Join("\n", product.Read()));
 
