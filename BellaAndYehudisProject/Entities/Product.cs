@@ -18,15 +18,16 @@ namespace Entities
         /// <param name="productNumber"></param>
         /// <param name="productName"></param>
         /// <param name="costPerUnit"></param>
-        public Product(int productNumber, string productName, double costPerUnit)
+        public Product(int productNumber, string productName, double costPerUnit, int amountinstock)
         {
             ProductNumber = productNumber;
             ProductName = productName;
             CostPerUnit = costPerUnit;
+            AmountInStock = amountinstock;
         }
         public override string ToString()
         {
-            return $"Product Name = {ProductName}, Product Number = {ProductNumber}, Cost Per Unit = ${CostPerUnit}";
+            return $"Product Name = {ProductName}, Product Number = {ProductNumber}, Cost Per Unit = ${CostPerUnit}, Amount In Stock: {AmountInStock}";
         }
     }
 }

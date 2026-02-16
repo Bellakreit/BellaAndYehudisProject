@@ -1,6 +1,7 @@
 ﻿//Creating DAL class for products
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -46,10 +47,12 @@ namespace DAL
                     int productnumber = int.Parse(numberline);
                     string productname = reader.ReadLine();
                     double costperunit = double.Parse(reader.ReadLine());
-                    list.Add(new Product(productnumber, productname, costperunit));
+                    int amountinstock = int.Parse(reader.ReadLine());
+                    list.Add(new Product(productnumber, productname, costperunit, amountinstock));
                 }
 
             }
+
 
         }
 
@@ -60,23 +63,20 @@ namespace DAL
 
         public void Create(Product tmp)
         {
-            bool valid = true; ///checking to see if productid already in list of products
             //always make a copy of the object received as a parameter
             //check to see if that id already exists in the list
             //add new Person to list.
             //use List method .Add( ) 
             foreach (Product products in list) //loop through products to see if the ID already exists
             {
-                if (tmp.ProductNumber == products.ProductNumber)
+                if (tmp.ProductNumber == products.ProductNumber)  // if product already exists throw exception
                 {
-                    valid = false;
+                    throw 
+                        new ExceptionProductExists();
                 }
             }
-            if (valid == true) //if does not exist yet, copy product into new product, and add to product list
-            {
-                Product addition = new Product(tmp.ProductNumber, tmp.ProductName, tmp.CostPerUnit);
-                list.Add(addition);
-            }
+            Product addition = new Product(tmp.ProductNumber, tmp.ProductName, tmp.CostPerUnit, tmp.AmountInStock);
+            list.Add(addition);
         }
         #endregion
 
@@ -88,15 +88,17 @@ namespace DAL
             //loop thru list checking to see if current Product ojbect's id matches
             // id of parameter
             //when matching id is found, MAKE A COPY OF THE PRODUCT, and return the Product copy
+
             foreach (Product products in list) //loop through products to see if the ID already exists
             {
                 if (id == products.ProductNumber)
                 {
-                    Product copyproducts = new Product(products.ProductNumber, products.ProductName, products.CostPerUnit);
-                    return copyproducts;
+                   return new Product(products.ProductNumber, products.ProductName, products.CostPerUnit, products.AmountInStock);
                 }
             }
-            return null;
+            // if you reach this - the product does not exist - throw exception
+                throw
+                    new ExceptionPrdocutNotExist();
         }
         #endregion
 
@@ -111,7 +113,7 @@ namespace DAL
             //            and add the copy to a new list that you have initialized.
             //             return the new list
             List<Product> newProductList = list.Select(product => new Product(product.ProductNumber,
-            product.ProductName, product.CostPerUnit)).ToList();
+            product.ProductName, product.CostPerUnit, product.AmountInStock)).ToList();
 
             return newProductList;
 
@@ -124,22 +126,25 @@ namespace DAL
 
         public void Update(Product tmp)
         {
+            bool productexist = false; // is there such a product?
             //go thru list to find Product whose id matches the id of Product parameter
             foreach (Product products in list) //loop through products to see if the ID already exists
             {
                 if (tmp.ProductNumber == products.ProductNumber)
                 {
+                    productexist = true;
                     //change the values of Product object in list to match the values of Product parameter
-                    Product copyproducts = new Product(tmp.ProductNumber, tmp.ProductName, tmp.CostPerUnit);  
-                    products.ProductNumber = copyproducts.ProductNumber;
-                    products.ProductName = copyproducts.ProductName;
-                    products.CostPerUnit = copyproducts.CostPerUnit;
+                    products.ProductNumber = tmp.ProductNumber;
+                    products.ProductName = tmp.ProductName;
+                    products.CostPerUnit = tmp.CostPerUnit;
                 }
+            } 
+            // if the product does not exist throw an exception
+            if (productexist == false)
+            {
+                throw new ExceptionPrdocutNotExist();
             }
-            
-           
-
-        }
+       }
         #endregion
 
         #region Delete
@@ -147,6 +152,7 @@ namespace DAL
 
         public void Delete(Product tmp)
         {
+            bool productexist = false;
             //go thru list to find Product whose id matches the id of Product parameter
             //delete that product from the list
             //use List method Remove
@@ -154,9 +160,15 @@ namespace DAL
             {
                 if (list[i].ProductNumber == tmp.ProductNumber)
                 {
+                    productexist = true;                    
                     list.Remove(list[i]);
                     break;
                 }
+            }
+            // if the product does not exist throw an exception
+            if (productexist == false)
+            {
+                throw new ExceptionPrdocutNotExist();
             }
 
 

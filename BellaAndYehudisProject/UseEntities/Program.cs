@@ -13,63 +13,70 @@ namespace UseEntities
     {
         static void Main(string[] args)
         {
-            //Product pr1 = new Product(450, "Gummy Bears", 2);
-            //Console.WriteLine(pr1);
+            try
+            {
+                //Product pr1 = new Product(450, "Gummy Bears", 2);
+                //Console.WriteLine(pr1);
 
-            //Person[] persons = new Person[6];
+                //Person[] persons = new Person[6];
 
-            /////using the streamreader 
-            //StreamReader reader = new StreamReader(@"..\..\TextFile1.txt");
+                /////using the streamreader 
+                //StreamReader reader = new StreamReader(@"..\..\TextFile1.txt");
 
-            /////read from text file
-            //using (reader)
-            //{
-            //    for (int i = 0; i < persons.Length; i++)
-            //    {
-            //        string name = reader.ReadLine();
+                /////read from text file
+                //using (reader)
+                //{
+                //    for (int i = 0; i < persons.Length; i++)
+                //    {
+                //        string name = reader.ReadLine();
 
-            //        string id = reader.ReadLine();
+                //        string id = reader.ReadLine();
 
-            //        persons[i] = new Person(name, id);
-            //    }
+                //        persons[i] = new Person(name, id);
+                //    }
 
-            //}
+                //}
 
-            /////print array 
-            //foreach (Person person in persons)
-            //{
-            //    Console.WriteLine(person);
-            //}
+                /////print array 
+                //foreach (Person person in persons)
+                //{
+                //    Console.WriteLine(person);
+                //}
 
-            //CreditCard creditcard1 = new CreditCard("Rachel Cohen", "123456788", "7-23", "567");
-            //Customer c1 = new Customer("Rachel", "234", creditcard1);
-            //Console.WriteLine(c1);
+                //CreditCard creditcard1 = new CreditCard("Rachel Cohen", "123456788", "7-23", "567");
+                //Customer c1 = new Customer("Rachel", "234", creditcard1);
+                //Console.WriteLine(c1);
 
-            //Employee emp = new Employee("Joe Mo", "123", 45000);
-            //Console.WriteLine(emp);
+                //Employee emp = new Employee("Joe Mo", "123", 45000);
+                //Console.WriteLine(emp);
 
-            //Manager m1 = new Manager("123", "Zelli Roth", 100000, 25);
-            //Console.WriteLine(m1);
+                //Manager m1 = new Manager("123", "Zelli Roth", 100000, 25);
+                //Console.WriteLine(m1);
 
-            //SalesRep sr1 = new SalesRep("324", "Sara Klein", 32000, .12);
-            //Console.WriteLine(sr1);
+                //SalesRep sr1 = new SalesRep("324", "Sara Klein", 32000, .12);
+                //Console.WriteLine(sr1);
 
-            Product lego = new Product(5, "Lego", 32.89);
-            ProductDAL product = new ProductDAL(); ///create a product dal
-            product.Create(lego); //add lego
-            Console.WriteLine(string.Join("\n", product.Read())); ///print the products list
-            Console.WriteLine();
-            Console.WriteLine("Reading product 2:");
-            Console.WriteLine(string.Join("\n", product.Read(2))); //read product #2
-            Console.WriteLine();
-            Console.WriteLine("Update product 3 to magnet tiles:");
-            Product newproduct = new Product(3, "magnet tiles", 100.45);
-            product.Update(newproduct);
-            Console.WriteLine(string.Join("\n", product.Read(3)));
-            //delete product number 3
-            Console.WriteLine("\nDelete product 3");
-            product.Delete(newproduct);
-            Console.WriteLine(string.Join("\n", product.Read()));
+                Product lego = new Product(5, "Lego", 32.89, 50);
+                ProductDAL product = new ProductDAL(); ///create a product dal
+                product.Create(lego); //add lego
+                Console.WriteLine(string.Join("\n", product.Read())); ///print the products list
+                Console.WriteLine();
+                Console.WriteLine("Reading product 2:");
+                Console.WriteLine(string.Join("\n", product.Read(2))); //read product #2
+                Console.WriteLine();
+                Console.WriteLine("Update product 3 to magnet tiles:");
+                Product newproduct = new Product(3, "magnet tiles", 100.45, 450);
+                product.Update(newproduct);
+                Console.WriteLine(string.Join("\n", product.Read(3)));
+                //delete product number 11
+                Console.WriteLine("\nDelete product 11:");
+                product.Delete(new Product(11, "magnet tiles", 100.45, 450));
+                Console.WriteLine(string.Join("\n", product.Read()));
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
     }
