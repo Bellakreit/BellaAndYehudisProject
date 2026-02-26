@@ -11,11 +11,11 @@ namespace BL
     //after new push 
     public class ProductBL
     {
-        ProductDAL pd1 = new ProductDAL();  //instance variable of type productDAL
+        public ProductDAL pd1;  //instance variable of type productDAL
 
-        public ProductBL()   //ctor 
+        public ProductBL(ProductDAL product)   //ctor 
         {
-            pd1 = new ProductDAL();
+            this.pd1 = product;
         }
 
         public void CreateProduct(Product temp) //create product
