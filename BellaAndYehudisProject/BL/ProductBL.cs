@@ -8,6 +8,7 @@ using DAL;
 
 namespace BL
 {
+    //after new push 
     public class ProductBL
     {
         ProductDAL pd1 = new ProductDAL();  //instance variable of type productDAL
