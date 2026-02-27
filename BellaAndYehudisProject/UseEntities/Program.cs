@@ -103,24 +103,35 @@ namespace UseEntities
                 pbl.DeleteProduct(lego);
                 Console.WriteLine(string.Join("\n", pbl.Read()));
 
+
+                ///exceptions start here:
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine("Test exceptions");
-                //create product twice
-                //Console.WriteLine("create product lego");
-                //pbl.CreateProduct(lego);
-                ////read wrong product
+
+                //create product number twice
+                //Console.WriteLine("create product superpower");
+                //Product superpower = new Product(3, "super power", 6.7, 0);
+                //pbl.CreateProduct(superpower);
+
+                //read wrong product
                 //Console.WriteLine("reading product 90:");
                 //Console.WriteLine(string.Join("\n", pbl.Read(90)));
 
                 //update non- product
-                Console.WriteLine("updated product 78:");
-                Console.WriteLine(string.Join("\n", pbl.Read(78)));
+                //Console.WriteLine("updated product 78:");
+                //pbl.Read(78);
+
+                //delete non-product
+                Console.WriteLine("deleting product 35");
+                Product horsy = new Product(35, "horsy", 8.90, 0);
+                pbl.DeleteProduct(horsy);
+
             }
-            catch
+            catch (Exception ex)
             {
-                
+                  
             }
 
 

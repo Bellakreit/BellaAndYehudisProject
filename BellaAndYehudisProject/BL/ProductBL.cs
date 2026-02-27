@@ -32,14 +32,7 @@ namespace BL
         }
         public List<Product> Read() //read all products
         {
-            try
-            {
                 return pd1.Read();
-            }
-            catch
-            {
-                throw;
-            }
         }
         public Product Read(int id) //read one product
         {

@@ -121,6 +121,7 @@ namespace DAL
             //Option one: go thru the original list, and for each Product, make a copy of the object,
             //            and add the copy to a new list that you have initialized.
             //             return the new list
+            
             List<Product> newProductList = list.Select(product => new Product(product.ProductNumber,
             product.ProductName, product.CostPerUnit, product.AmountInStock)).ToList();
 
