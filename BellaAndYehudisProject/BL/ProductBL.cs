@@ -27,7 +27,7 @@ namespace BL
             catch(ExceptionProductExists ex)
             {
                 Console.WriteLine(ex.Message);
-                
+                throw;
             }
         }
         public List<Product> Read() //read all products
@@ -44,7 +44,9 @@ namespace BL
             {
                 Console.WriteLine(ex.Message);
                 throw;
+                
             }
+            return null;
         }
         public void UpdateProduct(Product temp)  //update product
         {
@@ -65,7 +67,7 @@ namespace BL
             {
                 pd1.Delete(temp);
             }
-            catch(ExceptionProductNotExist ex) 
+            catch(Exception ex) 
             {
                 Console.WriteLine(ex.Message);
                 throw;

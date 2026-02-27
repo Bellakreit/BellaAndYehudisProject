@@ -162,28 +162,32 @@ namespace DAL
 
         public void Delete(Product tmp)
         {
-            bool productexist = false;
-            //go thru list to find Product whose id matches the id of Product parameter
-            //delete that product from the list
-            //use List method Remove
-            for (int i = 0; i < list.Count; i++) 
-            {
-                if (list[i].ProductNumber == tmp.ProductNumber)
+            //try
+            //{
+                bool productexist = false;
+                //go thru list to find Product whose id matches the id of Product parameter
+                //delete that product from the list
+                //use List method Remove
+                for (int i = 0; i < list.Count; i++)
                 {
-                    productexist = true;                    
-                    list.Remove(list[i]);
-                    break;
+                    if (list[i].ProductNumber == tmp.ProductNumber)
+                    {
+                        productexist = true;
+                        list.Remove(list[i]);
+                        break;
+                    }
+
+                }
+                if (productexist == false)
+                {
+                    throw new ExceptionProductNotExist();
                 }
             }
-            // if the product does not exist throw an exception
-            if (productexist == false)
-            {
-                throw new ExceptionProductNotExist();
-            }
-
-
-
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
         }
         #endregion
     }
-}
+

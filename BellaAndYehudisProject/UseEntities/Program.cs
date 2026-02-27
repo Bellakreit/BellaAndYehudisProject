@@ -111,9 +111,9 @@ namespace UseEntities
                 Console.WriteLine("Test exceptions");
 
                 //create product number twice
-                //Console.WriteLine("create product superpower");
-                //Product superpower = new Product(3, "super power", 6.7, 0);
-                //pbl.CreateProduct(superpower);
+                Console.WriteLine("create product superpower");
+                Product superpower = new Product(3, "super power", 6.7, 0);
+                pbl.CreateProduct(superpower);
 
                 //read wrong product
                 //Console.WriteLine("reading product 90:");
@@ -124,19 +124,13 @@ namespace UseEntities
                 //pbl.Read(78);
 
                 //delete non-product
-                Console.WriteLine("deleting product 35");
-                Product horsy = new Product(35, "horsy", 8.90, 0);
-                pbl.DeleteProduct(horsy);
+                //Console.WriteLine("deleting product 35");
+                //Product horsy = new Product(35, "horsy", 8.90, 0);
+                //pbl.DeleteProduct(horsy);
+
 
             }
-            catch (Exception ex)
-            {
-                  
-            }
-
-
-
-
+            catch (Exception ex) { }
 
         }
     }
