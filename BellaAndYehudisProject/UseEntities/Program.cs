@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using DAL;
+using BL;
+using System.Diagnostics.Eventing.Reader;
 
 namespace UseEntities
 {
@@ -57,26 +59,73 @@ namespace UseEntities
                 //Console.WriteLine(sr1);
 
                 Product lego = new Product(5, "Lego", 32.89, 50);
-                ProductDAL product = new ProductDAL(); ///create a product dal
-                product.Create(lego); //add lego
-                Console.WriteLine(string.Join("\n", product.Read())); ///print the products list
-                Console.WriteLine();
-                Console.WriteLine("Reading product 2:");
-                Console.WriteLine(string.Join("\n", product.Read(2))); //read product #2
-                Console.WriteLine();
-                Console.WriteLine("Update product 3 to magnet tiles:");
+                //ProductDAL product = new ProductDAL(); ///create a product dal
+                //product.Create(lego); //add lego
+                //Console.WriteLine(string.Join("\n", product.Read())); ///print the products list
+                //Console.WriteLine();
+                //Console.WriteLine("Reading product 2:");
+                //Console.WriteLine(string.Join("\n", product.Read(2))); //read product #2
+                //Console.WriteLine();
+                //Console.WriteLine("Update product 3 to magnet tiles:");
                 Product newproduct = new Product(3, "magnet tiles", 100.45, 450);
-                product.Update(newproduct);
-                Console.WriteLine(string.Join("\n", product.Read(3)));
-                //delete product number 11
-                Console.WriteLine("\nDelete product 11:");
-                product.Delete(new Product(11, "magnet tiles", 100.45, 450));
-                Console.WriteLine(string.Join("\n", product.Read()));
+                //product.Update(newproduct);
+                //Console.WriteLine(string.Join("\n", product.Read(3)));
+                ////delete product number 11
+                //Console.WriteLine("\nDelete product 11:");
+                //product.Delete(new Product(11, "magnet tiles", 100.45, 450));
+                //Console.WriteLine(string.Join("\n", product.Read()));
+
+                //using BL layer
+                //create a productDAL
+                ProductDAL pdal = new ProductDAL();
+                //create a productBL from the productDAL
+                ProductBL pbl = new ProductBL(pdal);
+
+
+                //CRUD methods for BL
+                ////create 
+                pbl.CreateProduct(lego);
+                //read list
+                Console.WriteLine(string.Join("\n", pbl.Read()));
+                //read one product
+                Console.WriteLine("Reading product 2");
+                Console.WriteLine(string.Join("\n", pbl.Read(2)));
+                //update list
+                Console.WriteLine();
+                Console.WriteLine("Product 3");
+                Console.WriteLine(string.Join("\n", pbl.Read(3)));
+                pbl.UpdateProduct(newproduct);
+                Console.WriteLine("updated product 3:");
+                Console.WriteLine(string.Join("\n", pbl.Read(3)));
+                //delete
+                Console.WriteLine();
+                Console.WriteLine("deleting product lego");
+                pbl.DeleteProduct(lego);
+                Console.WriteLine(string.Join("\n", pbl.Read()));
+
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Test exceptions");
+                //create product twice
+                //Console.WriteLine("create product lego");
+                //pbl.CreateProduct(lego);
+                ////read wrong product
+                //Console.WriteLine("reading product 90:");
+                //Console.WriteLine(string.Join("\n", pbl.Read(90)));
+
+                //update non- product
+                Console.WriteLine("updated product 78:");
+                Console.WriteLine(string.Join("\n", pbl.Read(78)));
             }
-            catch(Exception ex)
+            catch
             {
-                Console.WriteLine(ex.Message);
+                
             }
+
+
+
+
 
         }
     }

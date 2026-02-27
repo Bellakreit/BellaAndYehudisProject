@@ -14,14 +14,22 @@ namespace DAL
     public  class ProductDAL
     {
         static List<Product> list = new List<Product>();   //this will be list to save the Product objects
-                                                           //needs to be static so only one copy is made
+        static bool fileloaded = false;                                              //needs to be static so only one copy is made
+
         #region ctor
         /// <summary>
         /// ctor to initilize ProductDAL with list from text file
         /// </summary>
         public ProductDAL()
+
         {
-            InitalizeList();
+            //only make it once
+            if (!fileloaded)
+            {
+                InitalizeList();
+                fileloaded = true;
+            }
+            
         }
         //ctor goes here
         //ctor should call method initialize list to fill list with beginning values
@@ -85,6 +93,7 @@ namespace DAL
 
         public Product Read(int id)
         {
+
             //loop thru list checking to see if current Product ojbect's id matches
             // id of parameter
             //when matching id is found, MAKE A COPY OF THE PRODUCT, and return the Product copy
@@ -98,7 +107,7 @@ namespace DAL
             }
             // if you reach this - the product does not exist - throw exception
                 throw
-                    new ExceptionPrdocutNotExist();
+                    new ExceptionProductNotExist();
         }
         #endregion
 
@@ -142,7 +151,7 @@ namespace DAL
             // if the product does not exist throw an exception
             if (productexist == false)
             {
-                throw new ExceptionPrdocutNotExist();
+                throw new ExceptionProductNotExist();
             }
        }
         #endregion
@@ -168,7 +177,7 @@ namespace DAL
             // if the product does not exist throw an exception
             if (productexist == false)
             {
-                throw new ExceptionPrdocutNotExist();
+                throw new ExceptionProductNotExist();
             }
 
 
