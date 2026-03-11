@@ -26,8 +26,8 @@ namespace BL
             }
             catch(ExceptionProductExists ex)
             {
-                Console.WriteLine(ex.Message);
-                throw;
+                //Console.WriteLine(ex.Message);
+                throw ex;
             }
         }
         public List<Product> Read() //read all products
@@ -46,8 +46,8 @@ namespace BL
                 throw;
                 
             }
-            return null;
         }
+
         public void UpdateProduct(Product temp)  //update product
         {
             try
