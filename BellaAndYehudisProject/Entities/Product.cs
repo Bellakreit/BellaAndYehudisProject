@@ -27,7 +27,7 @@ namespace Entities
         }
         public override string ToString()
         {
-            return $"Product Name = {ProductName}, Product Number = {ProductNumber}, Cost Per Unit = ${CostPerUnit}, Amount In Stock: {AmountInStock}";
+            return $" Product Number = {ProductNumber}, Product Name = {ProductName}, Cost Per Unit = ${CostPerUnit}, Amount In Stock: {AmountInStock}";
         }
     }
 }
