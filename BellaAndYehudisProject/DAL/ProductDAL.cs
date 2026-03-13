@@ -147,6 +147,7 @@ namespace DAL
                     products.ProductNumber = tmp.ProductNumber;
                     products.ProductName = tmp.ProductName;
                     products.CostPerUnit = tmp.CostPerUnit;
+                    products.AmountInStock = tmp.AmountInStock;
                 }
             } 
             // if the product does not exist throw an exception
