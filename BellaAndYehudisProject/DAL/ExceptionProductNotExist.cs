@@ -9,7 +9,7 @@ namespace DAL
     public class ExceptionProductNotExist
         :Exception
     {
-        public ExceptionProductNotExist() : base("This product number does not exists")
+        public ExceptionProductNotExist() : base("This product number does not exist")
         {
 
         }
