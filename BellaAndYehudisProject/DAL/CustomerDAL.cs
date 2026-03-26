@@ -25,7 +25,7 @@ namespace DAL
         {
             StreamReader reader = new StreamReader(@"..\..\..\DAL\CustomersFile.txt"); //reading values from text file
             ///read from text file
-            ///take text file info and make into new products
+            ///take text file info and make into new customers
             using (reader)
             {
                 while (true)
@@ -53,14 +53,14 @@ namespace DAL
         {
             //always make a copy of the object received as a parameter
             //check to see if that id already exists in the list
-            //add new Person to list.
+            //add new Customer to list.
             //use List method .Add( ) 
             foreach (Customer customer in _customers) //loop through products to see if the ID already exists
             {
-                if (tmp.ID == customer.ID)  // if product already exists throw exception
+                if (tmp.ID == customer.ID)  // if customer already exists throw exception
                 {
                     throw
-                        new ExceptionProductExists();
+                        new ExceptionCustomerExists();
                 }
             }
             Customer newCustomer = new Customer(tmp.Name, tmp.ID, tmp.creditCard);
@@ -85,65 +85,65 @@ namespace DAL
         }
         #endregion
 
-        #region Read one Product
-        //method to return one Product according to ID
+        #region Read one Customer
+        //method to return one Customer according to ID
 
         public Customer Read(string id)
         {
 
-            //loop thru list checking to see if current Product ojbect's id matches
+            //loop thru list checking to see if current Customer ojbect's id matches
             // id of parameter
-            //when matching id is found, MAKE A COPY OF THE PRODUCT, and return the Product copy
+            //when matching id is found, return the Customer copy
 
-            foreach (Customer customer in _customers) //loop through products to see if the ID already exists
+            foreach (Customer customer in _customers) //loop through customer to see if the ID already exists
             {
                 if (id == customer.ID)
                 {
                     return new Customer(customer.Name, customer.ID, customer.creditCard);
                 }
             }
-            // if you reach this - the product does not exist - throw exception
+            // if you reach this - the customer does not exist - throw exception
             throw
-                new ExceptionProductNotExist();
+                new ExceptionCustomerNotExist();
         }
         #endregion
 
         #region Update
-        //method Update to change some values of a Product
+        //method Update to change some values of a Customer
 
         public void Update(Customer tmp)
         {
-            bool Customerexist = false; // is there such a product?
-            //go thru list to find Product whose id matches the id of Product parameter
-            foreach (Customer customer in _customers) //loop through products to see if the ID already exists
+            bool Customerexist = false; // is there such a Customer?
+            //go thru list to find Customer whose id matches the id of Customer parameter
+            foreach (Customer customer in _customers) //loop through Customers to see if the ID already exists
             {
                 if (tmp.ID == customer.ID)
                 {
                     Customerexist = true;
-                    //change the values of Product object in list to match the values of Product parameter
+                    //change the values of Customer object in list to match the values of Customer parameter
                     customer.ID = tmp.ID;
                     customer.Name = tmp.Name;
                     customer.creditCard = tmp.creditCard;
                 }
             }
-            // if the product does not exist throw an exception
+            // if the Customer does not exist throw an exception
             if (Customerexist == false)
             {
-                throw new ExceptionProductNotExist();
+                throw new ExceptionCustomerNotExist();
             }
         }
         #endregion
 
         #region Delete
-        // method to Delete a product from the list
+        // method to Delete a Customer from the list
 
         public void Delete(Customer tmp)
         {
             //try
             //{
             bool Customerexist = false;
-            //go thru list to find Product whose id matches the id of Product parameter
-            //delete that product from the list
+            //go thru list to find Customer whose id matches the id of Customer parameter
+            //delete that Customer from the list
             //use List method Remove
             for (int i = 0; i < _customers.Count; i++)
             {
@@ -157,7 +157,7 @@ namespace DAL
             }
             if (Customerexist == false)
             {
-                throw new ExceptionProductNotExist();
+                throw new ExceptionCustomerNotExist();
             }
         }
     

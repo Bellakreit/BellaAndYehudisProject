@@ -145,6 +145,8 @@ namespace UseEntities
             //create a customerBL from the customerDAL
             Console.WriteLine("BL layer!");
             CustomerBL cbl = new CustomerBL(cust);
+            Customer cust2 = new Customer("Sara", "342", new CreditCard("Sara Klein", "12345678901234567", "12/28", "124"));
+            cbl.CreateCustomer(cust2);
             //read list
             Console.WriteLine(string.Join("\n", cbl.Read()));
             //read one customer
@@ -163,7 +165,10 @@ namespace UseEntities
             //exceptions for customers
             Console.WriteLine("Test exceptions for customers");
             //create customer number twice
-            cust.Create(custupdate);
+            //cbl.CreateCustomer(cust2);
+            //read wrong customer
+            Console.WriteLine("reading customer 90:");
+            Console.WriteLine(string.Join("\n", cbl.Read("90")));
         }
     }
 }

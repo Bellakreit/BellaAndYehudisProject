@@ -27,8 +27,8 @@ namespace BL
                 }
                 catch (ExceptionCustomerExists ex)
                 {
-                    //Console.WriteLine(ex.Message);
-                    throw ex;
+                    Console.WriteLine(ex.Message);
+                    
                 }
             }
             public List<Customer> Read() //read all customers
@@ -44,7 +44,7 @@ namespace BL
                 catch (ExceptionCustomerNotExist ex)
                 {
                     Console.WriteLine(ex.Message);
-                    throw;
+                    return null;
 
                 }
             }
@@ -58,7 +58,7 @@ namespace BL
                 catch (ExceptionCustomerNotExist ex)
                 {
                     Console.WriteLine(ex.Message);
-                    throw;
+                    
                 }
             }
 
@@ -71,7 +71,7 @@ namespace BL
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    throw;
+                    
                 }
             }
 
