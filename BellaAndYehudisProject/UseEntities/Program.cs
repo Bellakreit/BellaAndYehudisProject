@@ -131,8 +131,15 @@ namespace UseEntities
             Customer c1 = new Customer("Rachel", "234", new CreditCard("Rachel Cohen", "123456788", "7-23", "567"));
             cust.Create(c1);
             Console.WriteLine(string.Join("\n", cust.Read()));
-
-
+            Console.WriteLine("read one customer");
+            Console.WriteLine(string.Join("\n", cust.Read("123")));
+            Console.WriteLine("update bella to bella sara");
+            Customer cUpdate = new Customer("Bella sara", "123", new CreditCard("Bella Kreit", "12345678901234567", "12/28", "124"));
+            cust.Update(cUpdate);
+            Console.WriteLine(string.Join("\n", cust.Read("123")));
+            Console.WriteLine("delete bella sara ");
+            cust.Delete(cUpdate);
+            Console.WriteLine(string.Join("\n", cust.Read()));
         }
     }
 }
