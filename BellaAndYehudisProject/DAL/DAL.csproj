@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerDAL.cs" />
     <Compile Include="ExceptionProductNotExist.cs" />
     <Compile Include="ExceptionProductExists.cs" />
     <Compile Include="ProductDAL.cs" />
@@ -56,6 +57,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomersFile.txt" />
     <Content Include="ProductsFile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

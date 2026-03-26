@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BL">
-      <HintPath>..\BL\bin\Debug\BL.exe</HintPath>
+      <HintPath>..\BL\obj\Debug\BL.exe</HintPath>
     </Reference>
     <Reference Include="DAL">
-      <HintPath>..\BL\bin\Debug\DAL.exe</HintPath>
+      <HintPath>..\DAL\obj\Debug\DAL.exe</HintPath>
     </Reference>
     <Reference Include="Entities">
       <HintPath>..\Entities\bin\Debug\Entities.exe</HintPath>
@@ -57,12 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UI\UI.csproj">
-      <Project>{115cec97-db69-4b72-b6af-f76b66f9eccb}</Project>
-      <Name>UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

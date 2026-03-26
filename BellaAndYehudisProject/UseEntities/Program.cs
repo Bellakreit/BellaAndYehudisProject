@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Entities;
 using DAL;
 using BL;
-using UI;
 using System.Diagnostics.Eventing.Reader;
 
 namespace UseEntities
@@ -16,8 +15,7 @@ namespace UseEntities
     {
         static void Main(string[] args)
         {
-            ProductsForm1 form = new ProductsForm1();
-            
+                   
             //Product pr1 = new Product(450, "Gummy Bears", 2);
             //Console.WriteLine(pr1);
 
@@ -105,29 +103,34 @@ namespace UseEntities
                 Console.WriteLine(string.Join("\n", pbl.Read()));
 
 
-                ///exceptions start here:
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("Test exceptions");
+                /////exceptions start here:
+                //Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine("Test exceptions");
 
-                //create product number twice
-                Console.WriteLine("create product superpower");
-                Product superpower = new Product(3, "super power", 6.7, 0);
-                pbl.CreateProduct(superpower);
+                ////create product number twice
+                //Console.WriteLine("create product superpower");
+                //Product superpower = new Product(3, "super power", 6.7, 0);
+                //pbl.CreateProduct(superpower);
 
-                //read wrong product
-                //Console.WriteLine("reading product 90:");
-                //Console.WriteLine(string.Join("\n", pbl.Read(90)));
+            //read wrong product
+            //Console.WriteLine("reading product 90:");
+            //Console.WriteLine(string.Join("\n", pbl.Read(90)));
 
-                //update non- product
-                //Console.WriteLine("updated product 78:");
-                //pbl.Read(78);
+            //update non- product
+            //Console.WriteLine("updated product 78:");
+            //pbl.Read(78);
 
-                //delete non-product
-                //Console.WriteLine("deleting product 35");
-                //Product horsy = new Product(35, "horsy", 8.90, 0);
-                //pbl.DeleteProduct(horsy);
+            //delete non-product
+            //Console.WriteLine("deleting product 35");
+            //Product horsy = new Product(35, "horsy", 8.90, 0);
+            //pbl.DeleteProduct(horsy);
+
+            CustomerDAL cust = CustomerDAL.Instance;
+            Customer c1 = new Customer("Rachel", "234", new CreditCard("Rachel Cohen", "123456788", "7-23", "567"));
+            cust.Create(c1);
+            Console.WriteLine(string.Join("\n", cust.Read()));
 
 
         }
