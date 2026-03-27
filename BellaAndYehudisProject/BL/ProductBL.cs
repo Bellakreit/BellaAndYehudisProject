@@ -26,8 +26,8 @@ namespace BL
             }
             catch(ExceptionProductExists ex)
             {
-                //Console.WriteLine(ex.Message);
-                throw ex;
+                Console.WriteLine(ex.Message);
+                
             }
         }
         public List<Product> Read() //read all products
@@ -43,7 +43,7 @@ namespace BL
             catch(ExceptionProductNotExist ex)
             {
                 Console.WriteLine(ex.Message);
-                throw;
+                return null;
                 
             }
         }
@@ -56,8 +56,7 @@ namespace BL
             }
             catch(ExceptionProductNotExist ex) 
             {
-                Console.WriteLine(ex.Message);
-                throw;
+                Console.WriteLine(ex.Message);        
             }
         }
 
@@ -70,7 +69,6 @@ namespace BL
             catch(Exception ex) 
             {
                 Console.WriteLine(ex.Message);
-                throw;
             }
         }
 

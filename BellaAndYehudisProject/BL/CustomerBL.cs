@@ -63,7 +63,7 @@ namespace BL
             }
 
             public void DeleteCustomer(Customer temp)    //delete Customer
-        {
+            {
                 try
                 {
                     cd1.Delete(temp);

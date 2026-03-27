@@ -169,6 +169,20 @@ namespace UseEntities
             //read wrong customer
             Console.WriteLine("reading customer 90:");
             Console.WriteLine(string.Join("\n", cbl.Read("90")));
+            //test delete
+            Console.WriteLine("deleteing customer that doesnt exist");
+            Customer cust3 = new Customer("goiop", "690", new CreditCard("goop", "12345678901234567", "12/30", "234"));
+            cbl.DeleteCustomer(cust3);
+            Console.WriteLine();
+            //test create already made
+            Console.WriteLine("creating a customer that already exist");
+            cbl.CreateCustomer(cust2);
+            Console.WriteLine();
+            //test update
+            Console.WriteLine("updating a non existent customer");
+            cbl.UpdateCustomer(cust3);
+            Console.WriteLine();
+
         }
     }
 }
