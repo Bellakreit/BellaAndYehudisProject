@@ -16,7 +16,8 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProductsForm1());
+            Application.Run(new BaseForm());
+            Application.Run(new newProductsForm());
         }
     }
 }

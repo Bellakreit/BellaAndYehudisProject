@@ -197,15 +197,6 @@ namespace UI
 
         }
 
-        private void CostLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-        /// <summary>
-        /// this button updates an exsiscting product.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Updatebtn_Click(object sender, EventArgs e)
         {
             currentMode = FormMode.Update;
@@ -240,5 +231,6 @@ namespace UI
             }
 
         }
+
     }
 }

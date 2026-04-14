@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class ProductsForm1
+    partial class BaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainPanel = new System.Windows.Forms.Panel();
-            this.Deletebtn = new System.Windows.Forms.Button();
-            this.Updatebtn = new System.Windows.Forms.Button();
-            this.ReadOnebtn = new System.Windows.Forms.Button();
-            this.ReadAllbtn = new System.Windows.Forms.Button();
-            this.Createbtn = new System.Windows.Forms.Button();
             this.CreatePanel = new System.Windows.Forms.Panel();
             this.EnterCreatebtn = new System.Windows.Forms.Button();
             this.Stocktxt = new System.Windows.Forms.TextBox();
@@ -51,74 +45,17 @@
             this.ProdNumlabel = new System.Windows.Forms.Label();
             this.ExitReadAllbtn = new System.Windows.Forms.Button();
             this.ReadAlltxt = new System.Windows.Forms.TextBox();
-            this.MainPanel.SuspendLayout();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.Deletebtn = new System.Windows.Forms.Button();
+            this.Updatebtn = new System.Windows.Forms.Button();
+            this.ReadOnebtn = new System.Windows.Forms.Button();
+            this.ReadAllbtn = new System.Windows.Forms.Button();
+            this.Createbtn = new System.Windows.Forms.Button();
             this.CreatePanel.SuspendLayout();
             this.ReadAllpanel.SuspendLayout();
             this.ReadOnePanel.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.MainPanel.Controls.Add(this.Deletebtn);
-            this.MainPanel.Controls.Add(this.Updatebtn);
-            this.MainPanel.Controls.Add(this.ReadOnebtn);
-            this.MainPanel.Controls.Add(this.ReadAllbtn);
-            this.MainPanel.Controls.Add(this.Createbtn);
-            this.MainPanel.Location = new System.Drawing.Point(1011, 39);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(260, 512);
-            this.MainPanel.TabIndex = 0;
-            // 
-            // Deletebtn
-            // 
-            this.Deletebtn.Location = new System.Drawing.Point(32, 338);
-            this.Deletebtn.Name = "Deletebtn";
-            this.Deletebtn.Size = new System.Drawing.Size(182, 55);
-            this.Deletebtn.TabIndex = 4;
-            this.Deletebtn.Text = "Delete";
-            this.Deletebtn.UseVisualStyleBackColor = true;
-            this.Deletebtn.Click += new System.EventHandler(this.Deletebtn_Click);
-            // 
-            // Updatebtn
-            // 
-            this.Updatebtn.Location = new System.Drawing.Point(32, 262);
-            this.Updatebtn.Name = "Updatebtn";
-            this.Updatebtn.Size = new System.Drawing.Size(183, 55);
-            this.Updatebtn.TabIndex = 3;
-            this.Updatebtn.Text = "Update";
-            this.Updatebtn.UseVisualStyleBackColor = true;
-            this.Updatebtn.Click += new System.EventHandler(this.Updatebtn_Click);
-            // 
-            // ReadOnebtn
-            // 
-            this.ReadOnebtn.Location = new System.Drawing.Point(32, 188);
-            this.ReadOnebtn.Name = "ReadOnebtn";
-            this.ReadOnebtn.Size = new System.Drawing.Size(182, 58);
-            this.ReadOnebtn.TabIndex = 2;
-            this.ReadOnebtn.Text = "Show One";
-            this.ReadOnebtn.UseVisualStyleBackColor = true;
-            this.ReadOnebtn.Click += new System.EventHandler(this.ReadOnebtn_Click);
-            // 
-            // ReadAllbtn
-            // 
-            this.ReadAllbtn.Location = new System.Drawing.Point(32, 106);
-            this.ReadAllbtn.Name = "ReadAllbtn";
-            this.ReadAllbtn.Size = new System.Drawing.Size(182, 56);
-            this.ReadAllbtn.TabIndex = 1;
-            this.ReadAllbtn.Text = "Show All";
-            this.ReadAllbtn.UseVisualStyleBackColor = true;
-            this.ReadAllbtn.Click += new System.EventHandler(this.ReadAllbtn_Click);
-            // 
-            // Createbtn
-            // 
-            this.Createbtn.Location = new System.Drawing.Point(32, 31);
-            this.Createbtn.Name = "Createbtn";
-            this.Createbtn.Size = new System.Drawing.Size(182, 53);
-            this.Createbtn.TabIndex = 0;
-            this.Createbtn.Text = "Create";
-            this.Createbtn.UseVisualStyleBackColor = true;
-            this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
             // 
             // CreatePanel
             // 
@@ -131,10 +68,10 @@
             this.CreatePanel.Controls.Add(this.ProductNamelabel);
             this.CreatePanel.Controls.Add(this.ProductNumlabel);
             this.CreatePanel.Controls.Add(this.ProductNumtxt);
-            this.CreatePanel.Location = new System.Drawing.Point(12, 45);
+            this.CreatePanel.Location = new System.Drawing.Point(-20, 26);
             this.CreatePanel.Name = "CreatePanel";
             this.CreatePanel.Size = new System.Drawing.Size(490, 448);
-            this.CreatePanel.TabIndex = 1;
+            this.CreatePanel.TabIndex = 11;
             this.CreatePanel.Visible = false;
             // 
             // EnterCreatebtn
@@ -170,7 +107,14 @@
             this.Costtxt.Size = new System.Drawing.Size(244, 31);
             this.Costtxt.TabIndex = 5;
             // 
-
+            // CostLabel
+            // 
+            this.CostLabel.AutoSize = true;
+            this.CostLabel.Location = new System.Drawing.Point(14, 134);
+            this.CostLabel.Name = "CostLabel";
+            this.CostLabel.Size = new System.Drawing.Size(146, 25);
+            this.CostLabel.TabIndex = 4;
+            this.CostLabel.Text = "Cost per unit: ";
             // 
             // ProductNametxt
             // 
@@ -196,7 +140,7 @@
             this.ProductNumlabel.Size = new System.Drawing.Size(179, 25);
             this.ProductNumlabel.TabIndex = 1;
             this.ProductNumlabel.Text = "Product Number: ";
-            this.ProductNumlabel.Click += new System.EventHandler(this.label1_Click);
+            this.ProductNumlabel.Click += new System.EventHandler(this.ProductNumlabel_Click);
             // 
             // ProductNumtxt
             // 
@@ -210,10 +154,10 @@
             this.ReadAllpanel.Controls.Add(this.ReadOnePanel);
             this.ReadAllpanel.Controls.Add(this.ExitReadAllbtn);
             this.ReadAllpanel.Controls.Add(this.ReadAlltxt);
-            this.ReadAllpanel.Location = new System.Drawing.Point(28, 30);
+            this.ReadAllpanel.Location = new System.Drawing.Point(-4, 11);
             this.ReadAllpanel.Name = "ReadAllpanel";
             this.ReadAllpanel.Size = new System.Drawing.Size(994, 545);
-            this.ReadAllpanel.TabIndex = 9;
+            this.ReadAllpanel.TabIndex = 12;
             this.ReadAllpanel.Visible = false;
             // 
             // ReadOnePanel
@@ -271,52 +215,114 @@
             this.ReadAlltxt.Size = new System.Drawing.Size(954, 285);
             this.ReadAlltxt.TabIndex = 0;
             // 
-            // ProductsForm1
+            // MainPanel
+            // 
+            this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.MainPanel.Controls.Add(this.Deletebtn);
+            this.MainPanel.Controls.Add(this.Updatebtn);
+            this.MainPanel.Controls.Add(this.ReadOnebtn);
+            this.MainPanel.Controls.Add(this.ReadAllbtn);
+            this.MainPanel.Controls.Add(this.Createbtn);
+            this.MainPanel.Location = new System.Drawing.Point(979, 20);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(260, 512);
+            this.MainPanel.TabIndex = 10;
+            // 
+            // Deletebtn
+            // 
+            this.Deletebtn.Location = new System.Drawing.Point(32, 338);
+            this.Deletebtn.Name = "Deletebtn";
+            this.Deletebtn.Size = new System.Drawing.Size(182, 55);
+            this.Deletebtn.TabIndex = 4;
+            this.Deletebtn.Text = "Delete";
+            this.Deletebtn.UseVisualStyleBackColor = true;
+            this.Deletebtn.Click += new System.EventHandler(this.Deletebtn_Click);
+            // 
+            // Updatebtn
+            // 
+            this.Updatebtn.Location = new System.Drawing.Point(32, 262);
+            this.Updatebtn.Name = "Updatebtn";
+            this.Updatebtn.Size = new System.Drawing.Size(183, 55);
+            this.Updatebtn.TabIndex = 3;
+            this.Updatebtn.Text = "Update";
+            this.Updatebtn.UseVisualStyleBackColor = true;
+            this.Updatebtn.Click += new System.EventHandler(this.Updatebtn_Click);
+            // 
+            // ReadOnebtn
+            // 
+            this.ReadOnebtn.Location = new System.Drawing.Point(32, 188);
+            this.ReadOnebtn.Name = "ReadOnebtn";
+            this.ReadOnebtn.Size = new System.Drawing.Size(182, 58);
+            this.ReadOnebtn.TabIndex = 2;
+            this.ReadOnebtn.Text = "Show One";
+            this.ReadOnebtn.UseVisualStyleBackColor = true;
+            this.ReadOnebtn.Click += new System.EventHandler(this.ReadOnebtn_Click);
+            // 
+            // ReadAllbtn
+            // 
+            this.ReadAllbtn.Location = new System.Drawing.Point(32, 106);
+            this.ReadAllbtn.Name = "ReadAllbtn";
+            this.ReadAllbtn.Size = new System.Drawing.Size(182, 56);
+            this.ReadAllbtn.TabIndex = 1;
+            this.ReadAllbtn.Text = "Show All";
+            this.ReadAllbtn.UseVisualStyleBackColor = true;
+            this.ReadAllbtn.Click += new System.EventHandler(this.ReadAllbtn_Click);
+            // 
+            // Createbtn
+            // 
+            this.Createbtn.Location = new System.Drawing.Point(32, 31);
+            this.Createbtn.Name = "Createbtn";
+            this.Createbtn.Size = new System.Drawing.Size(182, 53);
+            this.Createbtn.TabIndex = 0;
+            this.Createbtn.Text = "Create";
+            this.Createbtn.UseVisualStyleBackColor = true;
+            this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
+            // 
+            // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1410, 652);
+            this.ClientSize = new System.Drawing.Size(1219, 566);
             this.Controls.Add(this.CreatePanel);
             this.Controls.Add(this.ReadAllpanel);
             this.Controls.Add(this.MainPanel);
-            this.Name = "ProductsForm1";
-            this.Text = "Products Form";
-            this.MainPanel.ResumeLayout(false);
+            this.Name = "BaseForm";
+            this.Text = "BaseForm";
             this.CreatePanel.ResumeLayout(false);
             this.CreatePanel.PerformLayout();
             this.ReadAllpanel.ResumeLayout(false);
             this.ReadAllpanel.PerformLayout();
             this.ReadOnePanel.ResumeLayout(false);
             this.ReadOnePanel.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel CreatePanel;
+        private System.Windows.Forms.Button EnterCreatebtn;
+        private System.Windows.Forms.Label StockLabel;
+        private System.Windows.Forms.Label CostLabel;
+        private System.Windows.Forms.Label ProductNamelabel;
+        private System.Windows.Forms.Label ProductNumlabel;
+        private System.Windows.Forms.Panel ReadAllpanel;
+        private System.Windows.Forms.Panel ReadOnePanel;
+        private System.Windows.Forms.Button EnterReadOnebtn;
+        private System.Windows.Forms.Label ProdNumlabel;
+        private System.Windows.Forms.Button ExitReadAllbtn;
         private System.Windows.Forms.Panel MainPanel;
-        private System.Windows.Forms.Button ReadAllbtn;
-        private System.Windows.Forms.Button Createbtn;
         private System.Windows.Forms.Button Deletebtn;
         private System.Windows.Forms.Button Updatebtn;
         private System.Windows.Forms.Button ReadOnebtn;
-        private System.Windows.Forms.Panel CreatePanel;
-        private System.Windows.Forms.Label ProductNumlabel;
-        private System.Windows.Forms.TextBox ProductNumtxt;
-        private System.Windows.Forms.TextBox ProductNametxt;
-        private System.Windows.Forms.Label ProductNamelabel;
-        private System.Windows.Forms.Label CostLabel;
-        private System.Windows.Forms.Label StockLabel;
-        private System.Windows.Forms.TextBox Costtxt;
-        private System.Windows.Forms.Button EnterCreatebtn;
-        private System.Windows.Forms.TextBox Stocktxt;
-        private System.Windows.Forms.Panel ReadAllpanel;
-        private System.Windows.Forms.Button ExitReadAllbtn;
-        private System.Windows.Forms.TextBox ReadAlltxt;
-        private System.Windows.Forms.Label ProdNumlabel;
-        private System.Windows.Forms.Panel ReadOnePanel;
-        private System.Windows.Forms.Button EnterReadOnebtn;
-        private System.Windows.Forms.TextBox ReadOneNumtxt;
+        private System.Windows.Forms.Button ReadAllbtn;
+        private System.Windows.Forms.Button Createbtn;
+        protected System.Windows.Forms.TextBox Stocktxt;
+        protected System.Windows.Forms.TextBox Costtxt;
+        protected System.Windows.Forms.TextBox ProductNametxt;
+        protected System.Windows.Forms.TextBox ProductNumtxt;
+        protected System.Windows.Forms.TextBox ReadOneNumtxt;
+        protected System.Windows.Forms.TextBox ReadAlltxt;
     }
 }
-
