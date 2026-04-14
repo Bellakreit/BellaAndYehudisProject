@@ -24,11 +24,10 @@ namespace BL
             {
                 pd1.Create(temp);
             }
-            catch(ExceptionProductExists ex)
-            {
-                Console.WriteLine(ex.Message);
-                
+            catch (ExceptionProductExists){
+                throw;
             }
+            
         }
         public List<Product> Read() //read all products
         {
@@ -40,10 +39,9 @@ namespace BL
             {
                 return pd1.Read(id);
             }
-            catch(ExceptionProductNotExist ex)
+            catch(ExceptionProductNotExist)
             {
-                Console.WriteLine(ex.Message);
-                return null;
+                throw;
                 
             }
         }
@@ -54,9 +52,9 @@ namespace BL
             {
                 pd1.Update(temp);
             }
-            catch(ExceptionProductNotExist ex) 
+            catch(ExceptionProductNotExist) 
             {
-                Console.WriteLine(ex.Message);        
+                throw;        
             }
         }
 
@@ -66,9 +64,9 @@ namespace BL
             {
                 pd1.Delete(temp);
             }
-            catch(Exception ex) 
+            catch(Exception) 
             {
-                Console.WriteLine(ex.Message);
+                throw;
             }
         }
 

@@ -164,8 +164,6 @@ namespace UseEntities
 
             //exceptions for customers
             Console.WriteLine("Test exceptions for customers");
-            //create customer number twice
-            //cbl.CreateCustomer(cust2);
             //read wrong customer
             Console.WriteLine("reading customer 90:");
             Console.WriteLine(string.Join("\n", cbl.Read("90")));

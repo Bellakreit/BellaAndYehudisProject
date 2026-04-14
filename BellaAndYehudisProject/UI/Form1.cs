@@ -1,4 +1,5 @@
 ﻿using BL;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -187,7 +188,7 @@ namespace UI
 
                 }
             }
-            catch (Exception ex) /// exception handeling
+            catch (ExceptionProductNotExist ex) /// exception handeling
             {
                 MessageBox.Show(ex.Message);
             }
