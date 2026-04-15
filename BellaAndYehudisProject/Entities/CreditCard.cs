@@ -34,9 +34,9 @@ namespace Entities
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Credit Card Holder: {CCOwner}\n" +
-                   $"Credit Card Number: {CreditCardNumber}\n" +
-                   $"Exp Date: {ExpDate}\n" +
+            return $"Credit Card Holder: {CCOwner}, \n" +
+                   $"Credit Card Number: {CreditCardNumber}, \n" +
+                   $"Exp Date: {ExpDate}, \n" +
                    $"Security Code: {SecurityCode}";
         }
 

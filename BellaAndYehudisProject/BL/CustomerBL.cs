@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entities;
-using DAL;
 
 namespace BL
 {
@@ -25,9 +23,9 @@ namespace BL
                 {
                     cd1.Create(temp);
                 }
-                catch (ExceptionCustomerExists ex)
+                catch (ExceptionCustomerExists)
                 {
-                    Console.WriteLine(ex.Message);
+                    throw;
                     
                 }
             }
@@ -41,10 +39,9 @@ namespace BL
                 {
                     return cd1.Read(id);
             }
-                catch (ExceptionCustomerNotExist ex)
+                catch (ExceptionCustomerNotExist)
                 {
-                    Console.WriteLine(ex.Message);
-                    return null;
+                    throw;
 
                 }
             }
@@ -55,9 +52,9 @@ namespace BL
                 {
                     cd1.Update(temp);
                 }
-                catch (ExceptionCustomerNotExist ex)
+                catch (ExceptionCustomerNotExist)
                 {
-                    Console.WriteLine(ex.Message);
+                    throw;
                     
                 }
             }
@@ -68,9 +65,9 @@ namespace BL
                 {
                     cd1.Delete(temp);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    Console.WriteLine(ex.Message);
+                    throw;
                     
                 }
             }

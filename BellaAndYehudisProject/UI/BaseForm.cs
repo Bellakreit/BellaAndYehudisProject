@@ -15,6 +15,17 @@ namespace UI
         public BaseForm()
         {
             InitializeComponent();
+            ConfigureForm();
+        }
+        protected virtual void ConfigureForm()
+        {
+            lblField1.Text = "Field 1";
+            lblField2.Text = "Field 2";
+            lblField3.Text = "Field 3";
+            lblField4.Text = "Field 4";
+            lblField5.Text = "Field 5";
+            lblField6.Text = "Field 6";
+            ShowOnelbl.Text = "Show One";
         }
         private void CloseAllPanels()
         {
@@ -123,10 +134,12 @@ namespace UI
         {
             EnterCreatebtnMethod();
             CreatePanel.Visible = false;
-            ProductNumtxt.Clear();
-            ProductNametxt.Clear();
-            Costtxt.Clear();
-            Stocktxt.Clear();
+            txtField1.Clear();
+            txtField2.Clear();
+            txtField3.Clear();
+            txtField4.Clear();
+            txtField5.Clear();
+            txtField6.Clear();
         }
         protected virtual void EnterCreatebtnMethod() { }
 
@@ -148,5 +161,60 @@ namespace UI
         protected virtual void EnterReadOnebtnMethod() { }
 
         private void ProductNumlabel_Click(object sender, EventArgs e) { }
+
+        private void CreatePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ReadAllpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtField1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblField4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtField2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtField3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtField4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtField5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblField6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtField6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

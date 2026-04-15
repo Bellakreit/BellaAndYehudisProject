@@ -12,12 +12,13 @@ namespace DAL
     {
         private static readonly CustomerDAL _instance = new CustomerDAL();
         private List<Customer> _customers;
-        private CustomerDAL()
+        public CustomerDAL()
         {
             _customers = new List<Customer>();
             InitializeList();
 
         }
+
         public static CustomerDAL Instance => _instance;
 
 

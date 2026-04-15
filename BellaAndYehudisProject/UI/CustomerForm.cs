@@ -6,51 +6,46 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class newProductsForm : BaseForm
+    public partial class CustomerForm : BaseForm
     {
-        public newProductsForm()
+        public CustomerForm()
         {
             InitializeComponent();
         }
         protected override void ConfigureForm()
         {
-            lblField1.Text = "Product Number";
-            lblField2.Text = "Product Name";
-            lblField3.Text = "Cost Per Unit";
-            lblField4.Text = "Amount in Stock";
-            lblField5.Visible = false;
-            lblField6.Visible = false;
-            txtField5.Visible = false;
-            txtField6.Visible = false;
-            ShowOnelbl.Text = "Product Number:";
+            lblField1.Text = "Customer Name";
+            lblField2.Text = "Customer ID";
+            lblField3.Text = "Cardholder Name";
+            lblField4.Text = "Credit Card Number";
+            lblField5.Text = "Exp Date:";
+            lblField6.Text = "CVC:";
+            ShowOnelbl.Text = "Customer ID";
         }
-
         private void newProductsForm_Load(object sender, EventArgs e) { }  //CREATED ACCIDENTLY
-
         #region Enter Create and update button
         protected override void EnterCreatebtnMethod()
         {
-            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
+            CustomerBL customerbl = new CustomerBL(new DAL.CustomerDAL());
             try
             {
                 if (currentMode == FormMode.Create)  //create
                 {
 
-                    productbl.CreateProduct(new Entities.Product(int.Parse(txtField1.Text), txtField2.Text, double.Parse(txtField3.Text), int.Parse(txtField4.Text)));
-                    MessageBox.Show("Product Created");
+                    customerbl.CreateCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, (new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text))));
+                    MessageBox.Show("Customer Created");
 
                 }
                 if (currentMode == FormMode.Update) ///update
                 {
-                    productbl.UpdateProduct(new Entities.Product(int.Parse(txtField1.Text), txtField2.Text, double.Parse(txtField3.Text), int.Parse(txtField4.Text)));
-                    MessageBox.Show("Product Updated");
+                    customerbl.UpdateCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, (new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text))));
+                    MessageBox.Show("Customer Updated");
 
                 }
             }
@@ -66,11 +61,11 @@ namespace UI
 
         protected override void ReadAllMethod()
         {
-            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
-            ReadAlltxt.AppendText(Text = "Product Number, Product Name, Cost Per Unit, Amount In Stock" + "\r\n"); //adding column headers
-            foreach (Entities.Product product in productbl.Read())
+            CustomerBL customerbl = new CustomerBL(new DAL.CustomerDAL());
+            ReadAlltxt.AppendText(Text = "Customer Name, Customer ID, Cardholder Name, Credit Card Number, Exp Date, CVV" + "\r\n"); //adding column headers
+            foreach (Entities.Customer customer in customerbl.Read())
             {
-                ReadAlltxt.AppendText($"{product.ToString()}" + "\r\n"); //adding each product to the text box
+                ReadAlltxt.AppendText($"{customer.ToString()}" + "\r\n"); //adding each customer to the text box
             }
         }
 
@@ -81,7 +76,7 @@ namespace UI
 
         protected override void EnterReadOnebtnMethod()
         {
-            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
+            CustomerBL customerbl = new CustomerBL(new DAL.CustomerDAL());
 
             try
             {
@@ -89,17 +84,17 @@ namespace UI
                 {
 
                     //productbl.Read(int.Parse(ReadOneNumtxt.Text));
-                    ReadAlltxt.AppendText(Text = $"{productbl.Read(int.Parse(ReadOneNumtxt.Text))}");
+                    ReadAlltxt.AppendText(Text = $"{customerbl.Read(ReadOneNumtxt.Text)}");
                 }
                 if (currentMode == FormMode.Delete)
                 {
 
-                    productbl.DeleteProduct(new Entities.Product(int.Parse(ReadOneNumtxt.Text), "", 0, 0));
-                    MessageBox.Show("Product Deleted");
+                    customerbl.DeleteCustomer(new Entities.Customer(ReadOneNumtxt.Text, "", (new Entities.CreditCard("","","",""))));
+                    MessageBox.Show("Customer Deleted");
 
                 }
             }
-            catch (ExceptionProductNotExist ex) /// exception handeling
+            catch (ExceptionCustomerNotExist ex) /// exception handeling
             {
                 MessageBox.Show(ex.Message);
             }
@@ -112,14 +107,10 @@ namespace UI
 
         }
 
-        private void ProductNumtxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ReadAlltxt_TextChanged(object sender, EventArgs e)
         {
 
         }
     }
 }
+

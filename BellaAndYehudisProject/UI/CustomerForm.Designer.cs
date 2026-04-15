@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class newProductsForm
+    partial class CustomerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,26 +30,17 @@
         {
             this.SuspendLayout();
             // 
-            // ReadOneNumtxt
-            // 
-            this.ReadOneNumtxt.Margin = new System.Windows.Forms.Padding(1);
-            this.ReadOneNumtxt.TextChanged += new System.EventHandler(this.ReadOneNumtxt_TextChanged);
-            // 
             // ReadAlltxt
             // 
-            this.ReadAlltxt.Margin = new System.Windows.Forms.Padding(1);
-            this.ReadAlltxt.Size = new System.Drawing.Size(864, 333);
             this.ReadAlltxt.TextChanged += new System.EventHandler(this.ReadAlltxt_TextChanged);
             // 
-            // newProductsForm
+            // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1331, 661);
-            this.Margin = new System.Windows.Forms.Padding(1);
-            this.Name = "newProductsForm";
-            this.Text = "newProductsForm";
-            this.Load += new System.EventHandler(this.newProductsForm_Load);
+            this.ClientSize = new System.Drawing.Size(1199, 608);
+            this.Name = "CustomerForm";
+            this.Text = "CustomerForm";
             this.ResumeLayout(false);
 
         }
