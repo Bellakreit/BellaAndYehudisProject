@@ -21,12 +21,14 @@ namespace UI
         {
             CustomerForm cf = new CustomerForm();
             cf.Show();
+            this.Hide();
         }
 
         private void Productsbtn_Click(object sender, EventArgs e)
         {
             newProductsForm pf = new newProductsForm();
             pf.Show();
+            this.Hide();
         }
     }
 }

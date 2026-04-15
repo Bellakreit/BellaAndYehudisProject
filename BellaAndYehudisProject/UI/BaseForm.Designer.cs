@@ -55,6 +55,7 @@
             this.ReadOnebtn = new System.Windows.Forms.Button();
             this.ReadAllbtn = new System.Windows.Forms.Button();
             this.Createbtn = new System.Windows.Forms.Button();
+            this.ExitToMainMenubtn = new System.Windows.Forms.Button();
             this.CreatePanel.SuspendLayout();
             this.ReadAllpanel.SuspendLayout();
             this.ReadOnePanel.SuspendLayout();
@@ -290,6 +291,7 @@
             // MainPanel
             // 
             this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.MainPanel.Controls.Add(this.ExitToMainMenubtn);
             this.MainPanel.Controls.Add(this.Deletebtn);
             this.MainPanel.Controls.Add(this.Updatebtn);
             this.MainPanel.Controls.Add(this.ReadOnebtn);
@@ -356,6 +358,16 @@
             this.Createbtn.UseVisualStyleBackColor = true;
             this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
             // 
+            // ExitToMainMenubtn
+            // 
+            this.ExitToMainMenubtn.Location = new System.Drawing.Point(33, 270);
+            this.ExitToMainMenubtn.Name = "ExitToMainMenubtn";
+            this.ExitToMainMenubtn.Size = new System.Drawing.Size(99, 42);
+            this.ExitToMainMenubtn.TabIndex = 13;
+            this.ExitToMainMenubtn.Text = "Back to Main Menu";
+            this.ExitToMainMenubtn.UseVisualStyleBackColor = true;
+            this.ExitToMainMenubtn.Click += new System.EventHandler(this.ExitToMainMenubtn_Click);
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -407,5 +419,6 @@
         protected System.Windows.Forms.TextBox txtField6;
         protected System.Windows.Forms.TextBox txtField5;
         protected System.Windows.Forms.Label ShowOnelbl;
+        private System.Windows.Forms.Button ExitToMainMenubtn;
     }
 }
