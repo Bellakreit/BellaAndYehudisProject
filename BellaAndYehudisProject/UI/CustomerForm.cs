@@ -19,6 +19,7 @@ namespace UI
         {
             InitializeComponent();
             customerbl = new CustomerBL(new DAL.CustomerDAL());
+            ConfigureForm();
         }
         protected override void ConfigureForm()
         {
