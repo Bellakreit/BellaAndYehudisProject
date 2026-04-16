@@ -44,7 +44,7 @@ namespace UI
                 }
                 if (currentMode == FormMode.Update) ///update
                 {
-                    customerbl.UpdateCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, (new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text))));
+                    customerbl.UpdateCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text)));
                     MessageBox.Show("Customer Updated");
 
                 }

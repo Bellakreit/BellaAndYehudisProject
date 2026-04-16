@@ -77,7 +77,7 @@ namespace UI
 
         #endregion
 
-        #region Enter read one button
+        #region Enter read one button and delete
 
         protected override void EnterReadOnebtnMethod()
         {
@@ -120,6 +120,21 @@ namespace UI
         private void ReadAlltxt_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtField1_TextChanged(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtField1.Text);
+            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
+            foreach (Entities.Product product in productbl.Read())
+            {
+                if (id == product.ProductNumber)
+                {
+                    txtField2.Text = product.ProductName;
+                    txtField3.Text = $"{product.CostPerUnit}";
+                    txtField4.Text = $"{product.AmountInStock}";
+                }
+            }
         }
     }
 }
