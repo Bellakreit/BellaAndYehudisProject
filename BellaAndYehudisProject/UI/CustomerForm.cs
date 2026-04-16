@@ -14,9 +14,11 @@ namespace UI
 {
     public partial class CustomerForm : BaseForm
     {
+        CustomerBL customerbl;
         public CustomerForm()
         {
             InitializeComponent();
+            customerbl = new CustomerBL(new DAL.CustomerDAL());
         }
         protected override void ConfigureForm()
         {
@@ -32,7 +34,7 @@ namespace UI
         #region Enter Create and update button
         protected override void EnterCreatebtnMethod()
         {
-            CustomerBL customerbl = new CustomerBL(new DAL.CustomerDAL());
+            
             try
             {
                 if (currentMode == FormMode.Create)  //create
@@ -61,7 +63,7 @@ namespace UI
 
         protected override void ReadAllMethod()
         {
-            CustomerBL customerbl = new CustomerBL(new DAL.CustomerDAL());
+            
             ReadAlltxt.AppendText(Text = "Customer Name, Customer ID, Cardholder Name, Credit Card Number, Exp Date, CVV" + "\r\n"); //adding column headers
             foreach (Entities.Customer customer in customerbl.Read())
             {
@@ -76,7 +78,7 @@ namespace UI
 
         protected override void EnterReadOnebtnMethod()
         {
-            CustomerBL customerbl = new CustomerBL(new DAL.CustomerDAL());
+            
 
             try
             {

@@ -20,15 +20,18 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             CustomerForm cf = new CustomerForm();
-            cf.Show();
             this.Hide();
+            cf.ShowDialog();
+            this.Show();
         }
 
         private void Productsbtn_Click(object sender, EventArgs e)
         {
-            newProductsForm pf = new newProductsForm();
-            pf.Show();
+            NEWProductsForm pf = new NEWProductsForm();
             this.Hide();
+            pf.ShowDialog();
+            this.Show();
+            
         }
     }
 }

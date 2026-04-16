@@ -15,7 +15,7 @@ namespace UI
         public BaseForm()
         {
             InitializeComponent();
-            ConfigureForm();
+            
         }
         protected virtual void ConfigureForm()
         {
@@ -219,9 +219,7 @@ namespace UI
 
         private void ExitToMainMenubtn_Click(object sender, EventArgs e)
         {
-           MainMenu MM = new MainMenu();
-            MM.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

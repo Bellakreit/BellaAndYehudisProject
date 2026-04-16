@@ -82,11 +82,11 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="newProductsForm.cs">
+    <Compile Include="NEWProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newProductsForm.Designer.cs">
-      <DependentUpon>newProductsForm.cs</DependentUpon>
+    <Compile Include="NEWProductsForm.Designer.cs">
+      <DependentUpon>NEWProductsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,8 +102,8 @@
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newProductsForm.resx">
-      <DependentUpon>newProductsForm.cs</DependentUpon>
+    <EmbeddedResource Include="NEWProductsForm.resx">
+      <DependentUpon>NEWProductsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

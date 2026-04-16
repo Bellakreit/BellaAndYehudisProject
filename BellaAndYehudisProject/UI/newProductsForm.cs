@@ -6,18 +6,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class newProductsForm : BaseForm
+    public partial class NEWProductsForm : BaseForm
     {
-        public newProductsForm()
+        private ProductBL productbl;
+        public NEWProductsForm()
         {
             InitializeComponent();
+            productbl = new ProductBL(new DAL.ProductDAL());
+            ConfigureForm();
         }
         protected override void ConfigureForm()
         {
@@ -37,7 +39,7 @@ namespace UI
         #region Enter Create and update button
         protected override void EnterCreatebtnMethod()
         {
-            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
+
             try
             {
                 if (currentMode == FormMode.Create)  //create
@@ -66,7 +68,7 @@ namespace UI
 
         protected override void ReadAllMethod()
         {
-            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
+
             ReadAlltxt.AppendText(Text = "Product Number, Product Name, Cost Per Unit, Amount In Stock" + "\r\n"); //adding column headers
             foreach (Entities.Product product in productbl.Read())
             {
@@ -81,7 +83,7 @@ namespace UI
 
         protected override void EnterReadOnebtnMethod()
         {
-            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
+
 
             try
             {
@@ -124,8 +126,9 @@ namespace UI
 
         private void txtField1_TextChanged(object sender, EventArgs e)
         {
-            int id = int.Parse(txtField1.Text);
-            ProductBL productbl = new ProductBL(new DAL.ProductDAL());
+            if (!int.TryParse(txtField1.Text, out int id))
+                return;
+
             foreach (Entities.Product product in productbl.Read())
             {
                 if (id == product.ProductNumber)
@@ -138,3 +141,5 @@ namespace UI
         }
     }
 }
+
+
