@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -89,10 +90,11 @@ namespace UI
                     //productbl.Read(int.Parse(ReadOneNumtxt.Text));
                     ReadAlltxt.AppendText(Text = $"{customerbl.Read(ReadOneNumtxt.Text)}");
                 }
+               
                 if (currentMode == FormMode.Delete)
                 {
 
-                    customerbl.DeleteCustomer(new Entities.Customer(ReadOneNumtxt.Text, "", (new Entities.CreditCard("","","",""))));
+                    customerbl.DeleteCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text)));
                     MessageBox.Show("Customer Deleted");
 
                 }
