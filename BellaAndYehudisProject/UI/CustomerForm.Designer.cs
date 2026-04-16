@@ -30,19 +30,11 @@
         {
             this.SuspendLayout();
             // 
-            // ReadAlltxt
-            // 
-            this.ReadAlltxt.TextChanged += new System.EventHandler(this.ReadAlltxt_TextChanged);
-            // 
             // CustomerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 608);
             this.Name = "CustomerForm";
-            this.Text = "CustomerForm";
+            this.Text = "Customers";
             this.ResumeLayout(false);
-
         }
 
         #endregion

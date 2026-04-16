@@ -20,6 +20,7 @@ namespace UI
             InitializeComponent();
             productbl = new ProductBL(new DAL.ProductDAL());
             ConfigureForm();
+            txtField1.TextChanged += txtField1_TextChanged;
         }
         protected override void ConfigureForm()
         {
@@ -126,20 +127,30 @@ namespace UI
 
         private void txtField1_TextChanged(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtField1.Text, out int id))
-                return;
-
-            foreach (Entities.Product product in productbl.Read())
+            if (txtField1.Text == "")  //if tehre is nothing in first text box then clear the rest
             {
-                if (id == product.ProductNumber)
-                {
-                    txtField2.Text = product.ProductName;
-                    txtField3.Text = $"{product.CostPerUnit}";
-                    txtField4.Text = $"{product.AmountInStock}";
-                }
+                txtField2.Clear();
+                txtField3.Clear();
+                txtField4.Clear();
             }
-        }
+            else
+            {
+                if (!int.TryParse(txtField1.Text, out int id))  //make sure it is a number and make it an int
+                    return;
+                foreach (Entities.Product product in productbl.Read())  //go through the products and find the one that matches id
+                {
+                    if (id == product.ProductNumber)  //if they match change the rest of text boxes with the corresponding details
+                    {
+                        txtField2.Text = product.ProductName;
+                        txtField3.Text = $"{product.CostPerUnit}";
+                        txtField4.Text = $"{product.AmountInStock}";
+                        break;  //break because you found it
+                    }
+                }
 
+            }
+
+        }
     }
 }
 
