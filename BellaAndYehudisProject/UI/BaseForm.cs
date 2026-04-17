@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,11 +43,24 @@ namespace UI
             ReadOne
         }
         protected FormMode currentMode = FormMode.None;
+        protected void ClearAll()
+        {
+            txtField1.Clear();
+            txtField2.Clear();
+            txtField3.Clear();
+            txtField4.Clear();
+            txtField5.Clear();
+            txtField6.Clear();
+            ReadOneNumtxt.Clear();
+        }
+      
 
         private void Createbtn_Click(object sender, EventArgs e)
         {
+            ClearAll();
             currentMode = FormMode.Create;
             CloseAllPanels();
+
 
             if (CreatePanel.Visible == true)
             {
@@ -65,6 +79,7 @@ namespace UI
         private void ReadAllbtn_Click(object sender, EventArgs e)
         {
             CloseAllPanels();
+            ClearAll();
             ReadAlltxt.Clear();
             if (ReadAllpanel.Visible == true) //making the panel visible
             {
@@ -81,6 +96,7 @@ namespace UI
         private void ReadOnebtn_Click(object sender, EventArgs e)
         {
             ReadAlltxt.Clear();
+            ClearAll();
             currentMode = FormMode.ReadOne;
             CloseAllPanels();
             if (ReadAllpanel.Visible == true) //making the panel visible
@@ -99,6 +115,7 @@ namespace UI
 
         private void Updatebtn_Click(object sender, EventArgs e)
         {
+            ClearAll();
             currentMode = FormMode.Update;
             CloseAllPanels();
             if (CreatePanel.Visible == true)
@@ -113,6 +130,7 @@ namespace UI
 
         private void Deletebtn_Click(object sender, EventArgs e)
         {
+            ClearAll();
             ReadAlltxt.Clear();
             currentMode = FormMode.Delete;
             CloseAllPanels();
@@ -134,12 +152,7 @@ namespace UI
         {
             EnterCreatebtnMethod();
             CreatePanel.Visible = false;
-            txtField1.Clear();
-            txtField2.Clear();
-            txtField3.Clear();
-            txtField4.Clear();
-            txtField5.Clear();
-            txtField6.Clear();
+            ClearAll();
         }
         protected virtual void EnterCreatebtnMethod() { }
 

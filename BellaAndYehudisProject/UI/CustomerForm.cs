@@ -36,7 +36,7 @@ namespace UI
         #region Enter Create and update button
         protected override void EnterCreatebtnMethod()
         {
-            
+
             try
             {
                 if (currentMode == FormMode.Create)  //create
@@ -65,7 +65,7 @@ namespace UI
 
         protected override void ReadAllMethod()
         {
-            
+
             ReadAlltxt.AppendText(Text = "Customer Name, Customer ID, Cardholder Name, Credit Card Number, Exp Date, CVV" + "\r\n"); //adding column headers
             foreach (Entities.Customer customer in customerbl.Read())
             {
@@ -80,7 +80,7 @@ namespace UI
 
         protected override void EnterReadOnebtnMethod()
         {
-            
+
 
             try
             {
@@ -90,7 +90,7 @@ namespace UI
                     //productbl.Read(int.Parse(ReadOneNumtxt.Text));
                     ReadAlltxt.AppendText(Text = $"{customerbl.Read(ReadOneNumtxt.Text)}");
                 }
-               
+
                 if (currentMode == FormMode.Delete)
                 {
 
@@ -116,6 +116,48 @@ namespace UI
         {
 
         }
+        private void txtField2_TextChanged(object sender, EventArgs e)
+        {
+ 
+
+            
+        }
+
+        private void txtField2_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtField2.Text == "")  //if tehre is nothing in first text box then clear the rest
+            {
+                txtField1.Clear();
+                txtField3.Clear();
+                txtField4.Clear();
+                txtField5.Clear();
+                txtField6.Clear();
+            }
+            else
+            {
+
+                foreach (Entities.Customer customer in customerbl.Read())  //go through the products and find the one that matches id
+                {
+                    if (txtField2.Text == customer.ID)  //if they match change the rest of text boxes with the corresponding details
+                    {
+                        txtField1.Text = customer.Name;
+                        txtField3.Text = customer.creditCard.CCOwner;
+                        txtField4.Text = customer.creditCard.CreditCardNumber;
+                        txtField5.Text = customer.creditCard.ExpDate;
+                        txtField6.Text = customer.creditCard.SecurityCode;
+                        break;  //break because you found it
+                    }
+                    else
+                    {
+                        txtField1.Clear();
+                        txtField3.Clear();
+                        txtField4.Clear();
+                        txtField5.Clear();
+                        txtField6.Clear();
+                    }
+                }
+            }
+            }
     }
 }
 

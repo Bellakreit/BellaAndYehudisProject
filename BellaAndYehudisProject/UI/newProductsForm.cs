@@ -146,6 +146,12 @@ namespace UI
                         txtField4.Text = $"{product.AmountInStock}";
                         break;  //break because you found it
                     }
+                    else
+                    {
+                        txtField2.Clear();
+                        txtField3.Clear();
+                        txtField4.Clear();
+                    }
                 }
 
             }

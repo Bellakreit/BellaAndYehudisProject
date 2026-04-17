@@ -30,11 +30,18 @@
         {
             this.SuspendLayout();
             // 
+            // txtField2
+            // 
+            this.txtField2.TextChanged += new System.EventHandler(this.txtField2_TextChanged_1);
+            // 
             // CustomerForm
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(1195, 577);
             this.Name = "CustomerForm";
             this.Text = "Customers";
             this.ResumeLayout(false);
+
         }
 
         #endregion
