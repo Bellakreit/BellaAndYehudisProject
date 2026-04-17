@@ -187,8 +187,11 @@ namespace UI
 
         private void txtField1_TextChanged(object sender, EventArgs e)
         {
-
+            //write my own method for text change that will be virtual override for inherited forms 
+            //MessageBox.Show("text field 1 event handler");
+            TextChangeMethod();
         }
+        protected virtual void TextChangeMethod() { }
 
         private void lblField4_Click(object sender, EventArgs e)
         {

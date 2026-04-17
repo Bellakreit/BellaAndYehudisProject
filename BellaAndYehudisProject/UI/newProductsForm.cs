@@ -20,7 +20,7 @@ namespace UI
             InitializeComponent();
             productbl = new ProductBL(new DAL.ProductDAL());
             ConfigureForm();
-            txtField1.TextChanged += txtField1_TextChanged;
+            //txtField1.TextChanged += txtField1_TextChanged;
         }
         protected override void ConfigureForm()
         {
@@ -125,7 +125,7 @@ namespace UI
 
         }
 
-        private void txtField1_TextChanged(object sender, EventArgs e)
+        protected override void TextChangeMethod()
         {
             if (txtField1.Text == "")  //if tehre is nothing in first text box then clear the rest
             {
@@ -155,6 +155,43 @@ namespace UI
                 }
 
             }
+        }
+
+        //private void txtField1_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (txtField1.Text == "")  //if tehre is nothing in first text box then clear the rest
+        //    {
+        //        txtField2.Clear();
+        //        txtField3.Clear();
+        //        txtField4.Clear();
+        //    }
+        //    else
+        //    {
+        //        if (!int.TryParse(txtField1.Text, out int id))  //make sure it is a number and make it an int
+        //            return;
+        //        foreach (Entities.Product product in productbl.Read())  //go through the products and find the one that matches id
+        //        {
+        //            if (id == product.ProductNumber)  //if they match change the rest of text boxes with the corresponding details
+        //            {
+        //                txtField2.Text = product.ProductName;
+        //                txtField3.Text = $"{product.CostPerUnit}";
+        //                txtField4.Text = $"{product.AmountInStock}";
+        //                break;  //break because you found it
+        //            }
+        //            else
+        //            {
+        //                txtField2.Clear();
+        //                txtField3.Clear();
+        //                txtField4.Clear();
+        //            }
+        //        }
+
+        //    }
+
+        //}
+
+        private void txtField1_TextChanged_1(object sender, EventArgs e)
+        {
 
         }
     }

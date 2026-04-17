@@ -30,10 +30,16 @@
         {
             this.SuspendLayout();
             // 
-
+            // txtField1
+            // 
+            //this.txtField1.TextChanged += new System.EventHandler(this.txtField1_TextChanged_1);
             // 
             // NEWProductsForm
             // 
+            //this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            //this.ClientSize = new System.Drawing.Size(1792, 902);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(1195, 577);
             this.Name = "NEWProductsForm";
             this.Text = "Products";
             this.ResumeLayout(false);
