@@ -50,12 +50,12 @@
             this.ExitReadAllbtn = new System.Windows.Forms.Button();
             this.ReadAlltxt = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.ExitToMainMenubtn = new System.Windows.Forms.Button();
             this.Deletebtn = new System.Windows.Forms.Button();
             this.Updatebtn = new System.Windows.Forms.Button();
             this.ReadOnebtn = new System.Windows.Forms.Button();
             this.ReadAllbtn = new System.Windows.Forms.Button();
             this.Createbtn = new System.Windows.Forms.Button();
-            this.ExitToMainMenubtn = new System.Windows.Forms.Button();
             this.CreatePanel.SuspendLayout();
             this.ReadAllpanel.SuspendLayout();
             this.ReadOnePanel.SuspendLayout();
@@ -303,6 +303,16 @@
             this.MainPanel.Size = new System.Drawing.Size(173, 328);
             this.MainPanel.TabIndex = 10;
             // 
+            // ExitToMainMenubtn
+            // 
+            this.ExitToMainMenubtn.Location = new System.Drawing.Point(33, 270);
+            this.ExitToMainMenubtn.Name = "ExitToMainMenubtn";
+            this.ExitToMainMenubtn.Size = new System.Drawing.Size(99, 42);
+            this.ExitToMainMenubtn.TabIndex = 13;
+            this.ExitToMainMenubtn.Text = "Back to Main Menu";
+            this.ExitToMainMenubtn.UseVisualStyleBackColor = true;
+            this.ExitToMainMenubtn.Click += new System.EventHandler(this.ExitToMainMenubtn_Click);
+            // 
             // Deletebtn
             // 
             this.Deletebtn.Location = new System.Drawing.Point(21, 216);
@@ -357,16 +367,6 @@
             this.Createbtn.Text = "Create";
             this.Createbtn.UseVisualStyleBackColor = true;
             this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
-            // 
-            // ExitToMainMenubtn
-            // 
-            this.ExitToMainMenubtn.Location = new System.Drawing.Point(33, 270);
-            this.ExitToMainMenubtn.Name = "ExitToMainMenubtn";
-            this.ExitToMainMenubtn.Size = new System.Drawing.Size(99, 42);
-            this.ExitToMainMenubtn.TabIndex = 13;
-            this.ExitToMainMenubtn.Text = "Back to Main Menu";
-            this.ExitToMainMenubtn.UseVisualStyleBackColor = true;
-            this.ExitToMainMenubtn.Click += new System.EventHandler(this.ExitToMainMenubtn_Click);
             // 
             // BaseForm
             // 

@@ -94,7 +94,7 @@ namespace UI
                 if (currentMode == FormMode.Delete)
                 {
 
-                    customerbl.DeleteCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text)));
+                    customerbl.DeleteCustomer(new Entities.Customer("", ReadOneNumtxt.Text, new Entities.CreditCard("", "", "", "")));
                     MessageBox.Show("Customer Deleted");
 
                 }
