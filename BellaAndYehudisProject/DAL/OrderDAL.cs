@@ -165,21 +165,50 @@ namespace DAL
         {
             bool Orderexist = false; // is there such an order?
             //go thru list to find order whose id matches the id of order parameter
-            foreach (Order order in _orders) //loop through orders to see if the ID already exists
+            bool ValidCustomer = false;
+            bool ValidProduct = false;
+            foreach (Order order in _orders) //loop through orders to see if the ID already exists and we can change the customer and oroduct IDs to match
             {
                 if (tmp.OrderNumber == order.OrderNumber)
                 {
                     Orderexist = true;
-                    //change the values of order object in list to match the values of order parameter
-                    order.ProductNumber = tmp.ProductNumber;
-                    order.CustomerID = tmp.CustomerID;
-                    order.OrderQuantity = tmp.OrderQuantity;
+                    // now make sure it is valid to switch the customer and products IDs
+                    List<Customer> custs = _customerDAL.Read();
+                    foreach (Customer customer in custs)   //checking to make sure the new customer id for the order matches one in the list
+                        if (tmp.CustomerID == customer.ID)
+                        {
+                            ValidCustomer = true;  //if so customer becomes valid so true
+                        }
+                    List<Product> prods = _productDAL.Read();  //getting the list of products
+                    foreach (Product product in prods)   ///checking to make sure the product id for the order matches one in the list
+                    {
+                        if (tmp.ProductNumber == product.ProductNumber)
+                        {
+                            ValidProduct = true;  //if so product is valid
+                        }
+                    }
+                    if (ValidCustomer && ValidProduct)  //if both costumer and product are valid then do create
+                    {
+                        //change the values of order object in list to match the values of order parameter
+                        order.ProductNumber = tmp.ProductNumber;
+                        order.CustomerID = tmp.CustomerID;
+                        order.OrderQuantity = tmp.OrderQuantity;
+                    }
+
                 }
             }
             // if the order does not exist throw an exception
             if (Orderexist == false)
             {
                 throw new ExceptionOrderNotExist();
+            }
+            if (!ValidCustomer) //if customer is not valid
+            {
+                throw new ExceptionCustomerNotExist();
+            }
+            if (!ValidProduct)
+            {
+                throw new ExceptionProductNotExist();
             }
         }
         #endregion

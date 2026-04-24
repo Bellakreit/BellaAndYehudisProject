@@ -23,6 +23,7 @@ namespace BL
             try
             {
                 pd1.Create(temp);
+
             }
             catch (ExceptionProductExists){
                 throw;

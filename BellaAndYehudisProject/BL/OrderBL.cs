@@ -11,11 +11,13 @@ namespace BL
 {
     internal class OrderBL
     {
-        public OrderDAL od1;  //instance variable of type OrderDal
+        private readonly OrderDAL od1;  //instance variable of type OrderDal
 
+        private readonly ProductDAL pd1; // this is to update the amount in stock
         public OrderBL(OrderDAL order)   //ctor 
         {
             this.od1 = order;
+            this.pd1 = ProductDAL.Instance;
         }
 
         #region Create
@@ -23,6 +25,12 @@ namespace BL
         {
             try
             {
+                
+                Product p = pd1.Read(temp.ProductNumber);
+                if (p.AmountInStock < temp.OrderQuantity)  //checks if we can create the order
+                    throw new Exception("Not enough in stock.");
+                p.AmountInStock -= temp.OrderQuantity; //takes this away from amnt in stock
+                pd1.Update(p);
                 od1.Create(temp);
             }
             catch (ExceptionCustomerNotExist)
@@ -33,7 +41,7 @@ namespace BL
             {
                 throw;
             }
-}
+        }
         #endregion
 
         #region ReadALL
@@ -94,6 +102,15 @@ namespace BL
         {
             try
             {
+                Order oldo = od1.Read(temp.OrderNumber); // this is the old order
+                Product oldp = pd1.Read(oldo.ProductNumber); // this is the old product
+                Product newp = pd1.Read(temp.ProductNumber); //this is the new product
+                if (newp.AmountInStock < temp.OrderQuantity) //check if we have enough of the new
+                    throw new Exception("Not enough stock");
+                oldp.AmountInStock += oldo.OrderQuantity; //take away the old quantity
+                newp.AmountInStock -= temp.OrderQuantity; //add the new amnt
+                pd1.Update(newp);
+                pd1.Update(oldp);
                 od1.Update(temp);
             }
             catch (ExceptionOrderNotExist)
@@ -101,13 +118,25 @@ namespace BL
                 throw;
 
             }
+            catch (ExceptionProductNotExist)
+            {
+                throw;
+            }
+            catch (ExceptionCustomerNotExist)
+            {
+                throw;
+            }
         }
         #endregion
 
+        #region Delete
         public void Delete(Order temp)    //delete order
         {
             try
             {
+                Product p = pd1.Read(temp.ProductNumber);
+                p.AmountInStock += temp.OrderQuantity;
+                pd1.Update(p);
                 od1.Delete(temp);
             }
             catch (ExceptionOrderNotExist)
@@ -116,6 +145,7 @@ namespace BL
 
             }
         }
+        #endregion
 
     }
 }
