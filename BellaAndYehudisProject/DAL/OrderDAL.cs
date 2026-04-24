@@ -12,7 +12,7 @@ namespace DAL
     {
         private static readonly OrderDAL _instance = new OrderDAL();
         private List<Order> _orders;
-        private ProductDAL _productDAL = ProductDAL._Instance;
+        private ProductDAL _productDAL = ProductDAL.Instance;
         private CustomerDAL _customerDAL = CustomerDAL.Instance;
 
         public OrderDAL()

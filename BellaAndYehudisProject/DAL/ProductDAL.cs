@@ -13,24 +13,36 @@ namespace DAL
 {
     public  class ProductDAL
     {
-        static List<Product> list = new List<Product>();   //this will be list to save the Product objects
-        static bool fileloaded = false;                                              //needs to be static so only one copy is made
+        private static readonly ProductDAL _instance = new ProductDAL();
+        private List<Product> _products;
+        private ProductDAL()
+        {
+            _products = new List<Product>();
+            InitializeList();
+
+        }
+
+        public static ProductDAL Instance => _instance;
+
+        //before using songleton is below
+        //static List<Product> list = new List<Product>();   //this will be list to save the Product objects
+        //static bool fileloaded = false;                                              //needs to be static so only one copy is made
 
         #region ctor
         /// <summary>
         /// ctor to initilize ProductDAL with list from text file
         /// </summary>
-        public ProductDAL()
+        //public ProductDAL()
 
-        {
-            //only make it once
-            if (!fileloaded)
-            {
-                InitalizeList();
-                fileloaded = true;
-            }
+        //{
+        //    //only make it once
+        //    if (!fileloaded)
+        //    {
+        //        InitalizeList();
+        //        fileloaded = true;
+        //    }
             
-        }
+        //}
         //ctor goes here
         //ctor should call method initialize list to fill list with beginning values
         //beginning values are found in a text file
@@ -40,7 +52,7 @@ namespace DAL
         //InitializeList() goes here
         //method reads in values for Product objects from text files
         //creates the objects and add to the list of Product
-        private void InitalizeList()  //made it private so no one else can access it
+        private void InitializeList()  //made it private so no one else can access it
         {
             StreamReader reader = new StreamReader(@"..\..\..\DAL\ProductsFile.txt"); //reading values from text file
             ///read from text file
@@ -56,7 +68,7 @@ namespace DAL
                     string productname = reader.ReadLine();
                     double costperunit = double.Parse(reader.ReadLine());
                     int amountinstock = int.Parse(reader.ReadLine());
-                    list.Add(new Product(productnumber, productname, costperunit, amountinstock));
+                    _products.Add(new Product(productnumber, productname, costperunit, amountinstock));
                 }
 
             }
@@ -75,7 +87,7 @@ namespace DAL
             //check to see if that id already exists in the list
             //add new Person to list.
             //use List method .Add( ) 
-            foreach (Product products in list) //loop through products to see if the ID already exists
+            foreach (Product products in _products) //loop through products to see if the ID already exists
             {
                 if (tmp.ProductNumber == products.ProductNumber)  // if product already exists throw exception
                 {
@@ -84,7 +96,7 @@ namespace DAL
                 }
             }
             Product addition = new Product(tmp.ProductNumber, tmp.ProductName, tmp.CostPerUnit, tmp.AmountInStock);
-            list.Add(addition);
+            _products.Add(addition);
         }
         #endregion
 
@@ -98,7 +110,7 @@ namespace DAL
             // id of parameter
             //when matching id is found, MAKE A COPY OF THE PRODUCT, and return the Product copy
 
-            foreach (Product products in list) //loop through products to see if the ID already exists
+            foreach (Product products in _products) //loop through products to see if the ID already exists
             {
                 if (id == products.ProductNumber)
                 {
@@ -122,7 +134,7 @@ namespace DAL
             //            and add the copy to a new list that you have initialized.
             //             return the new list
             
-            List<Product> newProductList = list.Select(product => new Product(product.ProductNumber,
+            List<Product> newProductList = _products.Select(product => new Product(product.ProductNumber,
             product.ProductName, product.CostPerUnit, product.AmountInStock)).ToList();
 
             return newProductList;
@@ -138,7 +150,7 @@ namespace DAL
         {
             bool productexist = false; // is there such a product?
             //go thru list to find Product whose id matches the id of Product parameter
-            foreach (Product products in list) //loop through products to see if the ID already exists
+            foreach (Product products in _products) //loop through products to see if the ID already exists
             {
                 if (tmp.ProductNumber == products.ProductNumber)
                 {
@@ -169,12 +181,12 @@ namespace DAL
                 //go thru list to find Product whose id matches the id of Product parameter
                 //delete that product from the list
                 //use List method Remove
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < _products.Count; i++)
                 {
-                    if (list[i].ProductNumber == tmp.ProductNumber)
+                    if (_products[i].ProductNumber == tmp.ProductNumber)
                     {
                         productexist = true;
-                        list.Remove(list[i]);
+                        _products.Remove(_products[i]);
                         break;
                     }
 
