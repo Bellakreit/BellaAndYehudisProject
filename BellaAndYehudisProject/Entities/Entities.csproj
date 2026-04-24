@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order.cs" />
     <Compile Include="SalesRep.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="CreditCard.cs" />

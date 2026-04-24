@@ -49,8 +49,10 @@
     <Compile Include="CustomerDAL.cs" />
     <Compile Include="ExceptionCustomerExists.cs" />
     <Compile Include="ExceptionCustomerNotExist.cs" />
+    <Compile Include="ExceptionOrderNotExist.cs" />
     <Compile Include="ExceptionProductNotExist.cs" />
     <Compile Include="ExceptionProductExists.cs" />
+    <Compile Include="OrderDAL.cs" />
     <Compile Include="ProductDAL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CustomersFile.txt" />
+    <Content Include="OrdersFile.txt" />
     <Content Include="ProductsFile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
