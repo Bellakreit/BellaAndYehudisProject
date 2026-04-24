@@ -12,6 +12,7 @@ namespace Entities
         public int ProductNumber { get; set; }
         public string CustomerID { get; set; }
         public int OrderQuantity { get; set; }
+        
         private static int ordernumber = 1;
 
         public int OrderNumber { get; private set; }
@@ -31,6 +32,11 @@ namespace Entities
             //DateTime TimeOfOrder = DateTime.Now;
             ordernumber++;
 
+        }
+
+        public override string ToString()  //tostring for printing
+        {
+            return $"Order #: {OrderNumber}, Product #: {ProductNumber}, Customer ID: {CustomerID}, Quantity: {OrderQuantity}";
         }
 
     }

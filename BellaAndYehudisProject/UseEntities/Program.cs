@@ -127,59 +127,118 @@ namespace UseEntities
             //Product horsy = new Product(35, "horsy", 8.90, 0);
             //pbl.DeleteProduct(horsy);
 
+            //CustomerDAL cust = CustomerDAL.Instance;
+            //Customer c1 = new Customer("Rachel", "234", new CreditCard("Rachel Cohen", "123456788", "7-23", "567"));
+            //cust.Create(c1);
+            //Console.WriteLine(string.Join("\n", cust.Read()));
+            //Console.WriteLine("read one customer");
+            //Console.WriteLine(string.Join("\n", cust.Read("123")));
+            //Console.WriteLine("update bella to bella sara");
+            //Customer cUpdate = new Customer("Bella sara", "123", new CreditCard("Bella Kreit", "12345678901234567", "12/28", "124"));
+            //cust.Update(cUpdate);
+            //Console.WriteLine(string.Join("\n", cust.Read("123")));
+            //Console.WriteLine("delete bella sara ");
+            //cust.Delete(cUpdate);
+            //Console.WriteLine(string.Join("\n", cust.Read()));
+
+            ////CRUD for customers using BL layer
+            ////create a customerBL from the customerDAL
+            //Console.WriteLine("BL layer!");
+            //CustomerBL cbl = new CustomerBL(cust);
+            //Customer cust2 = new Customer("Sara", "342", new CreditCard("Sara Klein", "12345678901234567", "12/28", "124"));
+            //cbl.CreateCustomer(cust2);
+            ////read list
+            //Console.WriteLine(string.Join("\n", cbl.Read()));
+            ////read one customer
+            //Console.WriteLine("reading customer 342:");
+            //Console.WriteLine(string.Join("\n", cbl.Read("342")));
+            ////update list
+            //Console.WriteLine("update customer 342 to Raiza Esther");
+            //Customer custupdate = new Customer("Raiza Esther", "342", new CreditCard("Raiza Esther", "12345678901234567", "12/28", "124"));
+            //cbl.UpdateCustomer(custupdate);
+            //Console.WriteLine(string.Join("\n", cbl.Read("342")));
+            ////delete
+            //Console.WriteLine("delete customer 234");
+            //cbl.DeleteCustomer(c1);
+            //Console.WriteLine(string.Join("\n", cbl.Read()));
+
+            ////exceptions for customers
+            //Console.WriteLine("Test exceptions for customers");
+            ////read wrong customer
+            //Console.WriteLine("reading customer 90:");
+            //Console.WriteLine(string.Join("\n", cbl.Read("90")));
+            ////test delete
+            //Console.WriteLine("deleteing customer that doesnt exist");
+            //Customer cust3 = new Customer("goiop", "690", new CreditCard("goop", "12345678901234567", "12/30", "234"));
+            //cbl.DeleteCustomer(cust3);
+            //Console.WriteLine();
+            ////test create already made
+            //Console.WriteLine("creating a customer that already exist");
+            //cbl.CreateCustomer(cust2);
+            //Console.WriteLine();
+            ////test update
+            //Console.WriteLine("updating a non existent customer");
+            //cbl.UpdateCustomer(cust3);
+            //Console.WriteLine();
+
+            //testing orders
+            //creating a customer
             CustomerDAL cust = CustomerDAL.Instance;
-            Customer c1 = new Customer("Rachel", "234", new CreditCard("Rachel Cohen", "123456788", "7-23", "567"));
-            cust.Create(c1);
-            Console.WriteLine(string.Join("\n", cust.Read()));
-            Console.WriteLine("read one customer");
-            Console.WriteLine(string.Join("\n", cust.Read("123")));
-            Console.WriteLine("update bella to bella sara");
-            Customer cUpdate = new Customer("Bella sara", "123", new CreditCard("Bella Kreit", "12345678901234567", "12/28", "124"));
-            cust.Update(cUpdate);
-            Console.WriteLine(string.Join("\n", cust.Read("123")));
-            Console.WriteLine("delete bella sara ");
-            cust.Delete(cUpdate);
-            Console.WriteLine(string.Join("\n", cust.Read()));
-
-            //CRUD for customers using BL layer
-            //create a customerBL from the customerDAL
-            Console.WriteLine("BL layer!");
             CustomerBL cbl = new CustomerBL(cust);
-            Customer cust2 = new Customer("Sara", "342", new CreditCard("Sara Klein", "12345678901234567", "12/28", "124"));
-            cbl.CreateCustomer(cust2);
-            //read list
-            Console.WriteLine(string.Join("\n", cbl.Read()));
-            //read one customer
-            Console.WriteLine("reading customer 342:");
-            Console.WriteLine(string.Join("\n", cbl.Read("342")));
-            //update list
-            Console.WriteLine("update customer 342 to Raiza Esther");
-            Customer custupdate = new Customer("Raiza Esther", "342", new CreditCard("Raiza Esther", "12345678901234567", "12/28", "124"));
-            cbl.UpdateCustomer(custupdate);
-            Console.WriteLine(string.Join("\n", cbl.Read("342")));
-            //delete
-            Console.WriteLine("delete customer 234");
-            cbl.DeleteCustomer(c1);
-            Console.WriteLine(string.Join("\n", cbl.Read()));
+            Customer cust1 = new Customer("Sara", "342", new CreditCard("Sara Klein", "12345678901234567", "12/28", "124"));
+            cbl.CreateCustomer(cust1);
 
-            //exceptions for customers
-            Console.WriteLine("Test exceptions for customers");
-            //read wrong customer
-            Console.WriteLine("reading customer 90:");
-            Console.WriteLine(string.Join("\n", cbl.Read("90")));
-            //test delete
-            Console.WriteLine("deleteing customer that doesnt exist");
-            Customer cust3 = new Customer("goiop", "690", new CreditCard("goop", "12345678901234567", "12/30", "234"));
-            cbl.DeleteCustomer(cust3);
+            //creating a product
+            ProductDAL pdal = ProductDAL.Instance;
+            ProductBL pbl = new ProductBL(pdal);
+            Product lego = new Product(5, "Lego", 32.89, 50);
+            pbl.CreateProduct(lego); //add lego
+
+            //create an order
+            OrderDAL order = OrderDAL.Instance;
+            OrderBL orderBL = new OrderBL(order);
+            Order order1 = new Order(5, "342", 1);
+            orderBL.CreateOrder(order1);
+
+            //read all orders
+            Console.WriteLine("reading all orders which is one order right now");
+            Console.WriteLine(string.Join("\n", orderBL.Read()));
             Console.WriteLine();
-            //test create already made
-            Console.WriteLine("creating a customer that already exist");
-            cbl.CreateCustomer(cust2);
+
+            //read it by order number
+            Console.WriteLine("reading by order number");
+            Console.WriteLine(string.Join("\n", orderBL.Read(1)));
             Console.WriteLine();
-            //test update
-            Console.WriteLine("updating a non existent customer");
-            cbl.UpdateCustomer(cust3);
+
+            //read by product number
+            Console.WriteLine("reading by product number");
+            Console.WriteLine(string.Join("\n", orderBL.ReadbyProduct(5)));
             Console.WriteLine();
+
+            //read by product number
+            Console.WriteLine("reading by customer number");
+            Console.WriteLine(string.Join("\n", orderBL.ReadbyCustomer("342")));
+            Console.WriteLine();
+
+            //update normal without exceptions
+            Order order1update = new Order(1, "342", 1);
+            orderBL.Update(order1);
+            Console.WriteLine("printing updated order to have product 1");
+            //read all orders
+            Console.WriteLine("reading all orders to see update");
+            Console.WriteLine(string.Join("\n", orderBL.Read()));
+            Console.WriteLine();
+
+            //delete order
+            orderBL.Delete(order1update);
+            Console.WriteLine("deleted order with product 1");
+            //read all orders
+            Console.WriteLine("reading all orders to see update");
+            Console.WriteLine(string.Join("\n", orderBL.Read()));
+            Console.WriteLine();
+
+            //testing exceptions 
+
 
         }
     }

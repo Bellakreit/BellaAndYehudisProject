@@ -32,6 +32,7 @@ namespace DAL
         /// <summary>
         /// ctor to initilize ProductDAL with list from text file
         /// </summary>
+        /// before singleton
         //public ProductDAL()
 
         //{

@@ -9,7 +9,7 @@ using Entities;
 
 namespace BL
 {
-    internal class OrderBL
+    public class OrderBL
     {
         private readonly OrderDAL od1;  //instance variable of type OrderDal
 
@@ -67,7 +67,7 @@ namespace BL
         #endregion
 
         #region read by product
-        public Order ReadbyProduc(int productID) //read one order
+        public Order ReadbyProduct(int productID) //read one order
         { 
             try
             {

@@ -15,7 +15,7 @@ namespace DAL
         private ProductDAL _productDAL = ProductDAL.Instance;
         private CustomerDAL _customerDAL = CustomerDAL.Instance;
 
-        public OrderDAL()
+        private OrderDAL()
         {
             _orders = new List<Order>();
             InitializeList();
