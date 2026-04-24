@@ -185,7 +185,7 @@ namespace UseEntities
             //creating a customer
             CustomerDAL cust = CustomerDAL.Instance;
             CustomerBL cbl = new CustomerBL(cust);
-            Customer cust1 = new Customer("Sara", "342", new CreditCard("Sara Klein", "12345678901234567", "12/28", "124"));
+            Customer cust1 = new Customer("Sara", "555", new CreditCard("Sara Klein", "12345678901234567", "12/28", "124"));
             cbl.CreateCustomer(cust1);
 
             //creating a product
@@ -197,7 +197,7 @@ namespace UseEntities
             //create an order
             OrderDAL order = OrderDAL.Instance;
             OrderBL orderBL = new OrderBL(order);
-            Order order1 = new Order(5, "342", 1);
+            Order order1 = new Order(5, "555", 1);
             orderBL.CreateOrder(order1);
 
             //read all orders
@@ -215,29 +215,33 @@ namespace UseEntities
             Console.WriteLine(string.Join("\n", orderBL.ReadbyProduct(5)));
             Console.WriteLine();
 
-            //read by product number
+            //read by customer number
             Console.WriteLine("reading by customer number");
-            Console.WriteLine(string.Join("\n", orderBL.ReadbyCustomer("342")));
+            Console.WriteLine(string.Join("\n", orderBL.ReadbyCustomer("555")));
             Console.WriteLine();
 
             //update normal without exceptions
-            Order order1update = new Order(1, "342", 1);
-            orderBL.Update(order1);
+            Order order1update = new Order(1, "555", 1, 3);
+            orderBL.Update(order1update);
             Console.WriteLine("printing updated order to have product 1");
             //read all orders
             Console.WriteLine("reading all orders to see update");
             Console.WriteLine(string.Join("\n", orderBL.Read()));
             Console.WriteLine();
 
+
             //delete order
             orderBL.Delete(order1update);
-            Console.WriteLine("deleted order with product 1");
+            Console.WriteLine("deleted order with order number 3");
             //read all orders
-            Console.WriteLine("reading all orders to see update");
+            Console.WriteLine("reading all orders to see after delete");
             Console.WriteLine(string.Join("\n", orderBL.Read()));
             Console.WriteLine();
 
             //testing exceptions 
+            
+            //testing create
+
 
 
         }

@@ -33,6 +33,7 @@ namespace DAL
                     string numberline = reader.ReadLine();
                     if (numberline == null)
                         break;
+                    int savedOrderNumber = int.Parse(numberline);
                     int productnumber = int.Parse(reader.ReadLine());
                     string customerid = reader.ReadLine();
                     int orderquantity = int.Parse(reader.ReadLine());
@@ -63,7 +64,7 @@ namespace DAL
             }
             if (ValidCustomer && ValidProduct)  //if both costumer and product are valid then do create
             {
-                Order order = new Order(tmp.ProductNumber, tmp.CustomerID, tmp.OrderQuantity);
+                Order order = new Order(tmp.ProductNumber, tmp.CustomerID, tmp.OrderQuantity, tmp.OrderNumber);
                 _orders.Add(order);
             }
             else if (ValidProduct) //if product is true that means the customer is not valid
@@ -88,7 +89,7 @@ namespace DAL
             //            and add the copy to a new list that you have initialized.
             //             return the new list
 
-            List<Order> newOrderList = _orders.Select(order => new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity)).ToList();
+            List<Order> newOrderList = _orders.Select(order => new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity, order.OrderNumber)).ToList();
 
             return newOrderList;
         }
@@ -108,7 +109,7 @@ namespace DAL
             {
                 if (id == order.OrderNumber)
                 {
-                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity);
+                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity, order.OrderNumber);
                 }
             }
             // if you reach this - the order does not exist - throw exception
@@ -128,7 +129,7 @@ namespace DAL
             {
                 if (productnumber == order.ProductNumber)  //if match then return it
                 {
-                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity);
+                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity, order.OrderNumber);
                 }
             }
             // if you reach this - the order does not exist - throw exception
@@ -149,7 +150,7 @@ namespace DAL
             {
                 if (customerID == order.CustomerID)  //if match then return it
                 {
-                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity);
+                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity, order.OrderNumber);
                 }
             }
             // if you reach this - the order does not exist - throw exception

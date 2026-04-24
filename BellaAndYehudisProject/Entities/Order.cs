@@ -33,6 +33,14 @@ namespace Entities
             ordernumber++;
 
         }
+        public Order(int productnumber, string customerid, int orderquantity, int ordernumber)  //copy contructor with order number
+        {
+            ProductNumber = productnumber;
+            CustomerID = customerid;
+            OrderQuantity = orderquantity;
+            OrderNumber = ordernumber;  // use the number from the file
+                                        // no increment here
+        }
 
         public override string ToString()  //tostring for printing
         {

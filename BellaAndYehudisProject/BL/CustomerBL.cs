@@ -25,7 +25,8 @@ namespace BL
                 }
                 catch (ExceptionCustomerExists)
                 {
-                    throw;
+                    //throw;
+                    Console.WriteLine("inside an error customer exist");
                     
                 }
             }
