@@ -12,7 +12,7 @@ namespace DAL
     {
         private static readonly OrderDAL _instance = new OrderDAL();
         private List<Order> _orders;
-        private ProductDAL _productDAL = ProductDAL._instance;
+        private ProductDAL _productDAL = ProductDAL._Instance;
         private CustomerDAL _customerDAL = CustomerDAL.Instance;
 
         public OrderDAL()
@@ -45,9 +45,35 @@ namespace DAL
         #region Create
         public void Create(Order tmp)
         {
-            
-            Order order = new Order(tmp.ProductNumber, tmp.CustomerID, tmp.OrderQuantity);
-           _orders.Add(order);
+            bool ValidCustomer = false;  //variables to make sure the product number and customer id exist
+            bool ValidProduct = false;
+            List<Customer> custs = _customerDAL.Read();  //getting the list of customers
+            foreach (Customer customer in custs)   //checking to make sure the customer id for the order matches one in the list
+                if (tmp.CustomerID == customer.ID)
+                {
+                   ValidCustomer = true;  //if so customer becomes valid so true
+                }
+            List<Product> prods = _productDAL.Read();  //getting the list of products
+            foreach (Product product in prods)   ///checking to make sure the product id for the order matches one in the list
+            {
+                if (tmp.ProductNumber == product.ProductNumber)
+                {
+                    ValidProduct = true;  //if so product is valid
+                }
+            }
+            if (ValidCustomer && ValidProduct)  //if both costumer and product are valid then do create
+            {
+                Order order = new Order(tmp.ProductNumber, tmp.CustomerID, tmp.OrderQuantity);
+                _orders.Add(order);
+            }
+            else if (ValidProduct) //if product is true that means the customer is not valid
+            {
+                throw new ExceptionCustomerNotExist();
+            }
+            else 
+            {
+                throw new ExceptionProductNotExist();
+            }
         }
         #endregion
 
@@ -94,8 +120,44 @@ namespace DAL
         #region Read by Product
         public Order ReadbyProduct(int productnumber)
         {
+            //loop thru list checking to see if currentorder ojbect's product number matches
+            // productnumber of parameter
+            //when matching product number is found, return the order copy
+
+            foreach (Order order in _orders) //loop through orders to see if the Product number already exists
+            {
+                if (productnumber == order.ProductNumber)  //if match then return it
+                {
+                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity);
+                }
+            }
+            // if you reach this - the order does not exist - throw exception
+            throw
+                new ExceptionOrderNotExist();
 
         }
+        #endregion
+
+        #region Read by Customer
+        public Order ReadbyCustomer(string customerID)
+        {
+            //loop thru list checking to see if currentorder ojbect's product number matches
+            // productnumber of parameter
+            //when matching product number is found, return the order copy
+
+            foreach (Order order in _orders) //loop through orders to see if the Product number already exists
+            {
+                if (customerID == order.CustomerID)  //if match then return it
+                {
+                    return new Order(order.ProductNumber, order.CustomerID, order.OrderQuantity);
+                }
+            }
+            // if you reach this - the order does not exist - throw exception
+            throw
+                new ExceptionOrderNotExist();
+        }
+        #endregion
+
         #region Update
         //method Update to change some values of a order
 

@@ -28,6 +28,7 @@ namespace Entities
             CustomerID = customerid;
             OrderQuantity = orderquantity;
             OrderNumber = ordernumber;
+            //DateTime TimeOfOrder = DateTime.Now;
             ordernumber++;
 
         }

@@ -40,7 +40,7 @@ namespace DAL
         //InitializeList() goes here
         //method reads in values for Product objects from text files
         //creates the objects and add to the list of Product
-        public void InitalizeList()
+        private void InitalizeList()  //made it private so no one else can access it
         {
             StreamReader reader = new StreamReader(@"..\..\..\DAL\ProductsFile.txt"); //reading values from text file
             ///read from text file
