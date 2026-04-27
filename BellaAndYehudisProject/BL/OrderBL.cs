@@ -35,11 +35,13 @@ namespace BL
             }
             catch (ExceptionCustomerNotExist)
             {
-                throw;
+                //throw;
+                Console.WriteLine("this customer does not exist");
             }
-            catch (ExceptionProductNotExist)
+            catch (ExceptionProductNotExist ex)
             {
-                throw;
+                //throw;
+                Console.WriteLine(ex.Message);
             }
         }
         #endregion
@@ -58,10 +60,11 @@ namespace BL
             {
                 return od1.Read(id);
             }
-            catch (ExceptionOrderNotExist)
+            catch (ExceptionOrderNotExist ex)
             {
-                throw;
-
+                //throw;
+                Console.WriteLine(ex.Message);
+                return null;
             }
         }
         #endregion
@@ -73,10 +76,11 @@ namespace BL
             {
                 return od1.ReadbyProduct(productID);
             }
-            catch (ExceptionOrderNotExist)
+            catch (ExceptionOrderNotExist ex)
             {
-                throw;
-
+                //throw;
+                Console.WriteLine(ex.Message);
+                return null;
             }
         }
         #endregion
@@ -88,10 +92,11 @@ namespace BL
             {
                 return od1.ReadbyCustomer(custID);
             }
-            catch (ExceptionOrderNotExist)
+            catch (ExceptionOrderNotExist ex)
             {
-                throw;
-
+                //throw;
+                Console.WriteLine(ex.Message);
+                return null;
             }
         }
         #endregion
@@ -106,25 +111,31 @@ namespace BL
                 Product oldp = pd1.Read(oldo.ProductNumber); // this is the old product
                 Product newp = pd1.Read(temp.ProductNumber); //this is the new product
                 if (newp.AmountInStock < temp.OrderQuantity) //check if we have enough of the new
-                    throw new Exception("Not enough stock");
+                    throw new ExceptionNotEnoughStock();
                 oldp.AmountInStock += oldo.OrderQuantity; //take away the old quantity
                 newp.AmountInStock -= temp.OrderQuantity; //add the new amnt
                 pd1.Update(newp);
                 pd1.Update(oldp);
                 od1.Update(temp);
             }
-            catch (ExceptionOrderNotExist)
+            catch (ExceptionOrderNotExist ex)
             {
-                throw;
-
+                //throw;
+                Console.WriteLine(ex.Message);
             }
-            catch (ExceptionProductNotExist)
+            catch (ExceptionProductNotExist ex)
             {
-                throw;
+                //throw;
+                Console.WriteLine(ex.Message);
             }
-            catch (ExceptionCustomerNotExist)
+            catch (ExceptionCustomerNotExist ex)
             {
-                throw;
+                //throw;
+                Console.WriteLine(ex.Message);
+            }
+            catch(ExceptionNotEnoughStock ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
         #endregion
@@ -139,10 +150,10 @@ namespace BL
                 pd1.Update(p);
                 od1.Delete(temp);
             }
-            catch (ExceptionOrderNotExist)
+            catch (ExceptionOrderNotExist ex)
             {
-                throw;
-
+                //throw;
+                Console.WriteLine(ex.Message);
             }
         }
         #endregion

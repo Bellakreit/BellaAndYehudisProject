@@ -49,6 +49,7 @@
     <Compile Include="CustomerDAL.cs" />
     <Compile Include="ExceptionCustomerExists.cs" />
     <Compile Include="ExceptionCustomerNotExist.cs" />
+    <Compile Include="ExceptionNotEnoughStock.cs" />
     <Compile Include="ExceptionOrderNotExist.cs" />
     <Compile Include="ExceptionProductNotExist.cs" />
     <Compile Include="ExceptionProductExists.cs" />

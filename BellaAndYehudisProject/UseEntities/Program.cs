@@ -239,10 +239,42 @@ namespace UseEntities
             Console.WriteLine();
 
             //testing exceptions 
-            
+            Console.WriteLine();
+            Console.WriteLine("testing create");
             //testing create
+            Console.WriteLine("testing wrong product #");
+            Order order3 = new Order(65, "555", 1);
+            orderBL.CreateOrder(order3);
 
+            Console.WriteLine("testing wrong customer #");
+            Order order4 = new Order(1, "64645", 3);
+            orderBL.CreateOrder(order4);
+            Console.WriteLine();
+            Console.WriteLine("testing Read");
+            Console.WriteLine("testing order, product, and customer doesnt exist:");
 
+            orderBL.Read(23);
+            orderBL.ReadbyProduct(65);
+            orderBL.ReadbyCustomer("42342");
+            Console.WriteLine();
+            Console.WriteLine("testing update");
+
+            Console.WriteLine("cannot update to this product:");
+            Order order8 = new Order(18913, "123", 1, 1);
+            orderBL.Update(order8);
+            Console.WriteLine("no such order to update:");
+            Order order9 = new Order(1, "123", 1, 90);
+            orderBL.Update(order9);
+            Order Order6 = new Order(1, "123", 4, 1);
+            Console.WriteLine("not enough in stock:");
+            orderBL.Update(Order6);
+            Console.WriteLine("cannot update to this customer:");
+            Order order7 = new Order(1, "54673", 1, 1);
+            orderBL.Update(order7);
+            Console.WriteLine();
+            Console.WriteLine("testing delete");
+            orderBL.Delete(order9);
+            
 
         }
     }
