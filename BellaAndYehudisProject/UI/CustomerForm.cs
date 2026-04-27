@@ -19,7 +19,7 @@ namespace UI
         public CustomerForm()
         {
             InitializeComponent();
-            customerbl = new CustomerBL(new DAL.CustomerDAL());
+            customerbl = new CustomerBL(CustomerDAL.Instance);
             ConfigureForm();
         }
         protected override void ConfigureForm()
@@ -28,9 +28,9 @@ namespace UI
             lblField2.Text = "Customer ID";
             lblField3.Text = "Cardholder Name";
             lblField4.Text = "Credit Card Number";
-            lblField5.Text = "Exp Date:";
-            lblField6.Text = "CVC:";
-            ShowOnelbl.Text = "Customer ID";
+            lblField5.Visible = false;
+            lblField6.Visible = false;
+            ShowOnelbl.Text = "Order ID";
         }
         private void newProductsForm_Load(object sender, EventArgs e) { }  //CREATED ACCIDENTLY
         #region Enter Create and update button
@@ -157,7 +157,7 @@ namespace UI
                     }
                 }
             }
-            }
+        }
     }
 }
 

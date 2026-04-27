@@ -18,7 +18,7 @@ namespace UI
         public NEWProductsForm()
         {
             InitializeComponent();
-            productbl = new ProductBL(new DAL.ProductDAL());
+            productbl = new ProductBL(ProductDAL.Instance);
             ConfigureForm();
             //txtField1.TextChanged += txtField1_TextChanged;
         }
