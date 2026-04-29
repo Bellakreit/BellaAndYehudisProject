@@ -30,11 +30,46 @@
         {
             this.SuspendLayout();
             // 
+            // txtField4
+            // 
+            this.txtField4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            // 
+            // txtField3
+            // 
+            this.txtField3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            // 
+            // txtField2
+            // 
+            this.txtField2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            // 
+            // txtField1
+            // 
+            this.txtField1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            // 
+            // ReadOneNumtxt
+            // 
+            this.ReadOneNumtxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            // 
+            // ReadAlltxt
+            // 
+            this.ReadAlltxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ReadAlltxt.Size = new System.Drawing.Size(1340, 732);
+            // 
+            // txtField6
+            // 
+            this.txtField6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            // 
+            // txtField5
+            // 
+            this.txtField5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            // 
             // OrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1736, 703);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "OrderForm";
             this.Text = "OrderForm";
             this.Load += new System.EventHandler(this.OrderForm_Load);

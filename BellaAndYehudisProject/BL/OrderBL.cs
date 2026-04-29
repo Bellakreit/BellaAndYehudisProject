@@ -35,13 +35,13 @@ namespace BL
             }
             catch (ExceptionCustomerNotExist)
             {
-                //throw;
-                Console.WriteLine("this customer does not exist");
+                throw;
+                //Console.WriteLine("this customer does not exist");
             }
-            catch (ExceptionProductNotExist ex)
+            catch (ExceptionProductNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
+                throw;
+                //Console.WriteLine(ex.Message);
             }
         }
         #endregion
@@ -60,11 +60,11 @@ namespace BL
             {
                 return od1.Read(id);
             }
-            catch (ExceptionOrderNotExist ex)
+            catch (ExceptionOrderNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
-                return null;
+                throw;
+                //Console.WriteLine(ex.Message);
+                //return null;
             }
         }
         #endregion
@@ -76,11 +76,11 @@ namespace BL
             {
                 return od1.ReadbyProduct(productID);
             }
-            catch (ExceptionOrderNotExist ex)
+            catch (ExceptionOrderNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
-                return null;
+                throw;
+                //Console.WriteLine(ex.Message);
+                //return null;
             }
         }
         #endregion
@@ -92,11 +92,11 @@ namespace BL
             {
                 return od1.ReadbyCustomer(custID);
             }
-            catch (ExceptionOrderNotExist ex)
+            catch (ExceptionOrderNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
-                return null;
+                throw;
+                //Console.WriteLine(ex.Message);
+                //return null;
             }
         }
         #endregion
@@ -118,24 +118,25 @@ namespace BL
                 pd1.Update(oldp);
                 od1.Update(temp);
             }
-            catch (ExceptionOrderNotExist ex)
+            catch (ExceptionOrderNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
+                throw;
+                //Console.WriteLine(ex.Message);
             }
-            catch (ExceptionProductNotExist ex)
+            catch (ExceptionProductNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
+                throw;
+                //Console.WriteLine(ex.Message);
             }
-            catch (ExceptionCustomerNotExist ex)
+            catch (ExceptionCustomerNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
+                throw;
+                //Console.WriteLine(ex.Message);
             }
-            catch(ExceptionNotEnoughStock ex)
+            catch(ExceptionNotEnoughStock)
             {
-                Console.WriteLine(ex.Message);
+                throw;
+                //Console.WriteLine(ex.Message);
             }
         }
         #endregion
@@ -150,10 +151,10 @@ namespace BL
                 pd1.Update(p);
                 od1.Delete(temp);
             }
-            catch (ExceptionOrderNotExist ex)
+            catch (ExceptionOrderNotExist)
             {
-                //throw;
-                Console.WriteLine(ex.Message);
+                throw;
+                //Console.WriteLine(ex.Message);
             }
         }
         #endregion

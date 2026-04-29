@@ -1,5 +1,6 @@
 ﻿using BL;
 using DAL;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +46,7 @@ namespace UI
                 }
                 if (currentMode == FormMode.Update) ///update
                 {
-                    orderbl.CreateOrder(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text), int.Parse(txtField1.Text)));
+                    orderbl.Update(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text), int.Parse(txtField1.Text)));
                     MessageBox.Show("Order Updated");
                 }
             }
@@ -65,7 +66,7 @@ namespace UI
         protected override void ReadAllMethod()
         {
 
-            ReadAlltxt.AppendText(Text = "Product Number, Customer ID, Order Quantity, Order Number"); //adding column headers
+            ReadAlltxt.AppendText(Text = "Order Number, Product Number, Customer ID, Order Quantity\r\n "); //adding column headers
             foreach (Entities.Order order in orderbl.Read())
             {
                 ReadAlltxt.AppendText($"{order.ToString()}" + "\r\n"); //adding each order to the text box
@@ -75,10 +76,38 @@ namespace UI
         #endregion
 
         #region Enter read one button
+        protected override void EnterReadOnebtnMethod()
+        {
+
+            try
+            {
+                if (currentMode == FormMode.ReadOne)
+                {
+
+                    ShowOnelbl.Text = "Customer ID";
+                    ReadAlltxt.AppendText(Text = $"{orderbl.ReadbyCustomer(ReadOneNumtxt.Text)}");
+                }
+
+                if (currentMode == FormMode.Delete)
+                {
+                    //get new panel to come up
+                    orderbl.Delete(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text), int.Parse(txtField1.Text)));
+                    MessageBox.Show("Order Deleted");
+
+                }
+            }
+            catch (ExceptionCustomerNotExist ex) /// exception handeling
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
         #endregion
 
 
-        private void txtField2_TextChanged_1(object sender, EventArgs e)
+
+        private void txtField2_TextChanged_1(object sender, EventArgs e)  //autofill 
         {
             if (txtField2.Text == "")  //if tehre is nothing in first text box then clear the rest
             {

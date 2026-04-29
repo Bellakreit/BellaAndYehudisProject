@@ -237,5 +237,10 @@ namespace UI
         {
             this.Close();
         }
+
+        //private void OrderShowOnepanel1_Paint(object sender, PaintEventArgs e)  //by accident
+        //{
+        //    OrderShowOnepanel1.Visible = false;
+        //}
     }
 }
