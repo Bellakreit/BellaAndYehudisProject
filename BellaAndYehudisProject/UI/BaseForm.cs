@@ -18,6 +18,9 @@ namespace UI
             InitializeComponent();
             
         }
+        /// <summary>
+        /// make a method to change the labels texts in each form
+        /// </summary>
         protected virtual void ConfigureForm()
         {
             lblField1.Text = "Field 1";
@@ -260,6 +263,12 @@ namespace UI
         {
 
         }
+
+        private void ShowOnetxt1_TextChanged(object sender, EventArgs e)
+        {
+            ShowOneTextMethod();
+        }
+        protected virtual void ShowOneTextMethod() { }
 
         //private void OrderShowOnepanel1_Paint(object sender, PaintEventArgs e)  //by accident
         //{

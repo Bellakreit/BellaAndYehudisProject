@@ -63,18 +63,20 @@
             // txtField1
             // 
             this.txtField1.Margin = new System.Windows.Forms.Padding(3);
+            this.txtField1.TextChanged += new System.EventHandler(this.txtField1_TextChanged);
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1187, 611);
+            this.ClientSize = new System.Drawing.Size(1363, 611);
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "OrderForm";
             this.Text = "OrderForm";
             this.Load += new System.EventHandler(this.OrderForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

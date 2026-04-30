@@ -24,12 +24,12 @@ namespace UI
         }
         protected override void ConfigureForm()
         {
-            lblField1.Text = "Customer Name";
-            lblField2.Text = "Customer ID";
+            lblField1.Text = "Customer ID";
+            lblField2.Text = "Customer Name";
             lblField3.Text = "Cardholder Name";
             lblField4.Text = "Credit Card Number";
-            lblField5.Visible = false;
-            lblField6.Visible = false;
+            lblField5.Text = "Exp date";
+            lblField6.Text = "CVC";
             ShowOnelbl1.Text = "Customer ID";
             ShowOnelbl2.Visible = false;
             ShowOnelbl3.Visible = false;
@@ -47,13 +47,13 @@ namespace UI
                 if (currentMode == FormMode.Create)  //create
                 {
 
-                    customerbl.CreateCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, (new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text))));
+                    customerbl.CreateCustomer(new Entities.Customer(txtField2.Text, txtField1.Text, (new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text))));
                     MessageBox.Show("Customer Created");
 
                 }
                 if (currentMode == FormMode.Update) ///update
                 {
-                    customerbl.UpdateCustomer(new Entities.Customer(txtField1.Text, txtField2.Text, new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text)));
+                    customerbl.UpdateCustomer(new Entities.Customer(txtField2.Text, txtField1.Text, new Entities.CreditCard(txtField3.Text, txtField4.Text, txtField5.Text, txtField6.Text)));
                     MessageBox.Show("Customer Updated");
 
                 }
@@ -130,9 +130,20 @@ namespace UI
 
         private void txtField2_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtField2.Text == "")  //if tehre is nothing in first text box then clear the rest
+
+            
+        }
+
+        private void lblField1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtField1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtField1.Text == "")  //if tehre is nothing in first text box then clear the rest
             {
-                txtField1.Clear();
+                txtField2.Clear();
                 txtField3.Clear();
                 txtField4.Clear();
                 txtField5.Clear();
@@ -143,9 +154,9 @@ namespace UI
 
                 foreach (Entities.Customer customer in customerbl.Read())  //go through the products and find the one that matches id
                 {
-                    if (txtField2.Text == customer.ID)  //if they match change the rest of text boxes with the corresponding details
+                    if (txtField1.Text == customer.ID)  //if they match change the rest of text boxes with the corresponding details
                     {
-                        txtField1.Text = customer.Name;
+                        txtField2.Text = customer.Name;
                         txtField3.Text = customer.creditCard.CCOwner;
                         txtField4.Text = customer.creditCard.CreditCardNumber;
                         txtField5.Text = customer.creditCard.ExpDate;
@@ -154,7 +165,7 @@ namespace UI
                     }
                     else
                     {
-                        txtField1.Clear();
+                        txtField2.Clear();
                         txtField3.Clear();
                         txtField4.Clear();
                         txtField5.Clear();

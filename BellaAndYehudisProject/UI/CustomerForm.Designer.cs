@@ -34,13 +34,22 @@
             // 
             this.txtField2.TextChanged += new System.EventHandler(this.txtField2_TextChanged_1);
             // 
+            // lblField1
+            // 
+            this.lblField1.Click += new System.EventHandler(this.lblField1_Click);
+            // 
+            // txtField1
+            // 
+            this.txtField1.TextChanged += new System.EventHandler(this.txtField1_TextChanged);
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1195, 577);
+            this.ClientSize = new System.Drawing.Size(1363, 610);
             this.Name = "CustomerForm";
             this.Text = "Customers";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

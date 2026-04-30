@@ -69,6 +69,7 @@
             // 
             // ReadAllpanel
             // 
+            this.ReadAllpanel.AutoScroll = true;
             this.ReadAllpanel.Controls.Add(this.ReadOnePanel);
             this.ReadAllpanel.Controls.Add(this.ExitReadAllbtn);
             this.ReadAllpanel.Controls.Add(this.ReadAlltxt);
@@ -83,6 +84,7 @@
             // 
             // ReadOnePanel
             // 
+            this.ReadOnePanel.AutoScroll = true;
             this.ReadOnePanel.Controls.Add(this.SearchBox);
             this.ReadOnePanel.Controls.Add(this.ShowOnetxt3);
             this.ReadOnePanel.Controls.Add(this.ShowOnelbl3);
@@ -91,7 +93,7 @@
             this.ReadOnePanel.Controls.Add(this.ShowOnetxt1);
             this.ReadOnePanel.Controls.Add(this.ShowOnelbl1);
             this.ReadOnePanel.Controls.Add(this.EnterReadOnebtn);
-            this.ReadOnePanel.Location = new System.Drawing.Point(37, 56);
+            this.ReadOnePanel.Location = new System.Drawing.Point(43, 38);
             this.ReadOnePanel.Margin = new System.Windows.Forms.Padding(2);
             this.ReadOnePanel.Name = "ReadOnePanel";
             this.ReadOnePanel.Size = new System.Drawing.Size(929, 410);
@@ -150,6 +152,7 @@
             this.ShowOnetxt1.Name = "ShowOnetxt1";
             this.ShowOnetxt1.Size = new System.Drawing.Size(201, 40);
             this.ShowOnetxt1.TabIndex = 3;
+            this.ShowOnetxt1.TextChanged += new System.EventHandler(this.ShowOnetxt1_TextChanged);
             // 
             // ShowOnelbl1
             // 
@@ -179,7 +182,7 @@
             this.ExitReadAllbtn.Name = "ExitReadAllbtn";
             this.ExitReadAllbtn.Size = new System.Drawing.Size(120, 41);
             this.ExitReadAllbtn.TabIndex = 1;
-            this.ExitReadAllbtn.Text = "Exit";
+            this.ExitReadAllbtn.Text = "Clear";
             this.ExitReadAllbtn.UseVisualStyleBackColor = true;
             this.ExitReadAllbtn.Click += new System.EventHandler(this.ExitReadAllbtn_Click);
             // 
@@ -277,6 +280,7 @@
             // 
             // CreatePanel
             // 
+            this.CreatePanel.AutoSize = true;
             this.CreatePanel.Controls.Add(this.txtField6);
             this.CreatePanel.Controls.Add(this.txtField5);
             this.CreatePanel.Controls.Add(this.lblField6);
@@ -352,7 +356,7 @@
             // 
             // txtField4
             // 
-            this.txtField4.Location = new System.Drawing.Point(214, 196);
+            this.txtField4.Location = new System.Drawing.Point(296, 194);
             this.txtField4.Margin = new System.Windows.Forms.Padding(2);
             this.txtField4.Name = "txtField4";
             this.txtField4.Size = new System.Drawing.Size(280, 36);
@@ -372,7 +376,7 @@
             // 
             // txtField3
             // 
-            this.txtField3.Location = new System.Drawing.Point(215, 153);
+            this.txtField3.Location = new System.Drawing.Point(297, 151);
             this.txtField3.Margin = new System.Windows.Forms.Padding(2);
             this.txtField3.Name = "txtField3";
             this.txtField3.Size = new System.Drawing.Size(280, 36);
@@ -391,7 +395,7 @@
             // 
             // txtField2
             // 
-            this.txtField2.Location = new System.Drawing.Point(215, 105);
+            this.txtField2.Location = new System.Drawing.Point(297, 103);
             this.txtField2.Margin = new System.Windows.Forms.Padding(2);
             this.txtField2.Name = "txtField2";
             this.txtField2.Size = new System.Drawing.Size(280, 36);
@@ -421,7 +425,7 @@
             // 
             // txtField1
             // 
-            this.txtField1.Location = new System.Drawing.Point(214, 56);
+            this.txtField1.Location = new System.Drawing.Point(296, 54);
             this.txtField1.Margin = new System.Windows.Forms.Padding(2);
             this.txtField1.Name = "txtField1";
             this.txtField1.Size = new System.Drawing.Size(280, 36);
@@ -432,6 +436,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1398, 739);
             this.Controls.Add(this.CreatePanel);
             this.Controls.Add(this.ReadAllpanel);
@@ -447,6 +452,7 @@
             this.CreatePanel.ResumeLayout(false);
             this.CreatePanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
