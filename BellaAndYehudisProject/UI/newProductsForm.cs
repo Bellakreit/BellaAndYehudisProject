@@ -1,5 +1,6 @@
 ﻿using BL;
 using DAL;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,11 +33,6 @@ namespace UI
             lblField6.Visible = false;
             txtField5.Visible = false;
             txtField6.Visible = false;
-            ShowOnelbl2.Visible = false;
-            ShowOnelbl3.Visible = false;
-            ShowOnetxt2.Visible = false;
-            ShowOnetxt3.Visible = false;
-            SearchBox.Visible = false;
             ShowOnelbl1.Text = "Product Number:";
         }
 
@@ -89,7 +85,7 @@ namespace UI
 
         protected override void EnterReadOnebtnMethod()
         {
-
+            //this is used for read and delete
 
             try
             {
@@ -129,7 +125,9 @@ namespace UI
         {
 
         }
-
+        /// <summary>
+        /// autofill the update / create boxes with the info you give it
+        /// </summary>
         protected override void TextChangeMethod()
         {
             if (txtField1.Text == "")  //if tehre is nothing in first text box then clear the rest
@@ -159,6 +157,57 @@ namespace UI
                     }
                 }
 
+            }
+        }
+
+        protected override void DeleteMethod()  //when delete is clicked make the proper fields visible and named correctly
+        {
+            SearchBox.Visible = false;
+            ShowOnelbl2.Visible = true;
+            ShowOnelbl3.Visible = true;
+            ShowOnetxt2.Visible = true;
+            ShowOnetxt3.Visible = true;
+            ShowOnelbl2.Text = "Product Name";
+            ShowOnelbl3.Text = "Cost Per Unit";
+        }
+        protected override void ReadOneMethod()
+        {
+            SearchBox.Visible = false;
+            ShowOnelbl2.Visible = false;
+            ShowOnelbl3.Visible = false;
+            ShowOnetxt2.Visible = false;
+            ShowOnetxt3.Visible = false;
+
+        }
+        protected override void ShowOneTextMethod()   //autofill for the show one text boxes
+        {
+       
+            if (currentMode == FormMode.Delete)   //autofill for read one is different then delete becuase it has different fields
+            {
+                if (ShowOnetxt1.Text == "")  //if tehre is nothing in first text box then clear the rest
+                {
+                    ShowOnetxt2.Clear();
+                    ShowOnetxt3.Clear();
+                }
+                else
+                {
+
+                    foreach (Entities.Product p in productbl.Read())  //go through the and find the one that matches id
+                    {
+                        if (int.Parse(ShowOnetxt1.Text) == p.ProductNumber)  //if they match change the rest of text boxes with the corresponding details
+                        {
+                            ShowOnetxt2.Text = $"{p.ProductName}";
+                            ShowOnetxt3.Text = $"{p.CostPerUnit}";
+                            break;  //break because you found it
+                        }
+                        else
+                        {
+                            ShowOnetxt2.Clear();
+                            ShowOnetxt3.Clear();
+
+                        }
+                    }
+                }
             }
         }
 

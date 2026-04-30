@@ -31,11 +31,6 @@ namespace UI
             lblField5.Text = "Exp date";
             lblField6.Text = "CVC";
             ShowOnelbl1.Text = "Customer ID";
-            ShowOnelbl2.Visible = false;
-            ShowOnelbl3.Visible = false;
-            ShowOnetxt2.Visible = false;
-            ShowOnetxt3.Visible = false;
-            SearchBox.Visible = false;
         }
         private void newProductsForm_Load(object sender, EventArgs e) { }  //CREATED ACCIDENTLY
         #region Enter Create and update button
@@ -174,6 +169,56 @@ namespace UI
                 }
             }
         }
+        protected override void DeleteMethod()  //when delete is clicked make the proper fields visible and named correctly
+        {
+            SearchBox.Visible = false;
+            ShowOnelbl2.Visible = true;
+            ShowOnelbl3.Visible = false;
+            ShowOnetxt2.Visible = true;
+            ShowOnetxt3.Visible = false;
+            ShowOnelbl2.Text = "Customer Name";
+        }
+        protected override void ReadOneMethod()
+        {
+            SearchBox.Visible = false;
+            ShowOnelbl2.Visible = false;
+            ShowOnelbl3.Visible = false;
+            ShowOnetxt2.Visible = false;
+            ShowOnetxt3.Visible = false;
+
+        }
+        protected override void ShowOneTextMethod()   //autofill for the show one text boxes
+        {
+
+            if (currentMode == FormMode.Delete)   //autofill for read one is different then delete becuase it has different fields
+            {
+                if (ShowOnetxt1.Text == "")  //if tehre is nothing in first text box then clear the rest
+                {
+                    ShowOnetxt2.Clear();
+                    
+                }
+                else
+                {
+
+                    foreach (Entities.Customer c in customerbl.Read())  //go through the and find the one that matches id
+                    {
+                        if (ShowOnetxt1.Text == c.ID)  //if they match change the rest of text boxes with the corresponding details
+                        {
+                            ShowOnetxt2.Text = $"{c.Name}";
+                            
+                            break;  //break because you found it
+                        }
+                        else
+                        {
+                            ShowOnetxt2.Clear();
+                            
+
+                        }
+                    }
+                }
+            }
+        }
     }
-}
+    }
+
 
