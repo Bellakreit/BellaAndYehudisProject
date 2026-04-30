@@ -21,7 +21,8 @@ namespace BL
         }
 
         #region Create
-        public void CreateOrder(Order temp) //create order
+        //public void CreateOrder(Order temp) //create order
+        public void CreateOrder(int productNum, string Customerid, int Qauntity)
         {
             try
             {
@@ -32,7 +33,8 @@ namespace BL
                 //p.AmountInStock -= temp.OrderQuantity; //takes this away from amnt in stock
                 //pd1.Update(p);
 
-                od1.Create(temp);
+                //od1.Create(temp);
+                od1.Create(productNum, Customerid, Qauntity);
             }
             catch (ExceptionCustomerNotExist)
             {

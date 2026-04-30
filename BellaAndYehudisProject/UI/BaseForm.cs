@@ -89,7 +89,7 @@ namespace UI
             CloseAllPanels();
             ClearAll();
             ReadAlltxt.Clear();
-            if (ReadAllpanel.Visible == true) //making the panel visible
+            if (ReadAllpanel.Visible == true) //making the panel visible if it is not already visible, if it is visible make it invisible
             {
                 ReadAllpanel.Visible = false;
             }

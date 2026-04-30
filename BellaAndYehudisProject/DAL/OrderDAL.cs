@@ -44,7 +44,8 @@ namespace DAL
         }
 
         #region Create
-        public void Create(Order tmp)
+        //public void Create(Order tmp)
+        public void Create(int productNum, string Customerid, int Quantity)
         {
             bool ValidCustomer = false;  //variables to make sure the product number and customer id exist
             bool ValidProduct = false;
@@ -52,7 +53,8 @@ namespace DAL
 
             foreach (Customer customer in custs)   //checking to make sure the customer id for the order matches one in the list
             {
-                if (tmp.CustomerID == customer.ID)
+                //if (tmp.CustomerID == customer.ID)
+                if (Customerid == customer.ID)
                 {
                     ValidCustomer = true;  //if so customer becomes valid so true
                     break;
@@ -62,7 +64,8 @@ namespace DAL
             List<Product> prods = _productDAL.Read();  //getting the list of products
             foreach (Product product in prods)   ///checking to make sure the product id for the order matches one in the list
             {
-                if (tmp.ProductNumber == product.ProductNumber)
+                //if (tmp.ProductNumber == product.ProductNumber)
+                if (productNum == product.ProductNumber)
                 {
                     ValidProduct = true;  //if so product is valid
                     break;
@@ -70,12 +73,19 @@ namespace DAL
             }
             if (ValidCustomer == true && ValidProduct == true)  //if both costumer and product are valid then do create
             {
-                Product p = _productDAL.Read(tmp.ProductNumber);
-                if (p.AmountInStock < tmp.OrderQuantity)  //checks if we can create the order
+                //Product p = _productDAL.Read(tmp.ProductNumber);
+                //if (p.AmountInStock < tmp.OrderQuantity)  //checks if we can create the order
+                //    throw new ExceptionNotEnoughStock();
+                //p.AmountInStock -= tmp.OrderQuantity; //takes this away from amnt in stock
+                //_productDAL.Update(p);
+                //Order order = new Order(tmp.ProductNumber, tmp.CustomerID, tmp.OrderQuantity, tmp.OrderNumber);
+                //_orders.Add(order);
+                Product p = _productDAL.Read(productNum);
+                if (p.AmountInStock < Quantity)  //checks if we can create the order
                     throw new ExceptionNotEnoughStock();
-                p.AmountInStock -= tmp.OrderQuantity; //takes this away from amnt in stock
+                p.AmountInStock -= Quantity; //takes this away from amnt in stock
                 _productDAL.Update(p);
-                Order order = new Order(tmp.ProductNumber, tmp.CustomerID, tmp.OrderQuantity, tmp.OrderNumber);
+                Order order = new Order(productNum, Customerid, Quantity);
                 _orders.Add(order);
             }
             else if (ValidCustomer == false) //if product is true that means the customer is not valid

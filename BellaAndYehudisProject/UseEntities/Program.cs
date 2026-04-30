@@ -198,7 +198,7 @@ namespace UseEntities
             OrderDAL order = OrderDAL.Instance;
             OrderBL orderBL = new OrderBL(order);
             Order order1 = new Order(5, "555", 1);
-            orderBL.CreateOrder(order1);
+            //orderBL.CreateOrder(order1);
 
             //read all orders
             Console.WriteLine("reading all orders which is one order right now");
@@ -244,11 +244,11 @@ namespace UseEntities
             //testing create
             Console.WriteLine("testing wrong product #");
             Order order3 = new Order(65, "555", 1);
-            orderBL.CreateOrder(order3);
+            //orderBL.CreateOrder(order3);
 
             Console.WriteLine("testing wrong customer #");
             Order order4 = new Order(1, "64645", 3);
-            orderBL.CreateOrder(order4);
+            //orderBL.CreateOrder(order4);
             Console.WriteLine();
             Console.WriteLine("testing Read");
             Console.WriteLine("testing order, product, and customer doesnt exist:");

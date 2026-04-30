@@ -47,17 +47,17 @@ namespace UI
         /// <summary>
         /// for create - we dont want the option to put in an order number
         /// </summary>
-        protected override void Create_Method()
+        protected override void Create_Method()  //when create is clicked make the proper fields visible and named correctly
         {
             lblField1.Visible = false;
             txtField1.Visible = false;
         }
-        protected override void UpdateMethod()
+        protected override void UpdateMethod()  //when update is clicked make the proper fields visible and named correctly
         {
             lblField1.Visible = true;
             txtField1.Visible = true;
         }
-        protected override void EnterCreatebtnMethod()
+        protected override void EnterCreatebtnMethod()  //when the enter button for create or update is clicked
         {
             try
             {
@@ -65,7 +65,8 @@ namespace UI
                 if (currentMode == FormMode.Create)  //create
                 {
                     //create the order
-                    orderbl.CreateOrder(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text)));
+                    //orderbl.CreateOrder(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text)));
+                    orderbl.CreateOrder(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text));
                     MessageBox.Show("Order Created");
 
                 }
@@ -89,7 +90,7 @@ namespace UI
 
         #region Read All Button 
 
-        protected override void ReadAllMethod()
+        protected override void ReadAllMethod()  //when read all is clicked
         {
             ///read all
 
@@ -102,41 +103,62 @@ namespace UI
 
         #endregion
 
-        protected override void ReadOneMethod()
+        protected override void ReadOneMethod()  //when read one is clicked make the proper fields visible and named correctly
         {
             SearchBox.Visible = true;
             ShowOnelbl1.Visible = true;
             ShowOnetxt1.Visible = true;
+            ShowOnelbl3.Text = "Customer ID";
         }
-        protected override void DeleteMethod()
+        protected override void DeleteMethod()  //when delete is clicked make the proper fields visible and named correctly
         {
             SearchBox.Visible = false;
-            ShowOnelbl1.Text = "Order ID";
             ShowOnelbl3.Text = "Order Quantity";
         }
+
+
         #region Enter read one button
-        protected override void EnterReadOnebtnMethod()
+        protected override void EnterReadOnebtnMethod()  //when the enter button for read one or delete is clicked
         {
 
             try
             {
-                if (currentMode == FormMode.ReadOne)
+                if (currentMode == FormMode.ReadOne)  // if read one was clicked 
                 {
                     /// read one
-                    lblField1.Visible = true;
-                    lblField1.Text = "Order Number";
-                    ReadAlltxt.AppendText(Text = $"{orderbl.ReadbyCustomer(ShowOnetxt1.Text)}");
+                    ReadAlltxt.AppendText(Text = " Order Number, Product Number, Customer ID, Order Quantity\r\n\n "); //adding column headers
+                    if (ShowOnetxt2.Text != "" && ShowOnetxt1.Text == "" && ShowOnetxt3.Text == "")  //if only the product is in
+                    {
+                        ReadAlltxt.AppendText(Text = $"{orderbl.ReadbyProduct(int.Parse(ShowOnetxt2.Text))}");  //use product read method
+                    }
+                    else if (ShowOnetxt3.Text != "" && ShowOnetxt1.Text == "" && ShowOnetxt2.Text == "")  //if only the customer is in
+                    {
+                        ReadAlltxt.AppendText(Text = $"{orderbl.ReadbyCustomer(ShowOnetxt3.Text)}");  //use customer read method
+                    }
+                    else  //if the order is filled in then call read by order number
+                    {
+                        ReadAlltxt.AppendText(Text = $"{orderbl.Read(int.Parse(ShowOnetxt1.Text))}");
+                    }
                 }
 
-                if (currentMode == FormMode.Delete)
+                if (currentMode == FormMode.Delete)  //if delete was clicked
                 {
-                    
+                    //calling the delete method with the user input
                     orderbl.Delete(new Entities.Order(int.Parse(ShowOnetxt2.Text), "", int.Parse(ShowOnetxt3.Text), int.Parse(ShowOnetxt1.Text)));
                     MessageBox.Show("Order Deleted");
 
                 }
             }
             catch (ExceptionCustomerNotExist ex) /// exception handeling
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(FormatException ex)
+            {
+                ex = new FormatException("Please fill all fields with valid entries");
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -147,7 +169,7 @@ namespace UI
 
 
         
-        private void txtField2_TextChanged_1(object sender, EventArgs e)  //autofill 
+        private void txtField2_TextChanged_1(object sender, EventArgs e)  //mistake autofill 
         {
 
         }
@@ -157,35 +179,69 @@ namespace UI
         {
 
         }
-        protected override void ShowOneTextMethod() 
+
+        #region autofill methods
+        protected override void ShowOneTextMethod()   //autofill for the show one text boxes
         {
-            if (ShowOnetxt1.Text == "")  //if tehre is nothing in first text box then clear the rest
+            if (currentMode == FormMode.ReadOne)   //autofill for read one is different then delete becuase it has different fields
             {
-                ShowOnetxt2.Clear();
-                ShowOnetxt3.Clear();
-            }
-            else
-            {
-
-                foreach (Entities.Order order in orderbl.Read())  //go through the and find the one that matches id
+                if (ShowOnetxt1.Text == "")  //if tehre is nothing in first text box then clear the rest
                 {
-                    if (int.Parse(ShowOnetxt1.Text) == order.OrderNumber)  //if they match change the rest of text boxes with the corresponding details
-                    {
-                        ShowOnetxt2.Text = $"{order.ProductNumber}";
-                        ShowOnetxt3.Text = $"{order.OrderQuantity}";
-                        break;  //break because you found it
-                    }
-                    else
-                    {
-                        ShowOnetxt2.Clear();
-                        ShowOnetxt3.Clear();
-
-                    }
+                    ShowOnetxt2.Clear();
+                    ShowOnetxt3.Clear();
                 }
+                else
+                {
+
+                    foreach (Entities.Order order in orderbl.Read())  //go through the and find the one that matches id
+                    {
+                        if (int.Parse(ShowOnetxt1.Text) == order.OrderNumber)  //if they match change the rest of text boxes with the corresponding details
+                        {
+                            ShowOnetxt2.Text = $"{order.ProductNumber}";
+                            ShowOnetxt3.Text = $"{order.CustomerID}";
+                            break;  //break because you found it
+                        }
+                        else
+                        {
+                            ShowOnetxt2.Clear();
+                            ShowOnetxt3.Clear();
+
+                        }
+                    }
                 }
             }
 
-        private void txtField1_TextChanged(object sender, EventArgs e)
+            if (currentMode == FormMode.Delete)   //autofill for read one is different then delete becuase it has different fields
+            {
+                if (ShowOnetxt1.Text == "")  //if tehre is nothing in first text box then clear the rest
+                {
+                    ShowOnetxt2.Clear();
+                    ShowOnetxt3.Clear();
+                }
+                else
+                {
+
+                    foreach (Entities.Order order in orderbl.Read())  //go through the and find the one that matches id
+                    {
+                        if (int.Parse(ShowOnetxt1.Text) == order.OrderNumber)  //if they match change the rest of text boxes with the corresponding details
+                        {
+                            ShowOnetxt2.Text = $"{order.ProductNumber}";
+                            ShowOnetxt3.Text = $"{order.OrderQuantity}";
+                            break;  //break because you found it
+                        }
+                        else
+                        {
+                            ShowOnetxt2.Clear();
+                            ShowOnetxt3.Clear();
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void txtField1_TextChanged(object sender, EventArgs e)   //autofill for the update text boxes
         {
             if (txtField1.Text == "")  //if tehre is nothing in first text box then clear the rest
             {
@@ -202,7 +258,7 @@ namespace UI
                     {
                         txtField2.Text = order.CustomerID;
                         txtField3.Text = $"{order.ProductNumber}";
-                        txtField4.Text = $"{order.OrderNumber}";
+                        txtField4.Text = $"{order.OrderQuantity}";
                         break;  //break because you found it
                     }
                     else
@@ -215,5 +271,7 @@ namespace UI
                 }
             }
         }
+
+        #endregion
     }
 }

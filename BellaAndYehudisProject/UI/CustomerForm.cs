@@ -139,7 +139,7 @@ namespace UI
 
         }
 
-        private void txtField1_TextChanged(object sender, EventArgs e)
+        private void txtField1_TextChanged(object sender, EventArgs e) //autofill
         {
             if (txtField1.Text == "")  //if tehre is nothing in first text box then clear the rest
             {
