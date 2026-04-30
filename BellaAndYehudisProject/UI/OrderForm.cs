@@ -32,16 +32,14 @@ namespace UI
             txtField5.Visible = false;
             txtField6.Visible = false;
             lblField6.Visible = false;
-            ShowOnelbl1.Text = "Order Number";
-            ShowOnelbl2.Text = "Product Number";
-            ShowOnelbl3.Text = "Customer ID";
-
-
+            ShowOnelbl1.Visible = false;
+            ShowOnetxt1.Visible = false;
         }
         #region Enter Create and update button
+
         protected override void Create_Method()
         {
-            lblField1.Visible = false; 
+            lblField1.Visible = false;
             txtField1.Visible = false;
         }
         protected override void EnterCreatebtnMethod()
@@ -50,15 +48,12 @@ namespace UI
             {
                 if (currentMode == FormMode.Create)  //create
                 {
-
-
                     orderbl.CreateOrder(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text)));
                     MessageBox.Show("Order Created");
 
                 }
                 if (currentMode == FormMode.Update) ///update
                 {
-
                     orderbl.Update(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text), int.Parse(txtField1.Text)));
                     MessageBox.Show("Order Updated");
                 }
@@ -66,6 +61,7 @@ namespace UI
             catch (Exception ex) ///catch any exceptions that may occur during the create or update process and display an error message to the user.
             {
                 MessageBox.Show(ex.Message);
+                MessageBox.Show("CAUGHT: " + ex.GetType().Name + " | " + ex.Message);
             }
         }
         private void OrderForm_Load(object sender, EventArgs e)
@@ -89,8 +85,6 @@ namespace UI
         #endregion
 
         #region Enter read one button
-        protected override void ReadOneMethod() { SearchBox.Visible = true; }
-        protected override void DeleteMethod() { SearchBox.Visible = false;  ShowOnelbl3.Text = "Order Quantity:"; }
         protected override void EnterReadOnebtnMethod()
         {
 
@@ -98,6 +92,7 @@ namespace UI
             {
                 if (currentMode == FormMode.ReadOne)
                 {
+                    
                     lblField1.Visible = true;
                     lblField1.Text = "Order Number";
                     ReadAlltxt.AppendText(Text = $"{orderbl.ReadbyCustomer(ShowOnetxt1.Text)}");
@@ -105,8 +100,8 @@ namespace UI
 
                 if (currentMode == FormMode.Delete)
                 {
-                    //get new panel to come up
-                    orderbl.Delete(new Entities.Order(int.Parse(ShowOnetxt2.Text), "", int.Parse(ShowOnetxt3.Text), int.Parse(ShowOnetxt1.Text)));    
+                    
+                    orderbl.Delete(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text), int.Parse(txtField1.Text)));
                     MessageBox.Show("Order Deleted");
 
                 }

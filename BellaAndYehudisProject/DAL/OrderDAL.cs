@@ -49,25 +49,36 @@ namespace DAL
             bool ValidCustomer = false;  //variables to make sure the product number and customer id exist
             bool ValidProduct = false;
             List<Customer> custs = _customerDAL.Read();  //getting the list of customers
+
             foreach (Customer customer in custs)   //checking to make sure the customer id for the order matches one in the list
+            {
                 if (tmp.CustomerID == customer.ID)
                 {
-                   ValidCustomer = true;  //if so customer becomes valid so true
+                    ValidCustomer = true;  //if so customer becomes valid so true
+                    break;
                 }
+            }
+
             List<Product> prods = _productDAL.Read();  //getting the list of products
             foreach (Product product in prods)   ///checking to make sure the product id for the order matches one in the list
             {
                 if (tmp.ProductNumber == product.ProductNumber)
                 {
                     ValidProduct = true;  //if so product is valid
+                    break;
                 }
             }
-            if (ValidCustomer && ValidProduct)  //if both costumer and product are valid then do create
+            if (ValidCustomer == true && ValidProduct == true)  //if both costumer and product are valid then do create
             {
+                Product p = _productDAL.Read(tmp.ProductNumber);
+                if (p.AmountInStock < tmp.OrderQuantity)  //checks if we can create the order
+                    throw new ExceptionNotEnoughStock();
+                p.AmountInStock -= tmp.OrderQuantity; //takes this away from amnt in stock
+                _productDAL.Update(p);
                 Order order = new Order(tmp.ProductNumber, tmp.CustomerID, tmp.OrderQuantity, tmp.OrderNumber);
                 _orders.Add(order);
             }
-            else if (ValidProduct) //if product is true that means the customer is not valid
+            else if (ValidCustomer == false) //if product is true that means the customer is not valid
             {
                 throw new ExceptionCustomerNotExist();
             }

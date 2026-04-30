@@ -26,11 +26,12 @@ namespace BL
             try
             {
                 
-                Product p = pd1.Read(temp.ProductNumber);
-                if (p.AmountInStock < temp.OrderQuantity)  //checks if we can create the order
-                    throw new Exception("Not enough in stock.");
-                p.AmountInStock -= temp.OrderQuantity; //takes this away from amnt in stock
-                pd1.Update(p);
+                //Product p = pd1.Read(temp.ProductNumber);
+                //if (p.AmountInStock < temp.OrderQuantity)  //checks if we can create the order
+                //    throw new Exception("Not enough in stock.");
+                //p.AmountInStock -= temp.OrderQuantity; //takes this away from amnt in stock
+                //pd1.Update(p);
+
                 od1.Create(temp);
             }
             catch (ExceptionCustomerNotExist)
@@ -43,6 +44,10 @@ namespace BL
                 throw;
                 //Console.WriteLine(ex.Message);
             }
+            catch (ExceptionNotEnoughStock)
+            {
+                throw;
+            } 
         }
         #endregion
 
