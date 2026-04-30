@@ -26,7 +26,9 @@ namespace UI
             lblField4.Text = "Field 4";
             lblField5.Text = "Field 5";
             lblField6.Text = "Field 6";
-            ShowOnelbl.Text = "Show One";
+            ShowOnelbl1.Text = "Show One";
+            ShowOnelbl2.Text = "";
+            ShowOnelbl3.Text = "";
         }
         private void CloseAllPanels()
         {
@@ -51,7 +53,9 @@ namespace UI
             txtField4.Clear();
             txtField5.Clear();
             txtField6.Clear();
-            ReadOneNumtxt.Clear();
+            ShowOnetxt1.Clear();
+            ShowOnetxt2.Clear();
+            ShowOnetxt3.Clear();
         }
       
 
@@ -169,7 +173,7 @@ namespace UI
         {
             EnterReadOnebtnMethod();
             ReadOnePanel.Visible = false;
-            ReadOneNumtxt.Clear();
+            ShowOnetxt1.Clear();
         }
         protected virtual void EnterReadOnebtnMethod() { }
 
@@ -236,6 +240,11 @@ namespace UI
         private void ExitToMainMenubtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         //private void OrderShowOnepanel1_Paint(object sender, PaintEventArgs e)  //by accident

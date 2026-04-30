@@ -31,8 +31,8 @@
             this.ReadAllpanel = new System.Windows.Forms.Panel();
             this.ReadOnePanel = new System.Windows.Forms.Panel();
             this.EnterReadOnebtn = new System.Windows.Forms.Button();
-            this.ReadOneNumtxt = new System.Windows.Forms.TextBox();
-            this.ShowOnelbl = new System.Windows.Forms.Label();
+            this.ShowOnetxt1 = new System.Windows.Forms.TextBox();
+            this.ShowOnelbl1 = new System.Windows.Forms.Label();
             this.ExitReadAllbtn = new System.Windows.Forms.Button();
             this.ReadAlltxt = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
@@ -43,19 +43,24 @@
             this.ReadAllbtn = new System.Windows.Forms.Button();
             this.Createbtn = new System.Windows.Forms.Button();
             this.CreatePanel = new System.Windows.Forms.Panel();
-            this.txtField1 = new System.Windows.Forms.TextBox();
-            this.lblField1 = new System.Windows.Forms.Label();
-            this.lblField2 = new System.Windows.Forms.Label();
-            this.txtField2 = new System.Windows.Forms.TextBox();
-            this.lblField3 = new System.Windows.Forms.Label();
-            this.txtField3 = new System.Windows.Forms.TextBox();
-            this.lblField4 = new System.Windows.Forms.Label();
-            this.txtField4 = new System.Windows.Forms.TextBox();
-            this.EnterCreatebtn = new System.Windows.Forms.Button();
-            this.lblField5 = new System.Windows.Forms.Label();
-            this.lblField6 = new System.Windows.Forms.Label();
-            this.txtField5 = new System.Windows.Forms.TextBox();
             this.txtField6 = new System.Windows.Forms.TextBox();
+            this.txtField5 = new System.Windows.Forms.TextBox();
+            this.lblField6 = new System.Windows.Forms.Label();
+            this.lblField5 = new System.Windows.Forms.Label();
+            this.EnterCreatebtn = new System.Windows.Forms.Button();
+            this.txtField4 = new System.Windows.Forms.TextBox();
+            this.lblField4 = new System.Windows.Forms.Label();
+            this.txtField3 = new System.Windows.Forms.TextBox();
+            this.lblField3 = new System.Windows.Forms.Label();
+            this.txtField2 = new System.Windows.Forms.TextBox();
+            this.lblField2 = new System.Windows.Forms.Label();
+            this.lblField1 = new System.Windows.Forms.Label();
+            this.txtField1 = new System.Windows.Forms.TextBox();
+            this.ShowOnetxt2 = new System.Windows.Forms.TextBox();
+            this.ShowOnelbl2 = new System.Windows.Forms.Label();
+            this.ShowOnetxt3 = new System.Windows.Forms.TextBox();
+            this.ShowOnelbl3 = new System.Windows.Forms.Label();
+            this.SearchBox = new System.Windows.Forms.TextBox();
             this.ReadAllpanel.SuspendLayout();
             this.ReadOnePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -67,55 +72,66 @@
             this.ReadAllpanel.Controls.Add(this.ReadOnePanel);
             this.ReadAllpanel.Controls.Add(this.ExitReadAllbtn);
             this.ReadAllpanel.Controls.Add(this.ReadAlltxt);
-            this.ReadAllpanel.Location = new System.Drawing.Point(-4, 11);
+            this.ReadAllpanel.Location = new System.Drawing.Point(-3, 7);
+            this.ReadAllpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReadAllpanel.Name = "ReadAllpanel";
-            this.ReadAllpanel.Size = new System.Drawing.Size(1485, 819);
+            this.ReadAllpanel.Size = new System.Drawing.Size(990, 524);
             this.ReadAllpanel.TabIndex = 12;
             this.ReadAllpanel.Visible = false;
             this.ReadAllpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReadAllpanel_Paint);
             // 
             // ReadOnePanel
             // 
+            this.ReadOnePanel.Controls.Add(this.SearchBox);
+            this.ReadOnePanel.Controls.Add(this.ShowOnetxt3);
+            this.ReadOnePanel.Controls.Add(this.ShowOnelbl3);
+            this.ReadOnePanel.Controls.Add(this.ShowOnetxt2);
+            this.ReadOnePanel.Controls.Add(this.ShowOnelbl2);
             this.ReadOnePanel.Controls.Add(this.EnterReadOnebtn);
-            this.ReadOnePanel.Controls.Add(this.ReadOneNumtxt);
-            this.ReadOnePanel.Controls.Add(this.ShowOnelbl);
-            this.ReadOnePanel.Location = new System.Drawing.Point(22, 12);
+            this.ReadOnePanel.Controls.Add(this.ShowOnetxt1);
+            this.ReadOnePanel.Controls.Add(this.ShowOnelbl1);
+            this.ReadOnePanel.Location = new System.Drawing.Point(132, 77);
+            this.ReadOnePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReadOnePanel.Name = "ReadOnePanel";
-            this.ReadOnePanel.Size = new System.Drawing.Size(816, 56);
+            this.ReadOnePanel.Size = new System.Drawing.Size(533, 235);
             this.ReadOnePanel.TabIndex = 4;
             this.ReadOnePanel.Visible = false;
             // 
             // EnterReadOnebtn
             // 
-            this.EnterReadOnebtn.Location = new System.Drawing.Point(522, 5);
+            this.EnterReadOnebtn.Location = new System.Drawing.Point(399, 167);
+            this.EnterReadOnebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EnterReadOnebtn.Name = "EnterReadOnebtn";
-            this.EnterReadOnebtn.Size = new System.Drawing.Size(176, 42);
+            this.EnterReadOnebtn.Size = new System.Drawing.Size(117, 27);
             this.EnterReadOnebtn.TabIndex = 4;
             this.EnterReadOnebtn.Text = "Enter";
             this.EnterReadOnebtn.UseVisualStyleBackColor = true;
             this.EnterReadOnebtn.Click += new System.EventHandler(this.EnterReadOnebtn_Click);
             // 
-            // ReadOneNumtxt
+            // ShowOnetxt1
             // 
-            this.ReadOneNumtxt.Location = new System.Drawing.Point(195, 11);
-            this.ReadOneNumtxt.Name = "ReadOneNumtxt";
-            this.ReadOneNumtxt.Size = new System.Drawing.Size(300, 31);
-            this.ReadOneNumtxt.TabIndex = 3;
+            this.ShowOnetxt1.Location = new System.Drawing.Point(125, 98);
+            this.ShowOnetxt1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ShowOnetxt1.Name = "ShowOnetxt1";
+            this.ShowOnetxt1.Size = new System.Drawing.Size(201, 22);
+            this.ShowOnetxt1.TabIndex = 3;
             // 
-            // ShowOnelbl
+            // ShowOnelbl1
             // 
-            this.ShowOnelbl.AutoSize = true;
-            this.ShowOnelbl.Location = new System.Drawing.Point(10, 14);
-            this.ShowOnelbl.Name = "ShowOnelbl";
-            this.ShowOnelbl.Size = new System.Drawing.Size(179, 25);
-            this.ShowOnelbl.TabIndex = 2;
-            this.ShowOnelbl.Text = "Product Number: ";
+            this.ShowOnelbl1.AutoSize = true;
+            this.ShowOnelbl1.Location = new System.Drawing.Point(2, 100);
+            this.ShowOnelbl1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ShowOnelbl1.Name = "ShowOnelbl1";
+            this.ShowOnelbl1.Size = new System.Drawing.Size(110, 16);
+            this.ShowOnelbl1.TabIndex = 2;
+            this.ShowOnelbl1.Text = "Product Number: ";
             // 
             // ExitReadAllbtn
             // 
-            this.ExitReadAllbtn.Location = new System.Drawing.Point(1104, 458);
+            this.ExitReadAllbtn.Location = new System.Drawing.Point(736, 293);
+            this.ExitReadAllbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ExitReadAllbtn.Name = "ExitReadAllbtn";
-            this.ExitReadAllbtn.Size = new System.Drawing.Size(180, 41);
+            this.ExitReadAllbtn.Size = new System.Drawing.Size(120, 26);
             this.ExitReadAllbtn.TabIndex = 1;
             this.ExitReadAllbtn.Text = "Exit";
             this.ExitReadAllbtn.UseVisualStyleBackColor = true;
@@ -123,10 +139,11 @@
             // 
             // ReadAlltxt
             // 
-            this.ReadAlltxt.Location = new System.Drawing.Point(22, 73);
+            this.ReadAlltxt.Location = new System.Drawing.Point(2, 49);
+            this.ReadAlltxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReadAlltxt.Multiline = true;
             this.ReadAlltxt.Name = "ReadAlltxt";
-            this.ReadAlltxt.Size = new System.Drawing.Size(1340, 470);
+            this.ReadAlltxt.Size = new System.Drawing.Size(895, 302);
             this.ReadAlltxt.TabIndex = 0;
             // 
             // MainPanel
@@ -137,17 +154,17 @@
             this.MainPanel.Controls.Add(this.ReadOnebtn);
             this.MainPanel.Controls.Add(this.ReadAllbtn);
             this.MainPanel.Controls.Add(this.Createbtn);
-            this.MainPanel.Location = new System.Drawing.Point(1516, 131);
+            this.MainPanel.Location = new System.Drawing.Point(1011, 84);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(260, 512);
+            this.MainPanel.Size = new System.Drawing.Size(173, 328);
             this.MainPanel.TabIndex = 10;
             // 
             // ExitToMainMenubtn
             // 
-            this.ExitToMainMenubtn.Location = new System.Drawing.Point(50, 422);
-            this.ExitToMainMenubtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ExitToMainMenubtn.Location = new System.Drawing.Point(33, 270);
             this.ExitToMainMenubtn.Name = "ExitToMainMenubtn";
-            this.ExitToMainMenubtn.Size = new System.Drawing.Size(148, 66);
+            this.ExitToMainMenubtn.Size = new System.Drawing.Size(99, 42);
             this.ExitToMainMenubtn.TabIndex = 13;
             this.ExitToMainMenubtn.Text = "Back to Main Menu";
             this.ExitToMainMenubtn.UseVisualStyleBackColor = true;
@@ -155,9 +172,10 @@
             // 
             // Deletebtn
             // 
-            this.Deletebtn.Location = new System.Drawing.Point(32, 338);
+            this.Deletebtn.Location = new System.Drawing.Point(21, 216);
+            this.Deletebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Deletebtn.Name = "Deletebtn";
-            this.Deletebtn.Size = new System.Drawing.Size(182, 55);
+            this.Deletebtn.Size = new System.Drawing.Size(121, 35);
             this.Deletebtn.TabIndex = 4;
             this.Deletebtn.Text = "Delete";
             this.Deletebtn.UseVisualStyleBackColor = true;
@@ -165,9 +183,10 @@
             // 
             // Updatebtn
             // 
-            this.Updatebtn.Location = new System.Drawing.Point(32, 262);
+            this.Updatebtn.Location = new System.Drawing.Point(21, 168);
+            this.Updatebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Updatebtn.Name = "Updatebtn";
-            this.Updatebtn.Size = new System.Drawing.Size(183, 55);
+            this.Updatebtn.Size = new System.Drawing.Size(122, 35);
             this.Updatebtn.TabIndex = 3;
             this.Updatebtn.Text = "Update";
             this.Updatebtn.UseVisualStyleBackColor = true;
@@ -175,9 +194,10 @@
             // 
             // ReadOnebtn
             // 
-            this.ReadOnebtn.Location = new System.Drawing.Point(32, 188);
+            this.ReadOnebtn.Location = new System.Drawing.Point(21, 120);
+            this.ReadOnebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReadOnebtn.Name = "ReadOnebtn";
-            this.ReadOnebtn.Size = new System.Drawing.Size(182, 58);
+            this.ReadOnebtn.Size = new System.Drawing.Size(121, 37);
             this.ReadOnebtn.TabIndex = 2;
             this.ReadOnebtn.Text = "Show One";
             this.ReadOnebtn.UseVisualStyleBackColor = true;
@@ -185,9 +205,10 @@
             // 
             // ReadAllbtn
             // 
-            this.ReadAllbtn.Location = new System.Drawing.Point(32, 106);
+            this.ReadAllbtn.Location = new System.Drawing.Point(21, 68);
+            this.ReadAllbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReadAllbtn.Name = "ReadAllbtn";
-            this.ReadAllbtn.Size = new System.Drawing.Size(182, 56);
+            this.ReadAllbtn.Size = new System.Drawing.Size(121, 36);
             this.ReadAllbtn.TabIndex = 1;
             this.ReadAllbtn.Text = "Show All";
             this.ReadAllbtn.UseVisualStyleBackColor = true;
@@ -195,9 +216,10 @@
             // 
             // Createbtn
             // 
-            this.Createbtn.Location = new System.Drawing.Point(32, 31);
+            this.Createbtn.Location = new System.Drawing.Point(21, 20);
+            this.Createbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Createbtn.Name = "Createbtn";
-            this.Createbtn.Size = new System.Drawing.Size(182, 53);
+            this.Createbtn.Size = new System.Drawing.Size(121, 34);
             this.Createbtn.TabIndex = 0;
             this.Createbtn.Text = "Create";
             this.Createbtn.UseVisualStyleBackColor = true;
@@ -218,137 +240,197 @@
             this.CreatePanel.Controls.Add(this.lblField2);
             this.CreatePanel.Controls.Add(this.lblField1);
             this.CreatePanel.Controls.Add(this.txtField1);
-            this.CreatePanel.Location = new System.Drawing.Point(5, 7);
+            this.CreatePanel.Location = new System.Drawing.Point(0, 0);
+            this.CreatePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CreatePanel.Name = "CreatePanel";
-            this.CreatePanel.Size = new System.Drawing.Size(1089, 636);
+            this.CreatePanel.Size = new System.Drawing.Size(726, 294);
             this.CreatePanel.TabIndex = 11;
             this.CreatePanel.Visible = false;
             this.CreatePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.CreatePanel_Paint);
             // 
-            // txtField1
+            // txtField6
             // 
-            this.txtField1.Location = new System.Drawing.Point(284, 38);
-            this.txtField1.Name = "txtField1";
-            this.txtField1.Size = new System.Drawing.Size(418, 31);
-            this.txtField1.TabIndex = 0;
-            this.txtField1.TextChanged += new System.EventHandler(this.txtField1_TextChanged);
+            this.txtField6.Location = new System.Drawing.Point(336, 159);
+            this.txtField6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtField6.Name = "txtField6";
+            this.txtField6.Size = new System.Drawing.Size(90, 22);
+            this.txtField6.TabIndex = 12;
+            this.txtField6.TextChanged += new System.EventHandler(this.txtField6_TextChanged);
             // 
-            // lblField1
+            // txtField5
             // 
-            this.lblField1.AutoSize = true;
-            this.lblField1.Location = new System.Drawing.Point(33, 47);
-            this.lblField1.Name = "lblField1";
-            this.lblField1.Size = new System.Drawing.Size(179, 25);
-            this.lblField1.TabIndex = 1;
-            this.lblField1.Text = "Product Number: ";
-            this.lblField1.Click += new System.EventHandler(this.ProductNumlabel_Click);
+            this.txtField5.Location = new System.Drawing.Point(161, 159);
+            this.txtField5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtField5.Name = "txtField5";
+            this.txtField5.Size = new System.Drawing.Size(96, 22);
+            this.txtField5.TabIndex = 11;
+            this.txtField5.TextChanged += new System.EventHandler(this.txtField5_TextChanged);
             // 
-            // lblField2
+            // lblField6
             // 
-            this.lblField2.AutoSize = true;
-            this.lblField2.Location = new System.Drawing.Point(33, 95);
-            this.lblField2.Name = "lblField2";
-            this.lblField2.Size = new System.Drawing.Size(160, 25);
-            this.lblField2.TabIndex = 2;
-            this.lblField2.Text = "Product Name: ";
+            this.lblField6.AutoSize = true;
+            this.lblField6.Location = new System.Drawing.Point(295, 165);
+            this.lblField6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblField6.Name = "lblField6";
+            this.lblField6.Size = new System.Drawing.Size(37, 16);
+            this.lblField6.TabIndex = 10;
+            this.lblField6.Text = "CVC:";
+            this.lblField6.Click += new System.EventHandler(this.lblField6_Click);
             // 
-            // txtField2
+            // lblField5
             // 
-            this.txtField2.Location = new System.Drawing.Point(284, 86);
-            this.txtField2.Name = "txtField2";
-            this.txtField2.Size = new System.Drawing.Size(418, 31);
-            this.txtField2.TabIndex = 3;
-            this.txtField2.TextChanged += new System.EventHandler(this.txtField2_TextChanged);
-            // 
-            // lblField3
-            // 
-            this.lblField3.AutoSize = true;
-            this.lblField3.Location = new System.Drawing.Point(33, 144);
-            this.lblField3.Name = "lblField3";
-            this.lblField3.Size = new System.Drawing.Size(146, 25);
-            this.lblField3.TabIndex = 4;
-            this.lblField3.Text = "Cost per unit: ";
-            // 
-            // txtField3
-            // 
-            this.txtField3.Location = new System.Drawing.Point(284, 138);
-            this.txtField3.Name = "txtField3";
-            this.txtField3.Size = new System.Drawing.Size(418, 31);
-            this.txtField3.TabIndex = 5;
-            this.txtField3.TextChanged += new System.EventHandler(this.txtField3_TextChanged);
-            // 
-            // lblField4
-            // 
-            this.lblField4.AutoSize = true;
-            this.lblField4.Location = new System.Drawing.Point(33, 192);
-            this.lblField4.Name = "lblField4";
-            this.lblField4.Size = new System.Drawing.Size(182, 25);
-            this.lblField4.TabIndex = 6;
-            this.lblField4.Text = "Number in Stock: ";
-            this.lblField4.Click += new System.EventHandler(this.lblField4_Click);
-            // 
-            // txtField4
-            // 
-            this.txtField4.Location = new System.Drawing.Point(284, 186);
-            this.txtField4.Name = "txtField4";
-            this.txtField4.Size = new System.Drawing.Size(418, 31);
-            this.txtField4.TabIndex = 7;
-            this.txtField4.TextChanged += new System.EventHandler(this.txtField4_TextChanged);
+            this.lblField5.AutoSize = true;
+            this.lblField5.Location = new System.Drawing.Point(92, 162);
+            this.lblField5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblField5.Name = "lblField5";
+            this.lblField5.Size = new System.Drawing.Size(65, 16);
+            this.lblField5.TabIndex = 9;
+            this.lblField5.Text = "Exp Date:";
+            this.lblField5.Click += new System.EventHandler(this.label1_Click);
             // 
             // EnterCreatebtn
             // 
-            this.EnterCreatebtn.Location = new System.Drawing.Point(284, 366);
+            this.EnterCreatebtn.Location = new System.Drawing.Point(189, 234);
+            this.EnterCreatebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EnterCreatebtn.Name = "EnterCreatebtn";
-            this.EnterCreatebtn.Size = new System.Drawing.Size(171, 53);
+            this.EnterCreatebtn.Size = new System.Drawing.Size(114, 34);
             this.EnterCreatebtn.TabIndex = 8;
             this.EnterCreatebtn.Text = "Enter";
             this.EnterCreatebtn.UseVisualStyleBackColor = true;
             this.EnterCreatebtn.Click += new System.EventHandler(this.EnterCreatebtn_Click);
             // 
-            // lblField5
+            // txtField4
             // 
-            this.lblField5.AutoSize = true;
-            this.lblField5.Location = new System.Drawing.Point(138, 253);
-            this.lblField5.Name = "lblField5";
-            this.lblField5.Size = new System.Drawing.Size(106, 25);
-            this.lblField5.TabIndex = 9;
-            this.lblField5.Text = "Exp Date:";
-            this.lblField5.Click += new System.EventHandler(this.label1_Click);
+            this.txtField4.Location = new System.Drawing.Point(189, 119);
+            this.txtField4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtField4.Name = "txtField4";
+            this.txtField4.Size = new System.Drawing.Size(280, 22);
+            this.txtField4.TabIndex = 7;
+            this.txtField4.TextChanged += new System.EventHandler(this.txtField4_TextChanged);
             // 
-            // lblField6
+            // lblField4
             // 
-            this.lblField6.AutoSize = true;
-            this.lblField6.Location = new System.Drawing.Point(442, 258);
-            this.lblField6.Name = "lblField6";
-            this.lblField6.Size = new System.Drawing.Size(62, 25);
-            this.lblField6.TabIndex = 10;
-            this.lblField6.Text = "CVC:";
-            this.lblField6.Click += new System.EventHandler(this.lblField6_Click);
+            this.lblField4.AutoSize = true;
+            this.lblField4.Location = new System.Drawing.Point(22, 123);
+            this.lblField4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblField4.Name = "lblField4";
+            this.lblField4.Size = new System.Drawing.Size(111, 16);
+            this.lblField4.TabIndex = 6;
+            this.lblField4.Text = "Number in Stock: ";
+            this.lblField4.Click += new System.EventHandler(this.lblField4_Click);
             // 
-            // txtField5
+            // txtField3
             // 
-            this.txtField5.Location = new System.Drawing.Point(242, 248);
-            this.txtField5.Name = "txtField5";
-            this.txtField5.Size = new System.Drawing.Size(142, 31);
-            this.txtField5.TabIndex = 11;
-            this.txtField5.TextChanged += new System.EventHandler(this.txtField5_TextChanged);
+            this.txtField3.Location = new System.Drawing.Point(189, 88);
+            this.txtField3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtField3.Name = "txtField3";
+            this.txtField3.Size = new System.Drawing.Size(280, 22);
+            this.txtField3.TabIndex = 5;
+            this.txtField3.TextChanged += new System.EventHandler(this.txtField3_TextChanged);
             // 
-            // txtField6
+            // lblField3
             // 
-            this.txtField6.Location = new System.Drawing.Point(504, 248);
-            this.txtField6.Name = "txtField6";
-            this.txtField6.Size = new System.Drawing.Size(133, 31);
-            this.txtField6.TabIndex = 12;
-            this.txtField6.TextChanged += new System.EventHandler(this.txtField6_TextChanged);
+            this.lblField3.AutoSize = true;
+            this.lblField3.Location = new System.Drawing.Point(22, 92);
+            this.lblField3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblField3.Name = "lblField3";
+            this.lblField3.Size = new System.Drawing.Size(86, 16);
+            this.lblField3.TabIndex = 4;
+            this.lblField3.Text = "Cost per unit: ";
+            // 
+            // txtField2
+            // 
+            this.txtField2.Location = new System.Drawing.Point(189, 55);
+            this.txtField2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtField2.Name = "txtField2";
+            this.txtField2.Size = new System.Drawing.Size(280, 22);
+            this.txtField2.TabIndex = 3;
+            this.txtField2.TextChanged += new System.EventHandler(this.txtField2_TextChanged);
+            // 
+            // lblField2
+            // 
+            this.lblField2.AutoSize = true;
+            this.lblField2.Location = new System.Drawing.Point(22, 61);
+            this.lblField2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblField2.Name = "lblField2";
+            this.lblField2.Size = new System.Drawing.Size(99, 16);
+            this.lblField2.TabIndex = 2;
+            this.lblField2.Text = "Product Name: ";
+            // 
+            // lblField1
+            // 
+            this.lblField1.AutoSize = true;
+            this.lblField1.Location = new System.Drawing.Point(22, 30);
+            this.lblField1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblField1.Name = "lblField1";
+            this.lblField1.Size = new System.Drawing.Size(110, 16);
+            this.lblField1.TabIndex = 1;
+            this.lblField1.Text = "Product Number: ";
+            this.lblField1.Click += new System.EventHandler(this.ProductNumlabel_Click);
+            // 
+            // txtField1
+            // 
+            this.txtField1.Location = new System.Drawing.Point(189, 24);
+            this.txtField1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtField1.Name = "txtField1";
+            this.txtField1.Size = new System.Drawing.Size(280, 22);
+            this.txtField1.TabIndex = 0;
+            this.txtField1.TextChanged += new System.EventHandler(this.txtField1_TextChanged);
+            // 
+            // ShowOnetxt2
+            // 
+            this.ShowOnetxt2.Location = new System.Drawing.Point(125, 128);
+            this.ShowOnetxt2.Margin = new System.Windows.Forms.Padding(2);
+            this.ShowOnetxt2.Name = "ShowOnetxt2";
+            this.ShowOnetxt2.Size = new System.Drawing.Size(201, 22);
+            this.ShowOnetxt2.TabIndex = 6;
+            // 
+            // ShowOnelbl2
+            // 
+            this.ShowOnelbl2.AutoSize = true;
+            this.ShowOnelbl2.Location = new System.Drawing.Point(2, 130);
+            this.ShowOnelbl2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ShowOnelbl2.Name = "ShowOnelbl2";
+            this.ShowOnelbl2.Size = new System.Drawing.Size(110, 16);
+            this.ShowOnelbl2.TabIndex = 5;
+            this.ShowOnelbl2.Text = "Product Number: ";
+            // 
+            // ShowOnetxt3
+            // 
+            this.ShowOnetxt3.Location = new System.Drawing.Point(125, 165);
+            this.ShowOnetxt3.Margin = new System.Windows.Forms.Padding(2);
+            this.ShowOnetxt3.Name = "ShowOnetxt3";
+            this.ShowOnetxt3.Size = new System.Drawing.Size(201, 22);
+            this.ShowOnetxt3.TabIndex = 8;
+            // 
+            // ShowOnelbl3
+            // 
+            this.ShowOnelbl3.AutoSize = true;
+            this.ShowOnelbl3.Location = new System.Drawing.Point(2, 167);
+            this.ShowOnelbl3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ShowOnelbl3.Name = "ShowOnelbl3";
+            this.ShowOnelbl3.Size = new System.Drawing.Size(110, 16);
+            this.ShowOnelbl3.TabIndex = 7;
+            this.ShowOnelbl3.Text = "Product Number: ";
+            // 
+            // SearchBox
+            // 
+            this.SearchBox.Location = new System.Drawing.Point(82, 45);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(338, 22);
+            this.SearchBox.TabIndex = 9;
+            this.SearchBox.Text = "Choose a method to search by";
+            this.SearchBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // BaseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1792, 902);
+            this.ClientSize = new System.Drawing.Size(1195, 577);
             this.Controls.Add(this.CreatePanel);
             this.Controls.Add(this.ReadAllpanel);
             this.Controls.Add(this.MainPanel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BaseForm";
             this.Text = "BaseForm";
             this.ReadAllpanel.ResumeLayout(false);
@@ -373,9 +455,9 @@
         private System.Windows.Forms.Button ReadOnebtn;
         private System.Windows.Forms.Button ReadAllbtn;
         private System.Windows.Forms.Button Createbtn;
-        protected System.Windows.Forms.TextBox ReadOneNumtxt;
+        protected System.Windows.Forms.TextBox ShowOnetxt1;
         protected System.Windows.Forms.TextBox ReadAlltxt;
-        protected System.Windows.Forms.Label ShowOnelbl;
+        protected System.Windows.Forms.Label ShowOnelbl1;
         private System.Windows.Forms.Button ExitToMainMenubtn;
         private System.Windows.Forms.Panel CreatePanel;
         protected System.Windows.Forms.TextBox txtField6;
@@ -391,5 +473,10 @@
         protected System.Windows.Forms.Label lblField2;
         protected System.Windows.Forms.Label lblField1;
         protected System.Windows.Forms.TextBox txtField1;
+        private System.Windows.Forms.TextBox SearchBox;
+        protected System.Windows.Forms.TextBox ShowOnetxt3;
+        protected System.Windows.Forms.Label ShowOnelbl3;
+        protected System.Windows.Forms.TextBox ShowOnetxt2;
+        protected System.Windows.Forms.Label ShowOnelbl2;
     }
 }

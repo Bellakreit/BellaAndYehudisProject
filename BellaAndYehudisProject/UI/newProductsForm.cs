@@ -32,7 +32,7 @@ namespace UI
             lblField6.Visible = false;
             txtField5.Visible = false;
             txtField6.Visible = false;
-            ShowOnelbl.Text = "Product Number:";
+            ShowOnelbl1.Text = "Product Number:";
         }
 
         private void newProductsForm_Load(object sender, EventArgs e) { }  //CREATED ACCIDENTLY
@@ -92,12 +92,12 @@ namespace UI
                 {
 
                     //productbl.Read(int.Parse(ReadOneNumtxt.Text));
-                    ReadAlltxt.AppendText(Text = $"{productbl.Read(int.Parse(ReadOneNumtxt.Text))}");
+                    ReadAlltxt.AppendText(Text = $"{productbl.Read(int.Parse(ShowOnetxt1.Text))}");
                 }
                 if (currentMode == FormMode.Delete)
                 {
 
-                    productbl.DeleteProduct(new Entities.Product(int.Parse(ReadOneNumtxt.Text), "", 0, 0));
+                    productbl.DeleteProduct(new Entities.Product(int.Parse(ShowOnetxt1.Text), "", 0, 0));
                     MessageBox.Show("Product Deleted");
 
                 }

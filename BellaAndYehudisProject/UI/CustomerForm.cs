@@ -30,7 +30,7 @@ namespace UI
             lblField4.Text = "Credit Card Number";
             lblField5.Visible = false;
             lblField6.Visible = false;
-            ShowOnelbl.Text = "Order ID";
+            ShowOnelbl1.Text = "Order ID";
         }
         private void newProductsForm_Load(object sender, EventArgs e) { }  //CREATED ACCIDENTLY
         #region Enter Create and update button
@@ -88,13 +88,13 @@ namespace UI
                 {
 
                     //productbl.Read(int.Parse(ReadOneNumtxt.Text));
-                    ReadAlltxt.AppendText(Text = $"{customerbl.Read(ReadOneNumtxt.Text)}");
+                    ReadAlltxt.AppendText(Text = $"{customerbl.Read(ShowOnetxt1.Text)}");
                 }
 
                 if (currentMode == FormMode.Delete)
                 {
 
-                    customerbl.DeleteCustomer(new Entities.Customer("", ReadOneNumtxt.Text, new Entities.CreditCard("", "", "", "")));
+                    customerbl.DeleteCustomer(new Entities.Customer("", ShowOnetxt1.Text, new Entities.CreditCard("", "", "", "")));
                     MessageBox.Show("Customer Deleted");
 
                 }

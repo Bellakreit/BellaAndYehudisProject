@@ -28,9 +28,12 @@ namespace UI
             lblField2.Text = "Customer ID";
             lblField3.Text = "Product Number";
             lblField4.Text = "Order Quantity";
-            lblField5.Text = "Exp Date:";
-            lblField6.Text = "CVC:";
-            ShowOnelbl.Text = "Customer ID";
+            lblField5.Visible = false;
+            txtField5.Visible = false;
+            txtField6.Visible = false;
+            lblField6.Visible = false;
+            ShowOnelbl1.Visible = false;
+            ShowOnetxt1.Visible = false;
         }
         #region Enter Create and update button
         protected override void EnterCreatebtnMethod()
@@ -39,13 +42,15 @@ namespace UI
             {
                 if (currentMode == FormMode.Create)  //create
                 {
-                    lblField1.Visible = false;
+
+
                     orderbl.CreateOrder(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text)));
                     MessageBox.Show("Order Created");
 
                 }
                 if (currentMode == FormMode.Update) ///update
                 {
+
                     orderbl.Update(new Entities.Order(int.Parse(txtField3.Text), txtField2.Text, int.Parse(txtField4.Text), int.Parse(txtField1.Text)));
                     MessageBox.Show("Order Updated");
                 }
@@ -83,9 +88,10 @@ namespace UI
             {
                 if (currentMode == FormMode.ReadOne)
                 {
-
-                    ShowOnelbl.Text = "Customer ID";
-                    ReadAlltxt.AppendText(Text = $"{orderbl.ReadbyCustomer(ReadOneNumtxt.Text)}");
+                    
+                    lblField1.Visible = true;
+                    lblField1.Text = "Order Number";
+                    ReadAlltxt.AppendText(Text = $"{orderbl.ReadbyCustomer(ShowOnetxt1.Text)}");
                 }
 
                 if (currentMode == FormMode.Delete)
@@ -138,6 +144,11 @@ namespace UI
                     }
                 }
             }
+        }
+
+        private void searchByOrderNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
