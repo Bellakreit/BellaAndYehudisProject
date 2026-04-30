@@ -30,7 +30,12 @@ namespace UI
             lblField4.Text = "Credit Card Number";
             lblField5.Visible = false;
             lblField6.Visible = false;
-            ShowOnelbl1.Text = "Order ID";
+            ShowOnelbl1.Text = "Customer ID";
+            ShowOnelbl2.Visible = false;
+            ShowOnelbl3.Visible = false;
+            ShowOnetxt2.Visible = false;
+            ShowOnetxt3.Visible = false;
+            SearchBox.Visible = false;
         }
         private void newProductsForm_Load(object sender, EventArgs e) { }  //CREATED ACCIDENTLY
         #region Enter Create and update button

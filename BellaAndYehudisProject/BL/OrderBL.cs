@@ -156,6 +156,7 @@ namespace BL
                 throw;
                 //Console.WriteLine(ex.Message);
             }
+            catch (ExceptionProductNotExist) { throw; }
         }
         #endregion
 

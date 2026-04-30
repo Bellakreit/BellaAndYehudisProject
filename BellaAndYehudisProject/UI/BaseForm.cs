@@ -56,6 +56,7 @@ namespace UI
             ShowOnetxt1.Clear();
             ShowOnetxt2.Clear();
             ShowOnetxt3.Clear();
+            
         }
       
 
@@ -72,12 +73,12 @@ namespace UI
             }
             else
                 CreatePanel.Visible = true;
-            //Create_Method();
+            Create_Method();
 
         }
 
         //method to take care of adding new customer/product
-        //protected virtual void Create_Method() { }
+        protected virtual void Create_Method() { }
         
 
         private void ReadAllbtn_Click(object sender, EventArgs e)
@@ -99,6 +100,7 @@ namespace UI
 
         private void ReadOnebtn_Click(object sender, EventArgs e)
         {
+            
             ReadAlltxt.Clear();
             ClearAll();
             currentMode = FormMode.ReadOne;
@@ -107,18 +109,24 @@ namespace UI
             {
                 ReadAllpanel.Visible = false;
                 ReadOnePanel.Visible = false;
+                SearchBox.Visible = false;
             }
             else
             {
                 ReadAllpanel.Visible = true;
                 ReadOnePanel.Visible = true;
+                SearchBox.Visible=true;
             }
-            //ReadOneMethod();
+            ReadOneMethod();
         }
-        //protected virtual void ReadOneMethod() { }
+        /// <summary>
+        /// making search box invisable - to be overidden in orders form
+        /// </summary>
+        protected virtual void ReadOneMethod() { SearchBox.Visible = false; }
 
         private void Updatebtn_Click(object sender, EventArgs e)
         {
+
             ClearAll();
             currentMode = FormMode.Update;
             CloseAllPanels();
@@ -150,7 +158,8 @@ namespace UI
             }
             DeleteMethod();
         }
-        protected virtual void DeleteMethod() { }
+        /// making search box invisable - to be overidden in orders form
+        protected virtual void DeleteMethod() { SearchBox.Visible = false; }
 
         private void EnterCreatebtn_Click(object sender, EventArgs e)
         {
@@ -243,6 +252,11 @@ namespace UI
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

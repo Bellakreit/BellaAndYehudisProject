@@ -30,7 +30,7 @@
         {
             this.SuspendLayout();
             // 
-            // ReadOneNumtxt
+            // ShowOnetxt1
             // 
             this.ShowOnetxt1.Margin = new System.Windows.Forms.Padding(3);
             // 
@@ -69,7 +69,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1157, 450);
+            this.ClientSize = new System.Drawing.Size(1187, 611);
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "OrderForm";
             this.Text = "OrderForm";

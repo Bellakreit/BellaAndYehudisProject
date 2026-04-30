@@ -32,6 +32,11 @@ namespace UI
             lblField6.Visible = false;
             txtField5.Visible = false;
             txtField6.Visible = false;
+            ShowOnelbl2.Visible = false;
+            ShowOnelbl3.Visible = false;
+            ShowOnetxt2.Visible = false;
+            ShowOnetxt3.Visible = false;
+            SearchBox.Visible = false;
             ShowOnelbl1.Text = "Product Number:";
         }
 
@@ -90,13 +95,13 @@ namespace UI
             {
                 if (currentMode == FormMode.ReadOne)
                 {
-
+                    
                     //productbl.Read(int.Parse(ReadOneNumtxt.Text));
                     ReadAlltxt.AppendText(Text = $"{productbl.Read(int.Parse(ShowOnetxt1.Text))}");
                 }
                 if (currentMode == FormMode.Delete)
                 {
-
+                   
                     productbl.DeleteProduct(new Entities.Product(int.Parse(ShowOnetxt1.Text), "", 0, 0));
                     MessageBox.Show("Product Deleted");
 
