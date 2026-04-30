@@ -76,10 +76,15 @@ namespace UI
                     MessageBox.Show("Order Updated");
                 }
             }
+            catch (FormatException ex)
+            {
+                ex = new FormatException("Please fill all fields and with valid entries");
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex) ///catch any exceptions that may occur during the create or update process and display an error message to the user.
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("CAUGHT: " + ex.GetType().Name + " | " + ex.Message);
+                //MessageBox.Show("CAUGHT: " + ex.GetType().Name + " | " + ex.Message);
             }
         }
         private void OrderForm_Load(object sender, EventArgs e)
@@ -155,7 +160,7 @@ namespace UI
             }
             catch(FormatException ex)
             {
-                ex = new FormatException("Please fill all fields with valid entries");
+                ex = new FormatException("Please fill all fields and with valid entries");
                 MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
